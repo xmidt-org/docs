@@ -1,0 +1,34 @@
+The Xmidt projects like the Prometheus documentation and site generation so much
+we are using it for our site generation and documentation organization.  We
+started with the prometheus docs hash 7bbd3dcd93cabf2270fd3aa46b22d2e59ce01711.
+
+We plan to bring in fixes from the prometheus documentation project as they are
+appropriate.
+The changes and Xmidt projects documentation are Copyright 2015-2019 The Xmidt Authors
+
+The following components are included in this product:
+Prometheus documentation
+https://github.com/prometheus/docs
+Copyright 2014-2018 The Prometheus Authors
+Licensed under Apache License 2.0
+
+--------------------------------------------------------------------------------
+
+Prometheus documentation: content and static site generator
+Copyright 2014-2018 The Prometheus Authors
+
+This product includes software developed at
+SoundCloud Ltd. (http://soundcloud.com/).
+
+
+The following components are included in this product:
+
+Bootstrap
+http://getbootstrap.com
+Copyright 2011-2014 Twitter, Inc.
+Licensed under the MIT License
+
+Font Awesome
+http://fontawesome.io
+Copyright by @davegandy
+License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

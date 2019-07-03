@@ -1,0 +1,7 @@
+Original -> New
+--------------------
+#e6522c  -> #5a7eff
+#337ab7  -> #3f824a
+#be3511  -> #3a61e3
+#e9eff2  -> #edefe9
+#fad9d1  -> #dcdffa

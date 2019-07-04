@@ -1,14 +1,19 @@
 # Repo Guidelines
 
-Below are the guidelines for naming a repository in xmidt-org.  We have three 
-primary types of repositories: deployment, servers, and libraries.  Deployment 
-repos hold the files needed to deploy a project as well as the integration 
-tests.  Server repos hold docs and code that builds into a specific service 
-that can be run.  Each server is part of a project, so there may be different 
-guidelines for different projects.  Libraries are general code that don't build 
-into a service that can be run; instead, they are imported by the server code.  
-Libraries can be used by multiple projects.  One other repo we have is a `docs` 
-repo, which harvests documents from other repos.
+Below are the guidelines for naming a repository in xmidt-org.  We have four 
+primary types of repositories: 
+
+- **deployment** - Contain the files needed to deploy a project as well as the
+                   integration tests.
+- **servers** - Contain the docs and code that builds into a specific service
+                that can be run.  Each server is part of a project, so there may
+                be different guidelines for different projects.
+- **libraries** - General code that don't build into a service that can be run;
+                  instead, they are imported by the server code.  Libraries can
+                  be used by multiple projects.
+- **docs** - A singleton repo, which harvests documents from other repos and
+             provides overall documentation that doesn't fit well somewhere
+             closer to the code.
 
 ## General
 
@@ -28,10 +33,12 @@ repo, which harvests documents from other repos.
 
 ## Servers
 
-- XMiDT/webpa servers should have names that are meaningful within ancient 
+- XMiDT servers should have names that are meaningful within ancient
   Greek mythology.
 - Codex servers should have names that are meaningful within ancient Norse 
   mythology.
+- Webpa servers should have names that contain some form of '181' in the name.
+  Leetspeak names are ok.
 
 ## Docs
 

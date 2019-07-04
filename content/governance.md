@@ -8,19 +8,21 @@ layout: page
 
 This document describes the rules and governance of the project. It is meant to be followed by all the developers of the project and the Xmidt community. Common terminology used in this governance document are listed below:
 
-* **Maintainers**: Maintainers lead an individual project or parts thereof ([`MAINTAINERS.md`][maintainers.md]).
+* **Maintainers**: Maintainers lead an individual project or parts thereof ([`MAINTAINERS.md`](maintainers.md)).
 
-* **Projects**: A single repository in the Xmidt [GitHub organization][gh] is referred to as a project.
+* **Projects**: A collection of repositories in the [Xmidt organization](https://github.com/xmidt-org) is referred to as a project. (Examples: Codex, Xmidt, Webpa)
 
-* **The Xmidt project**: The sum of all activities performed under this governance, concerning one or more repositories or the community.
+* **Repos**: A single git repository in the [Xmidt organization](gh) is referred to as a repo.
+
+* **The Xmidt Organization**: The sum of all activities performed under this governance, concerning one or more repositories or the community.
 
 ## Values
 
 TBD
 
-## Projects
+## Repository Guidelines
 
-Project names shall follow the convention outlined [here](/repo-naming/).
+Repo names shall follow the convention outlined [here](/repo-naming/).
 
 ## Decision making
 

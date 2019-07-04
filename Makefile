@@ -1,6 +1,6 @@
 NANOC      = bundle exec nanoc
 GUARD      = bundle exec guard
-DOWNLOADS := docs 
+DOWNLOADS := docs caduceus
 
 build: clean downloads compile
 

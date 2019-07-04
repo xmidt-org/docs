@@ -20,7 +20,7 @@ TBD
 
 ## Projects
 
-TBD
+Project names shall follow the convention outlined [here](/repo-naming/).
 
 ## Decision making
 

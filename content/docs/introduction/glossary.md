@@ -5,6 +5,8 @@ sort_rank: 8
 
 # Glossary
 
+### CPE
+[Consumer Premise Equipment ](https://en.wikipedia.org/wiki/Customer-premises_equipment)
 
 ### Event
 

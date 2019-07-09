@@ -46,7 +46,7 @@ If you have a large (or potentially large) number of clients that can exist
 behind firewalls, NATs or other infrastructure you need to operate, Xmidt can
 be a good match.  The CPE devices do not need to expose services like telnet,
 SSH, SNMP or others that can be compromised.  Instead, the Xmidt client (Parodus)
-reaches out to your cloud via a known URL and securely ensure it is connected
+reaches out to your cloud via a known URL and securely ensures it is connected
 only to your cluster.
 
 Xmidt provides a highly scalable and cost effective solution to device management.

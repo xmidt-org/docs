@@ -118,7 +118,7 @@ module Downloads
 
     def binaries
       assets.
-        select { |d| d['name'] && %w[.tar.gz .zip].any? { |ext| d['name'].end_with?(ext) } }.
+        select { |d| d['name'] && %w[.tar.gz .zip -amd64].any? { |ext| d['name'].end_with?(ext) } }.
         map { |d| Binary.new(d) }
     end
   end

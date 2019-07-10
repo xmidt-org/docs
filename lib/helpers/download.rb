@@ -118,7 +118,7 @@ module Downloads
 
     def binaries
       assets.
-        select { |d| d['name'] && %w[.tar.gz .zip].any? { |ext| d['name'].end_with?(ext) } }.
+        select { |d| d['name'] }.
         map { |d| Binary.new(d) }
     end
   end
@@ -140,12 +140,34 @@ module Downloads
       'Binary'
     end
 
+    def ext 
+      %w[.tar.gz .zip .rpm].find {|ext| @data['name'].end_with?(ext)} || ""
+    end
+
+    def type
+      (base_name.downcase.include? "gpg") ? "gpg" : ext.split('.',2).last
+    end
+
     def os
-      base_name.split('.').last.split('-').first
+      case ext
+      when ".rpm"
+        base_name.rpartition(".").first.split(".").last
+      when ""
+        ""
+      else
+        base_name.split('.').last.split('-').first
+      end
     end
 
     def arch
-      base_name.split('.').last.split('-').last
+      case ext
+      when ".rpm"
+        base_name.split('.').last
+      when ""
+        ""
+      else
+        base_name.split('.').last.split('-').last
+      end
     end
 
     def size
@@ -155,7 +177,7 @@ module Downloads
     private
 
     def base_name
-      name.chomp('.tar.gz').chomp('.zip')
+      name.chomp('.tar.gz').chomp('.zip').chomp('.rpm')
     end
   end
 

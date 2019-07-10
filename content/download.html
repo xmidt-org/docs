@@ -21,8 +21,8 @@ title: Download
 
     <div class="panel panel-default download-selection">
       <div class="panel-body">
-        Operating system <%= dropdown(:os, Downloads.operating_systems, :popular, popular: %w(darwin linux windows)) %>
-        Architecture <%= dropdown(:arch, Downloads.architectures, :amd64) %>
+        Operating system <%= dropdown(:os, Downloads.operating_systems, :all, popular: %w(darwin linux windows)) %>
+        Architecture <%= dropdown(:arch, Downloads.architectures, :all) %>
       </div>
     </div>
 
@@ -45,6 +45,7 @@ title: Download
           <th>OS</th>
           <th>Arch</th>
           <th>Size</th>
+          <th>Type</th>
           <th>SHA256 Checksum</th>
         </tr>
       </thead>
@@ -55,6 +56,7 @@ title: Download
           <td><%= binary.os %></td>
           <td><%= binary.arch %></td>
           <td><%= format_bytes binary.size %></td>
+          <td><%= binary.type %></td>
           <td class="checksum"><%= Downloads.checksum(release, binary.name) %></td>
         </tr>
       <% end %>

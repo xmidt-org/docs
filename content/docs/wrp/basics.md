@@ -9,6 +9,12 @@ WRP messages are designed to be uniform and for a particular purpose.  Some
 are designed so they can be routed globally, while others are designed to
 prevent any routing.
 
+## Overarching Guidelines
+
+- All strings in WRP are UTF-8.
+- The `payload` can not be altered.
+- Extra key/value pairs are ignored so log as they do not conflict with the spec.
+
 ## Locators
 
 In many of the WRP message types there are `source` and `dest` string fields.

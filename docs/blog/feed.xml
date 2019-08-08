@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://xmidt.io/">
+  <id>https://xmidt.io/</id>
+  <title>XMiDT Blog</title>
+  <updated>2019-07-02T00:00:00Z</updated>
+  <link rel="alternate" href="https://xmidt.io/"/>
+  <link rel="self" href="https://xmidt.io/blog/feed.xml"/>
+  <author>
+    <name>© XMiDT Authors 2019</name>
+    <uri>https://xmidt.io/blog/</uri>
+  </author>
+  <icon>https://xmidt.io/assets/favicons/favicon.ico</icon>
+  <logo>https://xmidt.io/assets/xmidt_logo.png</logo>
+  <entry>
+    <id>tag:xmidt.io,2019-07-02:/blog/2019/07/02/hello-world/</id>
+    <title type="html">Hello, world.</title>
+    <published>2019-07-02T00:00:00Z</published>
+    <updated>2019-07-02T00:00:00Z</updated>
+    <author>
+      <name>Weston Schmidt</name>
+      <uri>https://xmidt.io/blog/</uri>
+    </author>
+    <link rel="alternate" href="https://xmidt.io/blog/2019/07/02/hello-world/"/>
+    <content type="html">&lt;p&gt;Hello, world.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
+

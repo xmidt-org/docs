@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Highly scalable pipes for communicating with devices located anywhere.">
+    <meta name="keywords" content="xmidt, webpa, codex, rdk, routing">
+    <meta name="author" content="Xmidt">
+
+    <link rel="alternate" type="application/atom+xml" title="Xmidt Blog » Feed" href="/blog/feed.xml">
+
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/assets/favicons/android-chrome-manifest.json">
+    
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <title>CRUD Message Types | Xmidt</title>
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap-3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/docs.css" rel="stylesheet">
+    <link href="/css/routing-tree-editor.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/fontawesome-free-5.10.1-web/css/all.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,300italic,400' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+
+  <div class="">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/assets/logo-white.png" alt="Xmidt logo"> Xmidt</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right main-nav">
+            <li><a href="/docs/introduction/overview/">Docs</a></li>
+            <li><a href="/download/">Download</a></li>
+            <li><a href="/community/">Community</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="https://github.com/xmidt-org"><i class="fab fa-github"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 side-nav-col">
+      <ul class="nav navbar-nav side-nav">
+        
+          <li><span class="nav-header"><i class="fa fa-hand-o-right"></i> <span>Introduction</span></span><ul class="nav "><li><a href="/docs/introduction/overview/">Overview</a></li><li><a href="/docs/introduction/glossary/">Glossary</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-book"></i> <span>Codex</span></span><ul class="nav "><li><a href="/docs/codex/overview/">Overview</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav "><li><a href="/docs/operating/getting_started/">Getting started</a></li></ul></li>
+        
+          <li class="active"><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav active"><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li class="active current"><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
+        
+      </ul>
+    </div>
+
+    <div class="col-md-9 doc-content">
+      <h1 id="crud-message-types" class="page-header">CRUD Message Types<a class="header-anchor" href="#crud-message-types" name="crud-message-types"></a>
+</h1>
+
+<p>CRUD (Create, Retrieve, Update, Delete) messages are a bit more advanced message
+types, but are also extremely powerful and useful in the right context.</p>
+
+<p>When you would like to replicate a RESTful interface CRUD messages let you do
+that, but without the overhead associated with standing up an HTTP service,
+piping things through to the outside world, etc.</p>
+
+<p>The messages are delivered with the expectation that a response of some form
+will be given (just like the Simple Request-Response messages).  In addition
+to the delivery your code also gets the verb describing what to do based on
+the message.</p>
+
+<h2 id="crud-message-definition">CRUD Message Definition<a class="header-anchor" href="#crud-message-definition" name="crud-message-definition"></a>
+</h2>
+
+<h4 id="schema">Schema<a class="header-anchor" href="#schema" name="schema"></a>
+</h4>
+
+<pre><code>{
+    Integer msg_type = ( 5 | 6 | 7 | 8 )
+    String source
+    String dest
+    String transaction_uuid
+    String content_type
+    String accept
+    Array.String partner_ids
+    Array.String headers
+    Map[String] metadata
+    Array.Array spans
+    Boolean include_spans
+    Integer status
+    Integer rdr
+    String path
+    Binary payload
+}
+</code></pre>
+
+<table class=" table table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg_type</td>
+<td>The message type for the CRUD interface.  (5 = Create, 6 = Retrieve, 7 = Update, 8 = Delete)</td>
+</tr>
+<tr>
+<td>source</td>
+<td>The originating point of the request or response.</td>
+</tr>
+<tr>
+<td>dest</td>
+<td>The destination point of the request or response.</td>
+</tr>
+<tr>
+<td>transaction_uuid</td>
+<td>The transaction key for the request and response.  The requester may have several outstanding transactions, but must ensure that each transaction is unique per destination.  This <strong>SHOULD</strong> be a UUID, but the web router <strong>SHALL</strong> NOT validate this data.  The web router <strong>SHALL</strong> treat this data as opaque.</td>
+</tr>
+<tr>
+<td>content_type</td>
+<td>(optional) The media type of the payload.</td>
+</tr>
+<tr>
+<td>accept</td>
+<td>(optional) The media type accepted in the response.</td>
+</tr>
+<tr>
+<td>partner_ids</td>
+<td>(optional) The list of partner ids the message is meant to target.  If the item is missing and the device has a <code>partner id</code> or the device does not find a match, the request shall be disregarded &amp; a response with <code>status</code> of <code>403</code> sent back to the sender.</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>(optional) The headers associated with the payload.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>(optional) The map of name/value pairs used by consumers of WRP messages for filtering &amp; other purposes.</td>
+</tr>
+<tr>
+<td>spans</td>
+<td>(optional) An array of arrays of timing values as a list in the format: "parent" (string), "name" (string), "start time" (int), "duration" (int), "status" (int)</td>
+</tr>
+<tr>
+<td>span_parent</td>
+<td>(optional) If the spans should be included, this field is included in the request.  This string is the root parent for the spans below to link to.</td>
+</tr>
+<tr>
+<td>include_spans</td>
+<td>(optional) (<strong>Deprecated</strong>) If the timing values should be included in the response.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>(optional) The response status from the originating service.  Not included in the during the request.</td>
+</tr>
+<tr>
+<td>rdr</td>
+<td>(optional) The <code>request delivery response</code> is the delivery result of the previous (implied request) message with a matching <code>transaction_uuid</code>.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>The path to which to apply the payload.</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>(optional) The json encoded string representing the objects.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="payload-usage">Payload Usage<a class="header-anchor" href="#payload-usage" name="payload-usage"></a>
+</h4>
+
+<table class=" table table-bordered">
+<thead>
+<tr>
+<th>Method</th>
+<th>Request</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create</td>
+<td>Name/value pairs for the new object</td>
+<td>Resulting object</td>
+</tr>
+<tr>
+<td>Retrieve</td>
+<td>Ignored</td>
+<td>Requested object</td>
+</tr>
+<tr>
+<td>Update</td>
+<td>Name/value pair to update</td>
+<td>Ignored</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>Ignored</td>
+<td>Ignored</td>
+</tr>
+</tbody>
+</table>
+
+      <p class="open-source-notice">
+          <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.
+      </p>
+    </div>
+
+  </div>
+  <hr>
+
+<footer>
+  <p class="pull-left">
+    &copy; Xmidt Authors 2015-2019 | Documentation Distributed under CC-BY-4.0
+  </p>
+</footer>
+
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="/assets/bootstrap-3.3.1/js/bootstrap.min.js"></script>
+    <script src="/assets/docs.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/assets/ie10-viewport-bug-workaround.js"></script>
+    <!-- TODO: Google Analytics -->
+  </body>
+</html>
+

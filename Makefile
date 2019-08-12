@@ -2,14 +2,17 @@ NANOC      = bundle exec nanoc
 GUARD      = bundle exec guard
 DOWNLOADS := docs caduceus
 
-build: clean downloads compile
+build: clean downloads compile CNAME
 
 bundle:
 	bundle config build.nokogiri --use-system-libraries
 	bundle install --path vendor
 
+CNAME:
+	echo "xmidt.io" > docs/CNAME
+
 clean:
-	rm -rf output downloads repositories
+	rm -rf docs downloads repositories
 
 clean-all: clean
 	rm -rf vendor tmp

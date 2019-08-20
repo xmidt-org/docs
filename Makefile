@@ -1,6 +1,6 @@
 NANOC      = bundle exec nanoc
 GUARD      = bundle exec guard
-DOWNLOADS := docs caduceus
+DOWNLOADS := docs caduceus svalinn gungnir fenrir heimdall
 
 build: clean downloads compile CNAME
 

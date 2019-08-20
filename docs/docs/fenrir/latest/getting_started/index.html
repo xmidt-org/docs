@@ -25,13 +25,13 @@
     <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/assets/favicons/android-chrome-manifest.json">
-    
+    <link rel="canonical" href="/docs/fenrir/latest/getting_started/" />
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
     
-    <title>Overview | Xmidt</title>
+    <title>Getting started | Xmidt</title>
     
 
     <!-- Bootstrap core CSS -->
@@ -85,7 +85,7 @@
         
           <li><span class="nav-header"><i class="fa fa-book"></i> <span>Codex</span></span><ul class="nav "><li><a href="/docs/codex/overview/">Overview</a></li><li><a href="/docs/codex/services/">Services</a></li></ul></li>
         
-          <li class="active"><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav active"><li class="active current"><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
+          <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav "><li><a href="/docs/operating/getting_started/">Getting started</a></li></ul></li>
         
@@ -95,66 +95,13 @@
     </div>
 
     <div class="col-md-9 doc-content">
-      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body>
-<h1 id="overview" class="page-header">Overview<a class="header-anchor" href="#overview" name="overview"></a>
+      
+
+<h1 id="getting-started" class="page-header">Getting started<a class="header-anchor" href="#getting-started" name="getting-started"></a>
 </h1>
-<div class="toc toc-right"><ul>
-<li><a href="#a-bit-of-history">A Bit of History
-</a></li>
-<ul><li><a href="#benefits">Benefits
-</a></li></ul>
-<li><a href="#architecture">Architecture
-</a></li>
-<ul>
-<li><a href="#when-does-it-fit">When does it fit?
-</a></li>
-<li><a href="#when-does-it-not-fit">When does it not fit?
-</a></li>
-</ul>
-</ul></div>
 
-<p>Webpa is a translation service that provides a RESTful interface for the TR-181
-(TR-104, etc) and similar data models present on some devices.</p>
+<p>This is a sample to get our documentation system started.  More will come later.</p>
 
-<h2 id="a-bit-of-history">A Bit of History<a class="header-anchor" href="#a-bit-of-history" name="a-bit-of-history"></a>
-</h2>
-
-<p>Originally, Webpa was a combination of the core routing of Xmidt and the RESTful
-translation of TR-181.  This was done to reduce the amount of project risk.
-Shortly after the first large scale deployment the team determined we should
-split the translation layer off as a separate micro service.</p>
-
-<p>The core routing portions of the project reside under the Xmidt project and the
-translation portion (as well as a few other compatibility features) became Webpa.</p>
-
-<h3 id="benefits">Benefits<a class="header-anchor" href="#benefits" name="benefits"></a>
-</h3>
-
-<p>The first and most valuable benefit for the teams developing Xmidt is that they
-also have a real customer of that API.  This is valuable because often issues
-are not perceived the same way on two sides of an API and being active consumers
-enables us to solve the problems that Xmidt customers may encounter.</p>
-
-<h2 id="architecture">Architecture<a class="header-anchor" href="#architecture" name="architecture"></a>
-</h2>
-
-<p>This diagram illustrates the architecture of the Webpa cloud and it's internals:</p>
-
-<p><img src="/assets/webpa.png" alt="Webpa architecture"></p>
-
-<h3 id="when-does-it-fit">When does it fit?<a class="header-anchor" href="#when-does-it-fit" name="when-does-it-fit"></a>
-</h3>
-
-<p>If you are interested in accessing TR-181 objects (or similar TR-xxx spec), this
-is the right service for you.</p>
-
-<h3 id="when-does-it-not-fit">When does it not fit?<a class="header-anchor" href="#when-does-it-not-fit" name="when-does-it-not-fit"></a>
-</h3>
-
-<p>If you want to do something that isn't TR-181 related (like talk to Aker for
-instance) this is not the right service for you.</p>
-</body></html>
 
       <p class="open-source-notice">
           <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.

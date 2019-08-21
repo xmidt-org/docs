@@ -88,7 +88,7 @@ data_sources:
       name: 'latest (0.11)'
       repository: https://github.com/xmidt-org/svalinn.git
       refspec: master
-      canonical: /docs/svalinn/latest/
+      canonical: /docs/codex/svalinn/latest/
   -
     type: repo_docs
     identifier_type: legacy
@@ -97,7 +97,7 @@ data_sources:
       name: 'latest (0.9)'
       repository: https://github.com/xmidt-org/gungnir.git
       refspec: master
-      canonical: /docs/gungnir/latest/
+      canonical: /docs/codex/gungnir/latest/
   -
     type: repo_docs
     identifier_type: legacy
@@ -106,7 +106,7 @@ data_sources:
       name: 'latest (0.5)'
       repository: https://github.com/xmidt-org/fenrir.git
       refspec: master
-      canonical: /docs/fenrir/latest/
+      canonical: /docs/codex/fenrir/latest/
   -
     type: repo_docs
     identifier_type: legacy
@@ -115,7 +115,7 @@ data_sources:
       name: 'latest (0.1)'
       repository: https://github.com/xmidt-org/heimdall.git
       refspec: master
-      canonical: /docs/heimdall/latest/
+      canonical: /docs/codex/heimdall/latest/
   -
     type: filesystem
     items_root: /assets

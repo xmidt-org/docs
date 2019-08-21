@@ -23,6 +23,12 @@ cd docs
 make bundle
 ```
 
+**NOTE FOR MAC MOJAVE USERS**:
+nokogiri will fail in the make bundle, but if you run this command and download the subsequent SDK, `make bundle` should work:
+```bash
+open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+```
+
 ## Building
 
 To generate the static site, run:

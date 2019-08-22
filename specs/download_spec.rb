@@ -4,13 +4,13 @@ require 'helpers/download'
 describe Downloads::Asset do
   let(:asset) do
     Downloads::Asset.new({
-      'name' => ' svalinn-0.10.0.linux-amd64',
+      'name' => ' svalinn-0.10.0.linux-amd64.tar.gz',
     })
   end
 
   let(:beta) do
     Downloads::Asset.new({
-      'name' => 'caduceus-0.1.5.darwin-amd64',
+      'name' => 'caduceus-0.1.5.darwin-amd64.tar.gz',
     })
   end
 

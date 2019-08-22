@@ -15,13 +15,6 @@
 
 passthrough '/assets/**'
 
-compile '/_redirects/' do
-end
-
-route '/_redirects/' do
-  '/_redirects'
-end
-
 # TODO(ts): Remove these hacks once the nanoc4 upgrade is done.
 compile '*/images/*' do
 end

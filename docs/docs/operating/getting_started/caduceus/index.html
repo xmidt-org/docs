@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
 
     
-    <title>Documentation | Xmidt</title>
+    <title>Caduceus | Xmidt</title>
     
 
     <!-- Bootstrap core CSS -->
@@ -87,7 +87,7 @@
         
           <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
-          <li><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav "><li><span class="nav-subheader">Getting started</span><ul class="nav "><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li class="active current"><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
         
@@ -95,7 +95,155 @@
     </div>
 
     <div class="col-md-9 doc-content">
-      
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1 id="caduceus" class="page-header">Caduceus<a class="header-anchor" href="#caduceus" name="caduceus"></a>
+</h1>
+<div class="toc toc-right"><ul>
+<li><a href="#fixed">Fixed
+</a></li>
+<li><a href="#test-health">Test Health
+</a></li>
+<li><a href="#test-webhooks">Test Webhooks
+</a></li>
+<ul>
+<li><a href="#get-webhooks">Get webhooks
+</a></li>
+<li><a href="#register-a-webook">Register a webook
+</a></li>
+<li><a href="#testing-webhook">Testing webhook
+</a></li>
+</ul>
+</ul></div>
+
+<p>Currently Caduceus depends on <a href="https://aws.amazon.com/sns/getting-started/">SNS</a></p>
+
+<h1 id="installation" class="page-header">Installation<a class="header-anchor" href="#installation" name="installation"></a>
+</h1>
+
+<ul>
+<li>  <a href="https://github.com/xmidt-org/caduceus/releases">RPM</a>
+</li>
+<li>  <a href="https://github.com/xmidt-org/caduceus/releases">Binary</a>
+</li>
+<li>  Docker (Link TBC)</li>
+</ul>
+
+<h1 id="configuration" class="page-header">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
+</h1>
+
+<p>Refer to <a href="https://github.com/xmidt-org/caduceus/blob/master/example-caduceus.yaml">configation file</a>
+for how to configure caduceus.</p>
+
+<h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
+</h2>
+
+<p>Under the aws block of the yaml file you will have</p>
+
+<pre><code class="yaml">aws:
+  accessKey: ""
+  secretKey: ""
+  env: local-dev
+  sns:
+    awsEndpoint: http://goaws:4100
+    region: "us-east-1"
+    topicArn: arn:aws:sns:us-east-1:000000000000:xmidt-local-caduceus
+    urlPath: "/api/v2/aws/sns"
+</code></pre>
+
+<p>For local testing you can use <a href="https://github.com/p4tin/goaws">a mock sns instance</a>
+<em><strong>NOTE</strong></em>: Do not use this in production. It is untested.</p>
+
+<h1 id="validation" class="page-header">Validation<a class="header-anchor" href="#validation" name="validation"></a>
+</h1>
+
+<h2 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
+</h2>
+
+<pre><code class="bash">curl HOSTNAME:HEALTH_PORT/health -i
+</code></pre>
+
+<pre><code>$ curl -i localhost:6001/health
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Caduceus-Build: development
+X-Caduceus-Flavor: development
+X-Caduceus-Region: local
+X-Caduceus-Server: localhost
+X-Caduceus-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 20:10:28 GMT
+Content-Length: 427
+Connection: close
+
+{"CurrentMemoryUtilizationActive":895574016,"CurrentMemoryUtilizationAlloc":3190504,"CurrentMemoryUtilizationHeapSys":66224128,"MaxMemoryUtilizationActive":946352128,"MaxMemoryUtilizationAlloc":3908816,"MaxMemoryUtilizationHeapSys":66420736,"PayloadsOverHundred":0,"PayloadsOverTenThousand":0,"PayloadsOverThousand":0,"PayloadsOverZero":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0}
+</code></pre>
+
+<h2 id="test-webhooks">Test Webhooks<a class="header-anchor" href="#test-webhooks" name="test-webhooks"></a>
+</h2>
+
+<h3 id="get-webhooks">Get webhooks<a class="header-anchor" href="#get-webhooks" name="get-webhooks"></a>
+</h3>
+
+<pre><code class="bash">curl -i -H "Authorization: Basic authHeader" localhost:6100/api/v2/device/stat
+</code></pre>
+
+<pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6000/hooks
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Caduceus-Build: development
+X-Caduceus-Flavor: development
+X-Caduceus-Region: local
+X-Caduceus-Server: localhost
+X-Caduceus-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 20:12:36 GMT
+Content-Length: 2
+
+[]
+</code></pre>
+
+<p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for caduceus. DO NOT use
+this in production</p>
+
+<h3 id="register-a-webook">Register a webook<a class="header-anchor" href="#register-a-webook" name="register-a-webook"></a>
+</h3>
+
+<p>Create a <a href="https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener">listener</a>, you should see it by checking the <code>hooks</code> endpoint</p>
+
+<h3 id="testing-webhook">Testing webhook<a class="header-anchor" href="#testing-webhook" name="testing-webhook"></a>
+</h3>
+
+<p>Using a <a href="https://github.com/xmidt-org/xmidt/tree/master/simulator">simulator</a> we
+can mock a device connecting to our cluster. Or you can do hands on with <a href="https://github.com/xmidt-org/kratos">kratos</a></p>
+
+<pre><code class="bash">docker run -e URL=http://PETASOS_HOSTNAME:PETASOS_PRIMARY_PORT rdkb-simulator
+</code></pre>
+
+<p>Upon disconnect and connect you should see an offline and online event.</p>
+
+<h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
+</h1>
+
+<ul>
+<li>  Message is not received from listener
+
+<ul>
+<li>  Validate that the talaria's have the eventMap block and that it is pointing to the correct endpoint.
+<code>yaml
+eventMap:
+  default: http://CADUCEUS_HOSTNAME:PRIMARY_PORT/api/v3/notify
+</code>
+</li>
+</ul>
+</li>
+</ul>
+
+<h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
+</h1>
+
+<p>The Cluster is up and running. Take a look at <a href="../../../codex/overview/">Codex</a> for how to build
+a codex cluster.</p>
+</body></html>
+
       <p class="open-source-notice">
           <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.
       </p>

@@ -15,7 +15,7 @@ Refer to [configation file](https://github.com/xmidt-org/scytale/blob/master/exa
 for how to configure scytale.
 
 ## Fixed
-Under the fanout block of the yaml file you will have
+To provide the petasoses that scytale should connect to, the fanout block in scytales configuration should look similar to the example below:
 
 ```yaml
 fanout:

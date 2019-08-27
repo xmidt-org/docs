@@ -14,7 +14,7 @@ sort_rank: 4
 Refer to [configation file](https://github.com/xmidt-org/scytale/blob/master/example-scytale.yaml)
 for how to configure scytale.
 
-## Fixed
+## Connecting to petasos
 To provide the petasoses that scytale should connect to, the fanout block in scytales configuration should look similar to the example below:
 
 ```yaml

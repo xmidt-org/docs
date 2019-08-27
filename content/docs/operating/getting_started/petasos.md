@@ -27,7 +27,7 @@ service:
 Where HOSTNAME is your DNS record, docker container, or ip address.
 
 _**NOTE**_: if you have certs available change http to https. HTTP should never
-be run in production
+be run in production.
 
 ## Consul
 For a consul managed list of talarias, the petasos configuration should look similar to the example below:

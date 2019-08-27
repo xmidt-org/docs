@@ -29,7 +29,7 @@ _**NOTE**_: if you have certs available, change http to https. HTTP should never
 be run in production
 
 ## Consul
-Under the service block the yaml file you will have
+For a consul managed list of talarias and caduceuses, the service block in talaria's configuration should look similar to the example below:
 
 ```yaml
 service:

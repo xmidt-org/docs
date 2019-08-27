@@ -12,7 +12,7 @@ If you want something up and running now to see how components connect, use [doc
 
 ## Before you begin
 You need to decide how to routing is going to work from petasos to talaria.
-Currently there are two main options `fixed` and `consul`.
+Currently there are two main options: `fixed` and `consul`.
 We recommend consul because scaling is easier
 
 ## Fixed

@@ -22,7 +22,7 @@ targetURL: http://SCYTALE_HOSTNAME:PRIMARY_PORT
 ```
 Where HOSTNAME is you DNS record or docker container or ip address.
 
-_**NOTE**_: if you have certs available change http to https. HTTP should never
+_**NOTE**_: if you have certs available, change http to https. HTTP should never
 be run in production
 
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use

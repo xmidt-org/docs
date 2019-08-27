@@ -7,7 +7,7 @@ sort_rank: 1
 The orchestration of XMiDT can be quite complicated. Please refer to the [architecture](../introduction/index.md)
 to have a better understanding of the components and how they work towards the bigger picture.
 
-If you want something up and running now to see how to connect to it use [docker-compose](https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose)
+If you want something up and running now to see how components connect, use [docker-compose](https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose).
 
 
 ## Before you begin

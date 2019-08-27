@@ -96,7 +96,7 @@ When the device connects and disconnects to talaria, the listener should receive
 
 
 # Troubleshooting
--   Message is not received from listener
+-   Message is not received by listener
     -   Validate that the talarias have the eventMap block in their configuration and that it is pointing to the correct endpoint.
     ```yaml
       eventMap:

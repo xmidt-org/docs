@@ -92,7 +92,7 @@ can mock a device connecting to our cluster. Or you can do hands on with [kratos
 docker run -e URL=http://PETASOS_HOSTNAME:PETASOS_PRIMARY_PORT rdkb-simulator
 ```
 
-Upon disconnect and connect you should see an offline and online event.
+When the device connects and disconnects to talaria, the listener should receive an online and offline event.
 
 
 # Troubleshooting

@@ -95,4 +95,4 @@ Content-Length: 234
     -   The Device is not connected to the cluster
 
 # Next
-tr1d1um is up and running now, lets stand up [caduceus](../caduceus)
+tr1d1um is up and running now; let's stand up [caduceus](../caduceus).

@@ -27,7 +27,7 @@ Fixed routing involves configuring each petasos to know the fqdn/ip of all talar
 This step will be done at each service level, by providing a list of urls.
 
 ## Consul
-[Consul](https://www.consul.io/) allows petasos to know about all the talaria's in the datacenter
+[Consul](https://www.consul.io/) allows petasos to dynamically know about all the talarias in the datacenter.
 
 | Pro                           | Con                            |
 |-------------------------------|--------------------------------|

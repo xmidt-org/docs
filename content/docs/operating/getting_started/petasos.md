@@ -55,12 +55,12 @@ be run in production.
 # Validation
 ## Test Health
 ```bash
-curl HOSTNAME:HEALTH_PORT/health -i
+curl -i HOSTNAME:HEALTH_PORT/health
 ```
 
 
 ```
-$ curl -i localhost:6401/health -i
+$ curl -i localhost:6401/health
 HTTP/1.1 200 OK
 Content-Type: application/json
 X-Petasos-Build: development
@@ -77,8 +77,10 @@ Connection: close
 
 ## Test Device Redirection
 ```bash
-curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  http://HOSTNAME:PRIMARY_PORT/api/v2/device
+curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  HOSTNAME:PRIMARY_PORT/api/v2/device
 ```
+Where HOSTNAME is you DNS record, docker container, or ip address.
+Where DEVICE_ID is the device that is connect to talaria.
 
 ```bash
 $ curl -i  -H "X-Webpa-Device-Name:mac:112233445566" localhost:6400/api/v2/device
@@ -97,7 +99,8 @@ Content-Length: 71
 ```
 
 # Troubleshooting
+The most common error is conflicting [TLS configuration](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria).
 
 
 # Next
-Petasos is up and running now, lets stand up [scytale](../scytale)
+Petasos is up and running now, lets stand up [scytale](/docs/operating/getting_started/scytale)

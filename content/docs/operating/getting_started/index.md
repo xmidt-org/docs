@@ -18,21 +18,22 @@ We recommend consul, which helps with horizontal scaling.
 ## Fixed
 Fixed routing involves configuring each petasos to know the fqdn/ip of all talarias in the cluster/region.```
 
-| Pro                          | Con                                                  |
-|------------------------------|------------------------------------------------------|
-| Fast to standup              | Scaling is harder                                    |
-| One less component to manage | Nodes falling over can't be removed from the cluster |
+| Pro                          | Con                         |
+|------------------------------|-----------------------------|
+| Fast to standup              | Scaling is harder           |
+| One less component to manage | Node failover not supported |
 
 ### Setup
+No prior setup is necessary.
 This step will be done at each service level, by providing a list of urls.
 
 ## Consul
 [Consul](https://www.consul.io/) allows petasos to dynamically know about all the talarias in the datacenter.
 
-| Pro                           | Con                            |
-|-------------------------------|--------------------------------|
-| Scaling is fast and easy      | TLS can be more complicated    |
-| Make metric monitoring easier | You will have to manage consul |
+| Pro                       | Con                            |
+|---------------------------|--------------------------------|
+| Scaling is fast and easy  | TLS can be more complicated    |
+| Easier metric monitoring  | Management of Consul           |
 
 ### Setup
 -   [Installation](https://learn.hashicorp.com/consul/getting-started/install)
@@ -40,4 +41,4 @@ This step will be done at each service level, by providing a list of urls.
 
 
 # Next
-Once you have your approach, and it is up and running you can standup [Talaria](../talaria).
+Once you have your approach, and it is up and running you can standup [Talaria](/docs/operating/getting_started/talaria).

@@ -87,7 +87,7 @@
         
           <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
-          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li class="active current"><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li class="active current"><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
         
@@ -124,13 +124,13 @@
 <h1 id="configuration" class="page-header">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
 </h1>
 
-<p>Refer to <a href="https://github.com/xmidt-org/talaria/blob/master/example-talaria.yaml">configation file</a>
+<p>Refer to <a href="https://github.com/xmidt-org/talaria/blob/master/example-talaria.yaml">configuration file</a>
 for how to configure talaria.</p>
 
 <h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
 </h2>
 
-<p>Under the service block of the yaml file you will have</p>
+<p>For fixed routing, the service block in talaria's configuration should look similar to the example below:</p>
 
 <pre><code class="yaml">service:
   defaultScheme: http
@@ -138,15 +138,15 @@ for how to configure talaria.</p>
     - http://&lt;HOSTNAME&gt;:6200
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record or docker container or ip address.</p>
+<p>Where HOSTNAME is you DNS record, docker container, or ip address.</p>
 
-<p><em><strong>NOTE</strong></em>: if you have certs available change http to https. HTTP should never
-be run in production</p>
+<p><em><strong>NOTE</strong></em>: if you have certs available, change http to https. HTTP should never
+be run in production.</p>
 
 <h2 id="consul">Consul<a class="header-anchor" href="#consul" name="consul"></a>
 </h2>
 
-<p>Under the service block the yaml file you will have</p>
+<p>For a consul managed list of talarias and caduceuses, the service block in talaria's configuration should look similar to the example below:</p>
 
 <pre><code class="yaml">service:
   defaultScheme: http
@@ -160,12 +160,6 @@ be run in production</p>
     watches:
       -
         service: "talaria"
-        tags:
-          - "dev"
-          - "docker"
-        passingOnly: true
-      -
-        service: "caduceus"
         tags:
           - "dev"
           - "docker"
@@ -192,8 +186,8 @@ be run in production</p>
 
 <p>Talaria is watching for the other talarias and is registering itself.</p>
 
-<p><em><strong>NOTE</strong></em>: if you have certs available change http to https. HTTP should never
-be run in production</p>
+<p><em><strong>NOTE</strong></em>: if you have certs available, change http to https. HTTP should never
+be run in production.</p>
 
 <h1 id="validation" class="page-header">Validation<a class="header-anchor" href="#validation" name="validation"></a>
 </h1>
@@ -228,10 +222,14 @@ can mock a device connecting to our cluster. Or you can do hands on with <a href
 <pre><code class="bash">docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 </code></pre>
 
-<p>Get Connected Devices <em><strong>NOTE</strong></em> this is a very expensive command. Do NOT run it in production</p>
+<p>Get Connected Devices
+<em><strong>NOTE</strong></em>: This is a very expensive command. Do NOT run it in production.</p>
 
-<pre><code class="bash">curl -i -H "Authorization: Basic inbound.authKey" "HOSTNAME:PRIMARY_PORT/api/v2/devices
+<pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/devices
 </code></pre>
+
+<p>Where HOSTNAME is you DNS record, docker container, or ip address.
+Where AUTHOKEN is the <code>inbound.authKey"</code> in the yaml configuration file.</p>
 
 <p>The following is an example. Do not use this auth key in production.</p>
 
@@ -252,19 +250,12 @@ Content-Length: 245
 <h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
 </h1>
 
-<ul>
-<li>  Device is not showing up
-
-<ul>
-<li>  Because of the consistent hash it may not be allowed to talk to that talaria</li>
-</ul>
-</li>
-</ul>
+<p>The most common error is <a href="/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria">devices not showing</a>.</p>
 
 <h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
 </h1>
 
-<p>Talaria should be up and running now, lets stand up <a href="../petasos">petasos</a></p>
+<p>Talaria should be up and running now; let's stand up <a href="/docs/operating/getting_started/petasos">petasos</a>.</p>
 </body></html>
 
       <p class="open-source-notice">

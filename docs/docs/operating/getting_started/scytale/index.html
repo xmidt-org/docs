@@ -87,7 +87,7 @@
         
           <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
-          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li class="active current"><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li class="active current"><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
         
@@ -100,7 +100,7 @@
 <h1 id="scytale" class="page-header">Scytale<a class="header-anchor" href="#scytale" name="scytale"></a>
 </h1>
 <div class="toc toc-right"><ul>
-<li><a href="#fixed">Fixed
+<li><a href="#connecting-to-petasos">Connecting to petasos
 </a></li>
 <li><a href="#test-health">Test Health
 </a></li>
@@ -122,13 +122,13 @@
 <h1 id="configuration" class="page-header">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
 </h1>
 
-<p>Refer to <a href="https://github.com/xmidt-org/scytale/blob/master/example-scytale.yaml">configation file</a>
+<p>Refer to <a href="https://github.com/xmidt-org/scytale/blob/master/example-scytale.yaml">configuration file</a>
 for how to configure scytale.</p>
 
-<h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
+<h2 id="connecting-to-petasos">Connecting to petasos<a class="header-anchor" href="#connecting-to-petasos" name="connecting-to-petasos"></a>
 </h2>
 
-<p>Under the fanout block of the yaml file you will have</p>
+<p>To provide the petasoses that scytale should connect to, the fanout block in scytales configuration should look similar to the example below:</p>
 
 <pre><code class="yaml">fanout:
   endpoints: [ "https://petasos:6400/api/v2/device/send" ]
@@ -138,13 +138,13 @@ for how to configure scytale.</p>
   concurrency: 10
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record or docker container or ip address.</p>
+<p>Where HOSTNAME is you DNS record, docker container, or ip address.</p>
 
 <p><em><strong>NOTE</strong></em>: if you have certs available change http to https. HTTP should never
-be run in production</p>
+be run in production.</p>
 
 <p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for petasos. DO NOT use
-this in production</p>
+this in production.</p>
 
 <h1 id="validation" class="page-header">Validation<a class="header-anchor" href="#validation" name="validation"></a>
 </h1>
@@ -173,14 +173,14 @@ Connection: close
 <h2 id="test-device">Test Device<a class="header-anchor" href="#test-device" name="test-device"></a>
 </h2>
 
-<p>Using a <a href="https://github.com/xmidt-org/xmidt/tree/master/simulator">simulator</a> we
-can mock a device connecting to our cluster. Or you can do hands on with <a href="https://github.com/xmidt-org/kratos">kratos</a></p>
+<p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a></p>
 
-<pre><code class="bash">docker run -e URL=http://PETASOS_HOSTNAME:PETASOS_PRIMARY_PORT rdkb-simulator
+<pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 </code></pre>
 
-<pre><code class="bash">curl -i -H "Authorization: Basic authHeader" localhost:6400/api/v2/device/stat
-</code></pre>
+<p>Where HOSTNAME is you DNS record, docker container, or ip address.
+Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.
+Where DEVICE_ID is the device that is connect to talaria.</p>
 
 <pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6300/api/v2/device/mac:112233445566/stat
 HTTP/1.1 200 OK
@@ -205,19 +205,12 @@ Date: Mon, 26 Aug 2019 19:52:10 GMT
 <h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
 </h1>
 
-<ul>
-<li>  Received a 404 status code
-
-<ul>
-<li>  The Device is not connected to the cluster</li>
-</ul>
-</li>
-</ul>
+<p>The most common error is getting a 404, meaning the <a href="/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria">device is not connected</a> to the cluster.</p>
 
 <h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
 </h1>
 
-<p>scytale is up and running now, lets stand up <a href="../tr1d1um">tr1d1um</a></p>
+<p>scytale is up and running now, let's stand up <a href="/docs/operating/getting_started/tr1d1um">tr1d1um</a>.</p>
 </body></html>
 
       <p class="open-source-notice">

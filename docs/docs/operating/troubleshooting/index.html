@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
 
     
-    <title>Getting started | Xmidt</title>
+    <title>Troubleshooting | Xmidt</title>
     
 
     <!-- Bootstrap core CSS -->
@@ -87,7 +87,7 @@
         
           <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
-          <li><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav "><li><span class="nav-subheader">Getting started</span><ul class="nav "><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li><span class="nav-subheader">Getting started</span><ul class="nav "><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li class="active current"><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
         
@@ -95,13 +95,161 @@
     </div>
 
     <div class="col-md-9 doc-content">
-      
-
-<h1 id="getting-started" class="page-header">Getting started<a class="header-anchor" href="#getting-started" name="getting-started"></a>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
 </h1>
+<div class="toc toc-right"><ul>
+<li><a href="#device-errors">Device Errors
+</a></li>
+<ul><li><a href="#device-is-not-showing-up-in-cluster-talaria">Device is not showing up in Cluster/Talaria
+</a></li></ul>
+<li><a href="#event-errors">Event Errors
+</a></li>
+</ul></div>
 
-<p>This is a sample to get our documentation system started.  More will come later.</p>
+<h2 id="device-errors">Device Errors<a class="header-anchor" href="#device-errors" name="device-errors"></a>
+</h2>
 
+<h3 id="device-is-not-showing-up-in-cluster-talaria">Device is not showing up in Cluster/Talaria<a class="header-anchor" href="#device-is-not-showing-up-in-cluster-talaria" name="device-is-not-showing-up-in-cluster-talaria"></a>
+</h3>
+
+<ul>
+<li>
+<p>Problem: Parados has the incorrect url.</p>
+
+<ul>
+<li>Solution: Validate Parados has the correct url.</li>
+</ul>
+
+<pre><code class="bash">docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
+# HOSTNAME should be either a talaria or petasos address, with
+# the correct corresponding PRIMARY_PORT
+</code></pre>
+</li>
+<li>
+<p>Problem: TLS is inconsistent between talaria and petasos.</p>
+
+<ul>
+<li>Fixed Solution: Change talaria and petasos Configuration to be consistent with <code>http</code> or <code>https</code>.</li>
+</ul>
+
+<pre><code class="yaml"># talaria  
+service:
+  defaultScheme: http
+  fixed:
+    - http://talaria:6200
+# petasos
+service:
+defaultScheme: http
+fixed:
+  - http://talaria:6200
+</code></pre>
+
+<ul>
+<li>Consul Solution: Change talaria and petasos Configuration to be consistent with <code>http</code> or <code>https</code>. <code>https</code> is default.</li>
+</ul>
+
+<pre><code class="yaml"># talaria  
+service:
+  defaultScheme: http
+  # ^ important
+  consul:
+    client:
+      address: "CONSUL_ADDRESS:8500"
+      scheme: "http"
+      waitTime: "30s"
+    disableGenerateID: true
+    vnodeCount: 211
+    watches:
+      -
+        service: "talaria"
+        tags:
+          - "dev"
+          - "docker"
+        passingOnly: true
+    registrations:
+      -
+        id: "HOSTNAME"
+        name: "talaria"
+        tags:
+          - "dev"
+          - "docker"
+          - "stage=dev"
+          - "flavor=docker"
+        address: "http://HOSTNAME"
+        # ^ important
+        scheme: "http"
+        # ^ important
+        port: 6210
+        checks:
+          -
+            checkID: "talaria-1:http"
+            http: "http://HOSTNAME:HEALTH_PORT/health"
+            interval: "30s"
+            deregisterCriticalServiceAfter: "70s"
+
+# petasos
+service:
+defaultScheme: http
+# ^ important
+consul:
+  client:
+    address: "consul0:8500"
+    scheme: "http"
+    waitTime: "30s"
+  disableGenerateID: true
+  watches:
+    -
+      service: "talaria"
+      passingOnly: true
+  vnodeCount: 211
+</code></pre>
+</li>
+<li>
+<p>Problem: Talaria is not registering with Consul.</p>
+
+<ul>
+<li>Detection: On a consul node run the following commands.</li>
+</ul>
+
+<pre><code class="bash">consul catalog services
+# talaria should show up in list, if not try the solution
+</code></pre>
+
+<ul>
+<li>Solution: Validate Consul client config, with TLS and address</li>
+</ul>
+
+<pre><code class="yaml">consul:
+  client:
+    address: "HOSTNAME:API_PORT"
+    # ^ important
+    scheme: "http"
+    # ^ important
+    waitTime: "30s"
+</code></pre>
+</li>
+</ul>
+
+<h2 id="event-errors">Event Errors<a class="header-anchor" href="#event-errors" name="event-errors"></a>
+</h2>
+
+<ul>
+<li>
+<p>Problem: Caduceus is not receiving events.</p>
+
+<ul>
+<li>Solution: Update the talaria yaml with the correct information.</li>
+</ul>
+
+<pre><code class="yaml">eventMap:
+    default: http://CADUCEUS_HOSTNAME:PRIMARY_PORT/api/v3/notify
+      # double check http vs https and the hostname
+</code></pre>
+</li>
+</ul>
+</body></html>
 
       <p class="open-source-notice">
           <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.

@@ -48,12 +48,6 @@ service:
           - "dev"
           - "docker"
         passingOnly: true
-      -
-        service: "caduceus"
-        tags:
-          - "dev"
-          - "docker"
-        passingOnly: true
     registrations:
       -
         id: "HOSTNAME"
@@ -113,8 +107,10 @@ Get Connected Devices
 _**NOTE**_: This is a very expensive command. Do NOT run it in production.
 
 ```bash
-curl -i -H "Authorization: Basic inbound.authKey" "HOSTNAME:PRIMARY_PORT/api/v2/devices
+curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/devices
 ```
+Where HOSTNAME is you DNS record, docker container, or ip address.
+Where AUTHOKEN is the `inbound.authKey"` in the yaml configuration file.
 
 The following is an example. Do not use this auth key in production.
 
@@ -134,8 +130,7 @@ Content-Length: 245
 ```
 
 # Troubleshooting
--   Device is not showing up
-    -   Because of the consistent hash it may not be allowed to talk to that talaria
+The most common error is [devices not showing](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria).
 
 # Next
-Talaria should be up and running now; let's stand up [petasos](../petasos).
+Talaria should be up and running now; let's stand up [petasos](/docs/operating/getting_started/petasos).

@@ -35,9 +35,8 @@ _**NOTE**_: Do not use this in production. It is untested.
 # Validation
 ## Test Health
 ```bash
-curl HOSTNAME:HEALTH_PORT/health -i
+curl -i HOSTNAME:HEALTH_PORT/health
 ```
-
 
 ```
 $ curl -i localhost:6001/health
@@ -60,8 +59,11 @@ Connection: close
 
 ### Get webhooks
 ```bash
-curl -i -H "Authorization: Basic authHeader" localhost:6100/api/v2/device/stat
+curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
 ```
+Where HOSTNAME is you DNS record, docker container, or ip address.
+Where AUTHOKEN is the `authHeader` in the yaml configuration file.
+
 
 ```
 $ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6000/hooks
@@ -85,25 +87,14 @@ Create a [listener](https://github.com/xmidt-org/wrp-listener/blob/master/exampl
 
 
 ### Testing webhook
-Using a [simulator](https://github.com/xmidt-org/xmidt/tree/master/simulator) we
-can mock a device connecting to our cluster. Or you can do hands on with [kratos](https://github.com/xmidt-org/kratos)
-
-```bash
-docker run -e URL=http://PETASOS_HOSTNAME:PETASOS_PRIMARY_PORT rdkb-simulator
-```
-
+Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection)
 When the device connects and disconnects to talaria, the listener should receive an online and offline event.
 
 
 # Troubleshooting
--   Message is not received by listener
-    -   Validate that the talarias have the eventMap block in their configuration and that it is pointing to the correct endpoint.
-    ```yaml
-      eventMap:
-          default: http://CADUCEUS_HOSTNAME:PRIMARY_PORT/api/v3/notify
-    ```
+The most common error is that talaria is [not configured correctly to talk to caduceus](/docs/operating/troubleshooting/#event-errors).
 
 
 # Next
-The Cluster is up and running. Take a look at [Codex](../../../codex/overview/) for how to build
+The Cluster is up and running. Take a look at [Codex](/docs/codex/overview/) for how to build
 a codex cluster.

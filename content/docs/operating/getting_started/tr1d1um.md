@@ -52,16 +52,14 @@ Connection: close
 ```
 
 ## Test Device
-Using a [simulator](https://github.com/xmidt-org/xmidt/tree/master/simulator) we
-can mock a device connecting to our cluster. Or you can do hands on with [kratos](https://github.com/xmidt-org/kratos)
+Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection)
 
 ```bash
-docker run -e URL=http://PETASOS_HOSTNAME:PETASOS_PRIMARY_PORT rdkb-simulator
+curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 ```
-
-```bash
-curl -i -H "Authorization: Basic authHeader" localhost:6100/api/v2/device/stat
-```
+Where HOSTNAME is you DNS record, docker container, or ip address.
+Where AUTHOKEN is the `authHeader` in the yaml configuration file
+Where DEVICE_ID is the device that is connect to talaria.
 
 ```
 $ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6100/api/v2/device/mac:112233445566/stat
@@ -91,8 +89,7 @@ Content-Length: 234
 ```
 
 # Troubleshooting
--   Received a 404 status code
-    -   The Device is not connected to the cluster
+The most common error is getting a 404, meaning the [device is not connected](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria) to the cluster.
 
 # Next
-tr1d1um is up and running now; let's stand up [caduceus](../caduceus).
+tr1d1um is up and running now; let's stand up [caduceus](/docs/operating/getting_started/caduceus).

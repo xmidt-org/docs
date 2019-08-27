@@ -87,7 +87,7 @@
         
           <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
-          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li class="active current"><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li class="active current"><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
         
@@ -109,7 +109,7 @@
 <ul>
 <li><a href="#get-webhooks">Get webhooks
 </a></li>
-<li><a href="#register-a-webook">Register a webook
+<li><a href="#register-a-webhook">Register a webhook
 </a></li>
 <li><a href="#testing-webhook">Testing webhook
 </a></li>
@@ -132,7 +132,7 @@
 <h1 id="configuration" class="page-header">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
 </h1>
 
-<p>Refer to <a href="https://github.com/xmidt-org/caduceus/blob/master/example-caduceus.yaml">configation file</a>
+<p>Refer to <a href="https://github.com/xmidt-org/caduceus/blob/master/example-caduceus.yaml">configuration file</a>
 for how to configure caduceus.</p>
 
 <h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
@@ -160,7 +160,7 @@ for how to configure caduceus.</p>
 <h2 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
 </h2>
 
-<pre><code class="bash">curl HOSTNAME:HEALTH_PORT/health -i
+<pre><code class="bash">curl -i HOSTNAME:HEALTH_PORT/health
 </code></pre>
 
 <pre><code>$ curl -i localhost:6001/health
@@ -184,8 +184,11 @@ Connection: close
 <h3 id="get-webhooks">Get webhooks<a class="header-anchor" href="#get-webhooks" name="get-webhooks"></a>
 </h3>
 
-<pre><code class="bash">curl -i -H "Authorization: Basic authHeader" localhost:6100/api/v2/device/stat
+<pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
 </code></pre>
+
+<p>Where HOSTNAME is you DNS record, docker container, or ip address.
+Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.</p>
 
 <pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6000/hooks
 HTTP/1.1 200 OK
@@ -204,7 +207,7 @@ Content-Length: 2
 <p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for caduceus. DO NOT use
 this in production</p>
 
-<h3 id="register-a-webook">Register a webook<a class="header-anchor" href="#register-a-webook" name="register-a-webook"></a>
+<h3 id="register-a-webhook">Register a webhook<a class="header-anchor" href="#register-a-webhook" name="register-a-webhook"></a>
 </h3>
 
 <p>Create a <a href="https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener">listener</a>, you should see it by checking the <code>hooks</code> endpoint</p>
@@ -212,35 +215,18 @@ this in production</p>
 <h3 id="testing-webhook">Testing webhook<a class="header-anchor" href="#testing-webhook" name="testing-webhook"></a>
 </h3>
 
-<p>Using a <a href="https://github.com/xmidt-org/xmidt/tree/master/simulator">simulator</a> we
-can mock a device connecting to our cluster. Or you can do hands on with <a href="https://github.com/xmidt-org/kratos">kratos</a></p>
-
-<pre><code class="bash">docker run -e URL=http://PETASOS_HOSTNAME:PETASOS_PRIMARY_PORT rdkb-simulator
-</code></pre>
-
-<p>Upon disconnect and connect you should see an offline and online event.</p>
+<p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>
+When the device connects and disconnects to talaria, the listener should receive an online and offline event.</p>
 
 <h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
 </h1>
 
-<ul>
-<li>  Message is not received from listener
-
-<ul>
-<li>  Validate that the talaria's have the eventMap block and that it is pointing to the correct endpoint.
-<code>yaml
-eventMap:
-  default: http://CADUCEUS_HOSTNAME:PRIMARY_PORT/api/v3/notify
-</code>
-</li>
-</ul>
-</li>
-</ul>
+<p>The most common error is that talaria is <a href="/docs/operating/troubleshooting/#event-errors">not configured correctly to talk to caduceus</a>.</p>
 
 <h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
 </h1>
 
-<p>The Cluster is up and running. Take a look at <a href="../../../codex/overview/">Codex</a> for how to build
+<p>The Cluster is up and running. Take a look at <a href="/docs/codex/overview/">Codex</a> for how to build
 a codex cluster.</p>
 </body></html>
 

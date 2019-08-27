@@ -12,7 +12,7 @@ Currently Caduceus depends on [SNS](https://aws.amazon.com/sns/getting-started/)
 -   Docker (Link TBC)
 
 # Configuration
-Refer to [configation file](https://github.com/xmidt-org/caduceus/blob/master/example-caduceus.yaml)
+Refer to [configuration file](https://github.com/xmidt-org/caduceus/blob/master/example-caduceus.yaml)
 for how to configure caduceus.
 
 ## Fixed

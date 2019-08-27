@@ -47,7 +47,7 @@ service:
         passingOnly: true
     vnodeCount: 211
 ```
-Petasos is watching for the other talarias.
+Petasos is now using consul to watch for talarias.
 
 _**NOTE**_: if you have certs available change http to https. HTTP should never
 be run in production

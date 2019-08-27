@@ -75,7 +75,7 @@ service:
 ```
 Talaria is watching for the other talarias and is registering itself.
 
-_**NOTE**_: if you have certs available change http to https. HTTP should never
+_**NOTE**_: if you have certs available, change http to https. HTTP should never
 be run in production
 
 # Validation

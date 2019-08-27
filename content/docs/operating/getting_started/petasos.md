@@ -15,7 +15,7 @@ Refer to [configuration file](https://github.com/xmidt-org/petasos/blob/master/e
 for how to configure petasos.
 
 ## Fixed
-Under the service block of the yaml file you will have
+For fixed routing, the service block in petasos' configuration should look similar to the example below:
 
 ```yaml
 service:

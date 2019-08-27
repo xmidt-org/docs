@@ -109,7 +109,8 @@ can mock a device connecting to our cluster. Or you can do hands on with [kratos
 docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 ```
 
-Get Connected Devices _**NOTE**_ this is a very expensive command. Do NOT run it in production
+Get Connected Devices
+_**NOTE**_: This is a very expensive command. Do NOT run it in production.
 
 ```bash
 curl -i -H "Authorization: Basic inbound.authKey" "HOSTNAME:PRIMARY_PORT/api/v2/devices

@@ -137,4 +137,4 @@ Content-Length: 245
     -   Because of the consistent hash it may not be allowed to talk to that talaria
 
 # Next
-Talaria should be up and running now, lets stand up [petasos](../petasos)
+Talaria should be up and running now; let's stand up [petasos](../petasos).

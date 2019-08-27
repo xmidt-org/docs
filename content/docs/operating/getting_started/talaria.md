@@ -15,7 +15,7 @@ Refer to [configuration file](https://github.com/xmidt-org/talaria/blob/master/e
 for how to configure talaria.
 
 ## Fixed
-Under the service block of the yaml file you will have
+For fixed routing, the service block in talaria's configuration should look similar to the example below:
 
 ```yaml
 service:

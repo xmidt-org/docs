@@ -14,7 +14,7 @@ sort_rank: 5
 Refer to [configation file](https://github.com/xmidt-org/tr1d1um/blob/master/src/tr1d1um/tr1d1um.yaml)
 for how to configure tr1d1um.
 
-## Fixed
+## Connecting to scytale
 Under the fanout block of the yaml file you will have
 
 ```yaml

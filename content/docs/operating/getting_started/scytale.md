@@ -28,7 +28,7 @@ fanout:
 Where HOSTNAME is you DNS record, docker container, or ip address.
 
 _**NOTE**_: if you have certs available change http to https. HTTP should never
-be run in production
+be run in production.
 
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for petasos. DO NOT use
 this in production

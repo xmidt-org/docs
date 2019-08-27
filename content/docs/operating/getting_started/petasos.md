@@ -50,7 +50,7 @@ service:
 Petasos is now using consul to watch for talarias.
 
 _**NOTE**_: if you have certs available, change http to https. HTTP should never
-be run in production
+be run in production.
 
 # Validation
 ## Test Health

@@ -80,7 +80,7 @@ Content-Length: 2
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for caduceus. DO NOT use
 this in production
 
-### Register a webook
+### Register a webhook
 Create a [listener](https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener), you should see it by checking the `hooks` endpoint
 
 

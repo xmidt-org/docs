@@ -25,7 +25,7 @@ Where HOSTNAME is you DNS record or docker container or ip address.
 _**NOTE**_: if you have certs available change http to https. HTTP should never
 be run in production
 
-_**NOTE**_: dXNlcjpwYXNz is an example auth string for scytale. DO NOT use
+_**NOTE**_: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use
 this in production
 
 # Validation

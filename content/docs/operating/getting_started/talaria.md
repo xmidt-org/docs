@@ -25,7 +25,7 @@ service:
 ```
 Where HOSTNAME is you DNS record, docker container, or ip address.
 
-_**NOTE**_: if you have certs available change http to https. HTTP should never
+_**NOTE**_: if you have certs available, change http to https. HTTP should never
 be run in production
 
 ## Consul

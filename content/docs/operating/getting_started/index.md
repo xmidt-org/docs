@@ -16,7 +16,7 @@ Currently there are two main options: `fixed` and `consul`.
 We recommend consul, which helps with horizontal scaling.
 
 ## Fixed
-Fixed is having all the talaria's hardcoded for each server
+Fixed routing involves configuring each petasos to know the fqdn/ip of all talarias in the cluster/region.```
 
 | Pro                          | Con                                                  |
 |------------------------------|------------------------------------------------------|

@@ -97,7 +97,7 @@ When the device connects and disconnects to talaria, the listener should receive
 
 # Troubleshooting
 -   Message is not received from listener
-    -   Validate that the talaria's have the eventMap block and that it is pointing to the correct endpoint.
+    -   Validate that the talarias have the eventMap block in their configuration and that it is pointing to the correct endpoint.
     ```yaml
       eventMap:
           default: http://CADUCEUS_HOSTNAME:PRIMARY_PORT/api/v3/notify

@@ -40,4 +40,4 @@ This step will be done at each service level, by providing a list of urls.
 
 
 # Next
-Once you have your approach, and it is up and running you can standup [Talaria](../talaria)
+Once you have your approach, and it is up and running you can standup [Talaria](../talaria).

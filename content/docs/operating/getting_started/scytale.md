@@ -94,4 +94,4 @@ Date: Mon, 26 Aug 2019 19:52:10 GMT
     -   The Device is not connected to the cluster
 
 # Next
-scytale is up and running now, lets stand up [tr1d1um](../tr1d1um)
+scytale is up and running now, let's stand up [tr1d1um](../tr1d1um).

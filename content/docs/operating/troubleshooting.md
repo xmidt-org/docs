@@ -126,3 +126,8 @@ sort_rank: 2
         default: http://CADUCEUS_HOSTNAME:PRIMARY_PORT/api/v3/notify
           # double check http vs https and the hostname
     ```
+
+# General Error
+- Problem: Docker networking with localhost.
+  - Solution: Use the ip address of the host machine.
+  You can not use localhost when working with docker.

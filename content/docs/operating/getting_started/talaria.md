@@ -102,6 +102,9 @@ can mock a device connecting to our cluster. Or you can do hands on with [kratos
 ```bash
 docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 ```
+Where HOSTNAME is you DNS record, docker container, or ip address.
+_**NOTE**_: If you are running talaria locally you will need to provide the ip
+address of your machine.
 
 Get Connected Devices
 _**NOTE**_: This is a very expensive command. Do NOT run it in production.

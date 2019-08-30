@@ -11,7 +11,7 @@ sort_rank: 2
 -   Docker (Link TBC)
 
 # Configuration
-Refer to [configuration file](https://github.com/xmidt-org/talaria/blob/master/example-talaria.yaml)
+Refer to [configuration file](https://github.com/xmidt-org/talaria/blob/master/talaria.yaml)
 for how to configure talaria.
 
 ## Fixed

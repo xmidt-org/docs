@@ -11,7 +11,7 @@ sort_rank: 3
 -   Docker (Link TBC)
 
 # Configuration
-Refer to [configuration file](https://github.com/xmidt-org/petasos/blob/master/example-petasos.yaml)
+Refer to [configuration file](https://github.com/xmidt-org/petasos/blob/master/petasos.yaml)
 for how to configure petasos.
 
 ## Fixed

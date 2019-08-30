@@ -21,7 +21,7 @@ be in lock-step to prevent inbound connections from possibly being stranded.  Fo
 production-like instances we recommend the `consul` option.
 
 ## Fixed
-Fixed routing involves configuring each petasos to know the fqdn/ip of all talarias in the cluster/region.```
+Fixed routing involves configuring each petasos to know the fqdn/ip of all talarias in the cluster/region.
 
 | Pro                          | Con                         |
 |------------------------------|-----------------------------|

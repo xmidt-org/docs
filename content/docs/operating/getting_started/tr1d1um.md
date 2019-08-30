@@ -6,8 +6,8 @@ sort_rank: 5
 # Tr1d1um
 
 # Installation
--   [RPM](https://github.com/xmidt-org/tr1d1um/releases)
--   [Binary](https://github.com/xmidt-org/tr1d1um/releases)
+-   [RPM](https://xmidt.io/download/#tr1d1um)
+-   [Binary](https://xmidt.io/download/#tr1d1um)
 -   Docker (Link TBC)
 
 # Configuration
@@ -22,8 +22,8 @@ targetURL: http://SCYTALE_HOSTNAME:PRIMARY_PORT
 ```
 Where HOSTNAME is you DNS record or docker container or ip address.
 
-_**NOTE**_: if you have certs available, change http to https. HTTP should never
-be run in production.
+_**NOTE**_: if you have domain or host certificates available we recommend
+always running the service (and all components in the service) in https mode.
 
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use
 this in production.

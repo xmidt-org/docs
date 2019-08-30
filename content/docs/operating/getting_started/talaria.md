@@ -6,8 +6,8 @@ sort_rank: 2
 # Talaria
 
 # Installation
--   [RPM](https://github.com/xmidt-org/talaria/releases)
--   [Binary](https://github.com/xmidt-org/talaria/releases)
+-   [RPM](https://xmidt.io/download/#talaria)
+-   [Binary](https://xmidt.io/download/#talaria)
 -   Docker (Link TBC)
 
 # Configuration
@@ -25,8 +25,8 @@ service:
 ```
 Where HOSTNAME is you DNS record, docker container, or ip address.
 
-_**NOTE**_: if you have certs available, change http to https. HTTP should never
-be run in production.
+_**NOTE**_: if you have domain or host certificates available we recommend
+always running the service (and all components in the service) in https mode.
 
 ## Consul
 For a consul managed list of talarias and caduceuses, the service block in talaria's configuration should look similar to the example below:

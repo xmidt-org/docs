@@ -7,8 +7,8 @@ sort_rank: 6
 Currently Caduceus depends on [SNS](https://aws.amazon.com/sns/getting-started/)
 
 # Installation
--   [RPM](https://github.com/xmidt-org/caduceus/releases)
--   [Binary](https://github.com/xmidt-org/caduceus/releases)
+-   [RPM](https://xmidt.io/download/#caduceus)
+-   [Binary](https://xmidt.io/download/#caduceus)
 -   Docker (Link TBC)
 
 # Configuration

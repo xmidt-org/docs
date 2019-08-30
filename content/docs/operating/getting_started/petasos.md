@@ -6,8 +6,8 @@ sort_rank: 3
 # Petasos
 
 # Installation
--   [RPM](https://github.com/xmidt-org/petasos/releases)
--   [Binary](https://github.com/xmidt-org/petasos/releases)
+-   [RPM](https://xmidt.io/download/#petasos)
+-   [Binary](https://xmidt.io/download/#petasos)
 -   Docker (Link TBC)
 
 # Configuration
@@ -26,8 +26,9 @@ service:
 ```
 Where HOSTNAME is your DNS record, docker container, or ip address.
 
-_**NOTE**_: if you have certs available change http to https. HTTP should never
-be run in production.
+_**NOTE**_: if you have domain or host certificates available we recommend
+always running the service (and all components in the service) in https mode.
+
 
 ## Consul
 For a consul managed list of talarias, the petasos configuration should look similar to the example below:

@@ -6,8 +6,8 @@ sort_rank: 4
 # Scytale
 
 # Installation
--   [RPM](https://github.com/xmidt-org/scytale/releases)
--   [Binary](https://github.com/xmidt-org/scytale/releases)
+-   [RPM](https://xmidt.io/download/#scytale)
+-   [Binary](https://xmidt.io/download/#scytale)
 -   Docker (Link TBC)
 
 # Configuration
@@ -27,8 +27,8 @@ fanout:
 ```
 Where HOSTNAME is you DNS record, docker container, or ip address.
 
-_**NOTE**_: if you have certs available change http to https. HTTP should never
-be run in production.
+_**NOTE**_: if you have domain or host certificates available we recommend
+always running the service (and all components in the service) in https mode.
 
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for petasos. DO NOT use
 this in production.

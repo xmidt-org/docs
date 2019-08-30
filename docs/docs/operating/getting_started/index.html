@@ -100,7 +100,7 @@
 <h1 id="getting-started" class="page-header">Getting Started<a class="header-anchor" href="#getting-started" name="getting-started"></a>
 </h1>
 <div class="toc toc-right"><ul>
-<li><a href="#before-you-begin">Before you begin
+<li><a href="#cluster-composition-determination">Cluster composition determination
 </a></li>
 <li><a href="#fixed">Fixed
 </a></li>
@@ -115,14 +115,19 @@
 <p>The orchestration of XMiDT can be quite complicated. Please refer to the <a href="../introduction/index.md">architecture</a>
 to have a better understanding of the components and how they work towards the bigger picture.</p>
 
-<p>If you want something up and running now to see how components connect, use <a href="https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose">docker-compose</a>.</p>
+<p>To get up and running quickly, or for a small, non-high availability instance we have
+a <a href="https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose">docker-compose</a> version available.<br>
+This is a great way to see how the components connect with one another as well as a sample configuration
+for each machine that works together.</p>
 
-<h2 id="before-you-begin">Before you begin<a class="header-anchor" href="#before-you-begin" name="before-you-begin"></a>
+<h2 id="cluster-composition-determination">Cluster composition determination<a class="header-anchor" href="#cluster-composition-determination" name="cluster-composition-determination"></a>
 </h2>
 
-<p>You need to decide how to routing is going to work from petasos to talaria.
-Currently there are two main options: <code>fixed</code> and <code>consul</code>.
-We recommend consul, which helps with horizontal scaling.</p>
+<p>The XMiDT cluster can be configured either to dynamically coordinate via Consul (<code>consul</code> option)
+or be statically configured (<code>fixed</code> option).  The coordination defines how Petasos routes traffic to Talaria
+machines as well as ensuring Talaria machines accept the same traffic.  At all times Petasos and Talaria should
+be in lock-step to prevent inbound connections from possibly being stranded.  For any production or
+production-like instances we recommend the <code>consul</code> option.</p>
 
 <h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
 </h2>
@@ -144,6 +149,10 @@ We recommend consul, which helps with horizontal scaling.</p>
 <tr>
 <td>One less component to manage</td>
 <td>Node failover not supported</td>
+</tr>
+<tr>
+<td></td>
+<td>Prometheus auto-discovery is harder</td>
 </tr>
 </tbody>
 </table>

@@ -13,10 +13,12 @@ This is a great way to see how the components connect with one another as well a
 for each machine that works together.
 
 
-## Before you begin
-You need to decide how to routing is going to work from petasos to talaria.
-Currently there are two main options: `fixed` and `consul`.
-We recommend consul, which helps with horizontal scaling.
+## Cluster composition determination
+The XMiDT cluster can be configured either to dynamically coordinate via Consul (`consul` option)
+or be statically configured (`fixed` option).  The coordination defines how Petasos routes traffic to Talaria
+machines as well as ensuring Talaria machines accept the same traffic.  At all times Petasos and Talaria should
+be in lock-step to prevent inbound connections from possibly being stranded.  For any production or
+production-like instances we recommend the `consul` option.
 
 ## Fixed
 Fixed routing involves configuring each petasos to know the fqdn/ip of all talarias in the cluster/region.```
@@ -25,6 +27,8 @@ Fixed routing involves configuring each petasos to know the fqdn/ip of all talar
 |------------------------------|-----------------------------|
 | Fast to standup              | Scaling is harder           |
 | One less component to manage | Node failover not supported |
+|                              | Prometheus auto-discovery is harder |
+
 
 ### Setup
 No prior setup is necessary.

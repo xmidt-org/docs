@@ -21,7 +21,7 @@ sort_rank: 2
 
 - Problem: TLS is inconsistent between talaria and petasos.
 
-  - Fixed Solution: Change talaria and petasos Configuration to be consistent with `http` or `https`.
+  - Fixed Solution: Change talaria and petasos configurations to be consistent with `http` or `https`.
 
     ```yaml
     # talaria  
@@ -98,14 +98,14 @@ sort_rank: 2
 
 - Problem: Talaria is not registering with Consul.
 
-  - Detection: On a consul node run the following commands.
+  - Detection: On a consul node, run the following command(s):
 
     ```bash
     consul catalog services
     # talaria should show up in list, if not try the solution
     ```
 
-  - Solution: Validate Consul client config, with TLS and address
+  - Solution: Validate Consul client config, with TLS and address.
 
     ```yaml
     consul:
@@ -127,7 +127,7 @@ sort_rank: 2
           # double check http vs https and the hostname
     ```
 
-# General Error
+# General Errors
 - Problem: Docker networking with localhost.
   - Solution: Use the ip address of the host machine.
-  You can not use localhost when working with docker.
+  You can not use `localhost` when working with docker.

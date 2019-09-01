@@ -22,7 +22,7 @@ targetURL: http://SCYTALE_HOSTNAME:PRIMARY_PORT
 ```
 Where HOSTNAME is you DNS record or docker container or ip address.
 
-_**NOTE**_: if you have domain or host certificates available we recommend
+_**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
 
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use
@@ -52,13 +52,13 @@ Connection: close
 ```
 
 ## Test Device
-Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection)
+Connect a device to talaria as described [here](/docs/operating/getting_started/talaria/#test-device-connection).
 
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 ```
 Where HOSTNAME is you DNS record, docker container, or ip address.
-Where AUTHOKEN is the `authHeader` in the yaml configuration file
+Where AUTHOKEN is the `authHeader` in the yaml configuration file.
 Where DEVICE_ID is the device that is connect to talaria.
 
 ```

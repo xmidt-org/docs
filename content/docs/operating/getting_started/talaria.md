@@ -23,13 +23,13 @@ service:
   fixed:
     - http://<HOSTNAME>:6200
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address.
+Where HOSTNAME is your DNS record, docker container, or ip address.
 
-_**NOTE**_: if you have domain or host certificates available we recommend
+_**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
 
 ## Consul
-For a consul managed list of talarias and caduceuses, the service block in talaria's configuration should look similar to the example below:
+For a consul managed list of talarias, the service block in talaria's configuration should look similar to the example below:
 
 ```yaml
 service:
@@ -97,13 +97,13 @@ Connection: close
 
 ## Test Device Connection
 Using a [simulator](https://github.com/xmidt-org/xmidt/tree/master/simulator) we
-can mock a device connecting to our cluster. Or you can do hands on with [kratos](https://github.com/xmidt-org/kratos)
+can mock a device connecting to our cluster. Or you can do hands on with [kratos](https://github.com/xmidt-org/kratos).
 
 ```bash
 docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address.
-_**NOTE**_: If you are running talaria locally you will need to provide the ip
+Where HOSTNAME is your DNS record, docker container, or ip address.
+_**NOTE**_: If you are running talaria locally, you will need to provide the ip
 address of your machine.
 
 Get Connected Devices
@@ -112,7 +112,7 @@ _**NOTE**_: This is a very expensive command. Do NOT run it in production.
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/devices
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address.
+Where HOSTNAME is your DNS record, docker container, or ip address.
 Where AUTHOKEN is the `inbound.authKey"` in the yaml configuration file.
 
 The following is an example. Do not use this auth key in production.

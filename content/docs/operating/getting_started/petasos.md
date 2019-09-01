@@ -26,7 +26,7 @@ service:
 ```
 Where HOSTNAME is your DNS record, docker container, or ip address.
 
-_**NOTE**_: if you have domain or host certificates available we recommend
+_**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
 
 
@@ -104,4 +104,4 @@ The most common error is conflicting [TLS configuration](/docs/operating/trouble
 
 
 # Next
-Petasos is up and running now, lets stand up [scytale](/docs/operating/getting_started/scytale)
+Petasos is up and running now, let's stand up [scytale](/docs/operating/getting_started/scytale).

@@ -7,18 +7,18 @@ sort_rank: 1
 The orchestration of XMiDT can be quite complicated. Please refer to the [architecture](../introduction/index.md)
 to have a better understanding of the components and how they work towards the bigger picture.
 
-To get up and running quickly, or for a small, non-high availability instance we have
+To get up and running quickly, or for a small, not highly available instance we have
 a [docker-compose](https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose) version available.  
-This is a great way to see how the components connect with one another as well as a sample configuration
-for each machine that works together.
+This is a great way to see the way that components connect with one another as well as sample configurations
+for each machine.
 
 
 ## Cluster composition determination
 The XMiDT cluster can be configured either to dynamically coordinate via Consul (`consul` option)
 or be statically configured (`fixed` option).  The coordination defines how Petasos routes traffic to Talaria
-machines as well as ensuring Talaria machines accept the same traffic.  At all times Petasos and Talaria should
+machines as well as ensuring Talaria machines accept the same traffic.  Petasos and Talaria should always
 be in lock-step to prevent inbound connections from possibly being stranded.  For any production or
-production-like instances we recommend the `consul` option.
+production-like instances, we recommend the `consul` option.
 
 ## Fixed
 Fixed routing involves configuring each petasos to know the fqdn/ip of all talarias in the cluster/region.
@@ -48,4 +48,4 @@ This step will be done at each service level, by providing a list of urls.
 
 
 # Next
-Once you have your approach, and it is up and running you can standup [Talaria](/docs/operating/getting_started/talaria).
+Once you have your approach and it is up and running, you can stand up [Talaria](/docs/operating/getting_started/talaria).

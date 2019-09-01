@@ -15,7 +15,7 @@ Refer to [configuration file](https://github.com/xmidt-org/scytale/blob/master/s
 for how to configure scytale.
 
 ## Connecting to petasos
-To provide the petasoses that scytale should connect to, the fanout block in scytales configuration should look similar to the example below:
+To provide the petasoses that scytale should connect to, the fanout block in scytale's configuration should look similar to the example below:
 
 ```yaml
 fanout:
@@ -27,7 +27,7 @@ fanout:
 ```
 Where HOSTNAME is you DNS record, docker container, or ip address.
 
-_**NOTE**_: if you have domain or host certificates available we recommend
+_**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
 
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for petasos. DO NOT use
@@ -57,7 +57,7 @@ Connection: close
 ```
 
 ## Test Device
-Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection)
+Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection).
 
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat

@@ -15,7 +15,7 @@ Currently Caduceus depends on [SNS](https://aws.amazon.com/sns/getting-started/)
 Refer to [configuration file](https://github.com/xmidt-org/caduceus/blob/master/caduceus.yaml)
 for how to configure caduceus.
 
-## Fixed
+## Connecting to aws
 Under the aws block of the yaml file you will have
 
 ```yaml
@@ -80,14 +80,15 @@ Content-Length: 2
 []
 ```
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for caduceus. DO NOT use
-this in production
+this in production.
 
 ### Register a webhook
-Create a [listener](https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener), you should see it by checking the `hooks` endpoint
+Create a [listener](https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener).  
+You should see it by checking the `hooks` endpoint.
 
 
 ### Testing webhook
-Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection)
+Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection).
 When the device connects and disconnects to talaria, the listener should receive an online and offline event.
 
 

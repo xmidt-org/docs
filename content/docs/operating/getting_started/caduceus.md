@@ -61,7 +61,8 @@ Connection: close
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address.
+HOSTNAME is your DNS record, docker container, or ip address.
+PRIMARY_PORT is the port where Caduceus is listening.
 Where AUTHOKEN is the `authHeader` in the yaml configuration file.
 
 

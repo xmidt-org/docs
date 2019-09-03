@@ -9,7 +9,7 @@ sort_rank: 2
 
 ### Device is not showing up in Cluster/Talaria
 
-- Problem: Parados has the incorrect url.
+- Problem: Parados (the application of the device that connects to talaria) has the incorrect url.
 
   - Solution: Validate Parados has the correct url.
 
@@ -28,12 +28,12 @@ sort_rank: 2
     service:
       defaultScheme: http
       fixed:
-        - http://talaria:6200
+        - http://TALARIA_HOSTNAME:PRIMARY_PORT
     # petasos
     service:
     defaultScheme: http
     fixed:
-      - http://talaria:6200
+      - http://TALARIA_HOSTNAME:PRIMARY_PORT
     ```
 
   - Consul Solution: Change talaria and petasos Configuration to be consistent with `http` or `https`. `https` is default.
@@ -45,7 +45,7 @@ sort_rank: 2
       # ^ important
       consul:
         client:
-          address: "CONSUL_ADDRESS:8500"
+          address: "CONSUL_ADDRESS:CONSUL_API_PORT"
           scheme: "http"
           waitTime: "30s"
         disableGenerateID: true
@@ -66,7 +66,7 @@ sort_rank: 2
               - "docker"
               - "stage=dev"
               - "flavor=docker"
-            address: "http://HOSTNAME"
+            address: "http://HOSTNAME:PRIMARY_PORT"
             # ^ important
             scheme: "http"
             # ^ important
@@ -110,7 +110,7 @@ sort_rank: 2
     ```yaml
     consul:
       client:
-        address: "HOSTNAME:API_PORT"
+        address: "CONSUL_ADDRESS:CONSUL_API_PORT"
         # ^ important
         scheme: "http"
         # ^ important

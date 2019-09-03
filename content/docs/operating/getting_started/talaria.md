@@ -21,9 +21,10 @@ For fixed routing, the service block in talaria's configuration should look simi
 service:
   defaultScheme: http
   fixed:
-    - http://<HOSTNAME>:6200
+    - http://HOSTNAME:PRIMARY_PORT
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address.
+Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
@@ -96,8 +97,10 @@ Connection: close
 ```
 
 ## Test Device Connection
-Using a [simulator](https://github.com/xmidt-org/xmidt/tree/master/simulator) we
-can mock a device connecting to our cluster. Or you can do hands on with [kratos](https://github.com/xmidt-org/kratos).
+Using a [device simulator](https://github.com/xmidt-org/xmidt/tree/master/simulator) we
+can mock a device connecting to our cluster. The core part of the device simulator that
+connects to talaria is [Parados](https://github.com/xmidt-org/parodus). Instead of
+mocking the device we can also mock parados with [kratos](https://github.com/xmidt-org/kratos).
 
 ```bash
 docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
@@ -112,8 +115,8 @@ _**NOTE**_: This is a very expensive command. Do NOT run it in production.
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/devices
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address.
-Where AUTHOKEN is the `inbound.authKey"` in the yaml configuration file.
+Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT. Where AUTHOKEN is the `inbound.authKey"` in the yaml configuration file.
 
 The following is an example. Do not use this auth key in production.
 

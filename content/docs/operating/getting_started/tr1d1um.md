@@ -20,7 +20,8 @@ Under the fanout block of the yaml file you will have
 ```yaml
 targetURL: http://SCYTALE_HOSTNAME:PRIMARY_PORT
 ```
-Where HOSTNAME is you DNS record or docker container or ip address.
+Where SCYTALE_HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.

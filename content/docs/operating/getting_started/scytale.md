@@ -25,7 +25,8 @@ fanout:
   clientTimeout: "127s"
   concurrency: 10
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address.
+Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
@@ -62,8 +63,8 @@ Connect a device to talaria, described [here](/docs/operating/getting_started/ta
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address.
-Where AUTHOKEN is the `authHeader` in the yaml configuration file.
+Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT. Where AUTHOKEN is the `authHeader` in the yaml configuration file.
 Where DEVICE_ID is the device that is connect to talaria.
 
 ```

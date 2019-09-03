@@ -24,7 +24,8 @@ service:
     - http://HOSTNAME:PRIMARY_PORT
     - http://HOSTNAME:PRIMARY_PORT
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address.
+Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
@@ -80,8 +81,8 @@ Connection: close
 ```bash
 curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  HOSTNAME:PRIMARY_PORT/api/v2/device
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address.
-Where DEVICE_ID is the device that is connect to talaria.
+Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT. Where DEVICE_ID is the device that is connect to talaria.
 
 ```bash
 $ curl -i  -H "X-Webpa-Device-Name:mac:112233445566" localhost:6400/api/v2/device

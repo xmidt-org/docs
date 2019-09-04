@@ -19,13 +19,13 @@ To provide the petasoses that scytale should connect to, the fanout block in scy
 
 ```yaml
 fanout:
-  endpoints: [ "https://petasos:6400/api/v2/device/send" ]
+  endpoints: [ "https://PETASOS_HOSTNAME:PRIMARY_PORT/api/v2/device/send" ]
   authorization: dXNlcjpwYXNz
   fanoutTimeout: "127s"
   clientTimeout: "127s"
   concurrency: 10
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+Where PETASOS_HOSTNAME is your Petasos DNS record, docker container, or ip address listening on the
 PRIMARY_PORT.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend

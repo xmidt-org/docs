@@ -68,6 +68,9 @@ service:
             interval: "30s"
             deregisterCriticalServiceAfter: "70s"
 ```
+Where CONSUL_ADDRESS is your Consul DNS record, docker container, or ip address.
+Where HOSTNAME is your DNS record, docker container, or ip address for this service listening on the HEALTH_PORT.
+
 Talaria is watching for the other talarias and is registering itself.
 
 _**NOTE**_: if you have certs available, change http to https. HTTP should never
@@ -109,7 +112,7 @@ Where HOSTNAME is your DNS record, docker container, or ip address.
 _**NOTE**_: If you are running talaria locally, you will need to provide the ip
 address of your machine.
 
-Get Connected Devices
+### Get Connected Devices
 _**NOTE**_: This is a very expensive command. Do NOT run it in production.
 
 ```bash

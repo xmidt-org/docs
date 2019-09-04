@@ -49,6 +49,8 @@ service:
         passingOnly: true
     vnodeCount: 211
 ```
+Where CONSUL_ADDRESS is your Consul DNS record, docker container, or ip address.
+
 Petasos is now using consul to watch for talarias.
 
 _**NOTE**_: if you have certs available, change http to https. HTTP should never

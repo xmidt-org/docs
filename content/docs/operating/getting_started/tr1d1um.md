@@ -20,7 +20,7 @@ Under the fanout block of the yaml file you will have
 ```yaml
 targetURL: http://SCYTALE_HOSTNAME:PRIMARY_PORT
 ```
-Where SCYTALE_HOSTNAME is your DNS record, docker container, or ip address listening on the
+Where SCYTALE_HOSTNAME is your Scytale DNS record, docker container, or ip address listening on the
 PRIMARY_PORT.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend

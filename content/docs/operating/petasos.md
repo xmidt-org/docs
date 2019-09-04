@@ -1,6 +1,6 @@
 ---
 title: Petasos
-sort_rank: 3
+sort_rank: 30
 ---
 
 # Petasos
@@ -107,4 +107,4 @@ The most common error is conflicting [TLS configuration](/docs/operating/trouble
 
 
 # Next
-Petasos is up and running now; let's stand up [scytale](/docs/operating/getting_started/scytale).
+Petasos is up and running now; let's stand up [scytale](/docs/operating/scytale).

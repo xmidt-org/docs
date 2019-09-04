@@ -1,6 +1,6 @@
 ---
 title: Getting started
-sort_rank: 1
+sort_rank: 10
 ---
 
 # Getting Started
@@ -48,4 +48,4 @@ This step will be done at each service level, by providing a list of urls.
 
 
 # Next
-Once you have your approach and it is up and running, you can stand up [Talaria](/docs/operating/getting_started/talaria).
+Once you have your approach and it is up and running, you can stand up [Talaria](/docs/operating/talaria).

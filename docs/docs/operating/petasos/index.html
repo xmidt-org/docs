@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
 
     
-    <title>Tr1d1um | Xmidt</title>
+    <title>Petasos | Xmidt</title>
     
 
     <!-- Bootstrap core CSS -->
@@ -87,7 +87,7 @@
         
           <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
-          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li class="active current"><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li><a href="/docs/operating/getting_started/">Getting started</a></li><li><a href="/docs/operating/talaria/">Talaria</a></li><li class="active current"><a href="/docs/operating/petasos/">Petasos</a></li><li><a href="/docs/operating/scytale/">Scytale</a></li><li><a href="/docs/operating/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/caduceus/">Caduceus</a></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
         
@@ -97,14 +97,16 @@
     <div class="col-md-9 doc-content">
       <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body>
-<h1 id="tr1d1um" class="page-header">Tr1d1um<a class="header-anchor" href="#tr1d1um" name="tr1d1um"></a>
+<h1 id="petasos" class="page-header">Petasos<a class="header-anchor" href="#petasos" name="petasos"></a>
 </h1>
 <div class="toc toc-right"><ul>
-<li><a href="#connecting-to-scytale">Connecting to scytale
+<li><a href="#fixed">Fixed
+</a></li>
+<li><a href="#consul">Consul
 </a></li>
 <li><a href="#test-health">Test Health
 </a></li>
-<li><a href="#test-device">Test Device
+<li><a href="#test-device-redirection">Test Device Redirection
 </a></li>
 </ul></div>
 
@@ -112,9 +114,9 @@
 </h1>
 
 <ul>
-<li>  <a href="https://xmidt.io/download/#tr1d1um">RPM</a>
+<li>  <a href="https://xmidt.io/download/#petasos">RPM</a>
 </li>
-<li>  <a href="https://xmidt.io/download/#tr1d1um">Binary</a>
+<li>  <a href="https://xmidt.io/download/#petasos">Binary</a>
 </li>
 <li>  Docker (Link TBC)</li>
 </ul>
@@ -122,25 +124,53 @@
 <h1 id="configuration" class="page-header">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
 </h1>
 
-<p>Refer to <a href="https://github.com/xmidt-org/tr1d1um/blob/master/tr1d1um.yaml">configuration file</a>
-for how to configure tr1d1um.</p>
+<p>Refer to <a href="https://github.com/xmidt-org/petasos/blob/master/petasos.yaml">configuration file</a>
+for how to configure petasos.</p>
 
-<h2 id="connecting-to-scytale">Connecting to scytale<a class="header-anchor" href="#connecting-to-scytale" name="connecting-to-scytale"></a>
+<h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
 </h2>
 
-<p>Under the fanout block of the yaml file you will have</p>
+<p>For fixed routing, the service block in petasos' configuration should look similar to the example below:</p>
 
-<pre><code class="yaml">targetURL: http://SCYTALE_HOSTNAME:PRIMARY_PORT
+<pre><code class="yaml">service:
+  defaultScheme: http
+  fixed:
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
 </code></pre>
 
-<p>Where SCYTALE<em>HOSTNAME is your Scytale DNS record, docker container, or ip address listening on the
+<p>Where TALARIA<em>HOSTNAME is your Talaria DNS record, docker container, or ip address listening on the
 PRIMARY</em>PORT.</p>
 
 <p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.</p>
 
-<p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use
-this in production.</p>
+<h2 id="consul">Consul<a class="header-anchor" href="#consul" name="consul"></a>
+</h2>
+
+<p>For a consul managed list of talarias, the petasos configuration should look similar to the example below:</p>
+
+<pre><code class="yaml">service:
+  defaultScheme: http
+  consul:
+    client:
+      address: "CONSUL_ADDRESS:8500"
+      scheme: "http"
+      waitTime: "30s"
+    disableGenerateID: true
+    watches:
+      -
+        service: "talaria"
+        passingOnly: true
+    vnodeCount: 211
+</code></pre>
+
+<p>Where CONSUL_ADDRESS is your Consul DNS record, docker container, or ip address.</p>
+
+<p>Petasos is now using consul to watch for talarias.</p>
+
+<p><em><strong>NOTE</strong></em>: if you have certs available, change http to https. HTTP should never
+be run in production.</p>
 
 <h1 id="validation" class="page-header">Validation<a class="header-anchor" href="#validation" name="validation"></a>
 </h1>
@@ -148,71 +178,57 @@ this in production.</p>
 <h2 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
 </h2>
 
-<pre><code class="bash">curl HOSTNAME:HEALTH_PORT/health -i
+<pre><code class="bash">curl -i HOSTNAME:HEALTH_PORT/health
 </code></pre>
 
-<pre><code>$ curl -i localhost:6101/health
+<pre><code>$ curl -i localhost:6401/health
 HTTP/1.1 200 OK
 Content-Type: application/json
-X-Tr1d1um-Build: development
-X-Tr1d1um-Flavor: development
-X-Tr1d1um-Region: local
-X-Tr1d1um-Server: localhost
-X-Tr1d1um-Start-Time: 26 Aug 19 18:43 UTC
-Date: Mon, 26 Aug 2019 19:58:13 GMT
+X-Petasos-Build: development
+X-Petasos-Flavor: development
+X-Petasos-Region: local
+X-Petasos-Server: localhost
+X-Petasos-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 19:32:48 GMT
 Content-Length: 427
 Connection: close
 
-{"CurrentMemoryUtilizationActive":905760768,"CurrentMemoryUtilizationAlloc":3218168,"CurrentMemoryUtilizationHeapSys":66289664,"MaxMemoryUtilizationActive":946307072,"MaxMemoryUtilizationAlloc":3881600,"MaxMemoryUtilizationHeapSys":66322432,"PayloadsOverHundred":0,"PayloadsOverTenThousand":0,"PayloadsOverThousand":0,"PayloadsOverZero":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0}
+{"CurrentMemoryUtilizationActive":900415488,"CurrentMemoryUtilizationAlloc":3725928,"CurrentMemoryUtilizationHeapSys":66224128,"MaxMemoryUtilizationActive":946319360,"MaxMemoryUtilizationAlloc":3814840,"MaxMemoryUtilizationHeapSys":66322432,"PayloadsOverHundred":0,"PayloadsOverTenThousand":0,"PayloadsOverThousand":0,"PayloadsOverZero":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0}
 </code></pre>
 
-<h2 id="test-device">Test Device<a class="header-anchor" href="#test-device" name="test-device"></a>
+<h2 id="test-device-redirection">Test Device Redirection<a class="header-anchor" href="#test-device-redirection" name="test-device-redirection"></a>
 </h2>
 
-<p>Connect a device to talaria as described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.</p>
-
-<pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
+<pre><code class="bash">curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  HOSTNAME:PRIMARY_PORT/api/v2/device
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address listening on the PRIMARY<em>PORT.
-Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.
-Where DEVICE</em>ID is the device that is connect to talaria.</p>
+<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY<em>PORT. Where DEVICE</em>ID is the device that is connected to talaria.</p>
 
-<pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6100/api/v2/device/mac:112233445566/stat
-HTTP/1.1 200 OK
-Content-Type: application/json
-X-Scytale-Build: development
-X-Scytale-Flavor: development
-X-Scytale-Region: local
-X-Scytale-Server: localhost
-X-Scytale-Start-Time: 26 Aug 19 18:43 UTC
-X-Talaria-Build: development
-X-Talaria-Flavor: development
-X-Talaria-Region: local
-X-Talaria-Server: localhost
-X-Talaria-Start-Time: 26 Aug 19 18:43 UTC
-X-Tr1d1um-Build: development
-X-Tr1d1um-Flavor: development
-X-Tr1d1um-Region: local
-X-Tr1d1um-Server: localhost
-X-Tr1d1um-Start-Time: 26 Aug 19 18:43 UTC
-X-Webpa-Transaction-Id: t9KunHNKoH5mpx2CcsMLRA
-X-Xmidt-Span: "http://petasos:6400/api/v2/device/mac:112233445566/stat","2019-08-26T20:01:51Z","3.375186ms"
-Date: Mon, 26 Aug 2019 20:01:51 GMT
-Content-Length: 234
+<pre><code class="bash">$ curl -i  -H "X-Webpa-Device-Name:mac:112233445566" localhost:6400/api/v2/device
+HTTP/1.1 307 Temporary Redirect
+Content-Type: text/html; charset=utf-8
+Location: http://talaria-0:6200/api/v2/device
+X-Petasos-Build: development
+X-Petasos-Flavor: development
+X-Petasos-Region: local
+X-Petasos-Server: localhost
+X-Petasos-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 19:35:12 GMT
+Content-Length: 71
 
-{"id": "mac:112233445566", "pending": 0, "statistics": {"bytesSent": 0, "messagesSent": 0, "bytesReceived": 0, "messagesReceived": 0, "duplications": 0, "connectedAt": "2019-08-26T18:43:57.666272023Z", "upTime": "1h17m54.056809601s"}}
+&lt;a href="http://talaria-0:6200/api/v2/device"&gt;Temporary Redirect&lt;/a&gt;.
 </code></pre>
 
 <h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
 </h1>
 
-<p>The most common error is getting a 404, meaning the <a href="/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria">device is not connected</a> to the cluster.</p>
+<p>The most common error is conflicting <a href="/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria">TLS configuration</a>.</p>
 
 <h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
 </h1>
 
-<p>tr1d1um is up and running now; let's stand up <a href="/docs/operating/getting_started/caduceus">caduceus</a>.</p>
+<p>Petasos is up and running now; let's stand up <a href="/docs/operating/scytale">scytale</a>.</p>
 </body></html>
 
       <p class="open-source-notice">

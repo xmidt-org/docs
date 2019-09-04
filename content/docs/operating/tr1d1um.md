@@ -1,6 +1,6 @@
 ---
 title: Tr1d1um
-sort_rank: 5
+sort_rank: 50
 ---
 
 # Tr1d1um
@@ -93,4 +93,4 @@ Content-Length: 234
 The most common error is getting a 404, meaning the [device is not connected](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria) to the cluster.
 
 # Next
-tr1d1um is up and running now; let's stand up [caduceus](/docs/operating/getting_started/caduceus).
+tr1d1um is up and running now; let's stand up [caduceus](/docs/operating/caduceus).

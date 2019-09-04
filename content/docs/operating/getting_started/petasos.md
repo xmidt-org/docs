@@ -22,7 +22,7 @@ service:
   defaultScheme: http
   fixed:
     - http://TALARIA_HOSTNAME:PRIMARY_PORT
-    - http://HOSTNAME:PRIMARY_PORT
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
 ```
 Where HOSTNAME is your DNS record, docker container, or ip address listening on the
 PRIMARY_PORT.

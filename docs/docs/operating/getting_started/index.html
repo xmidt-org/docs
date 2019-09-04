@@ -115,19 +115,19 @@
 <p>The orchestration of XMiDT can be quite complicated. Please refer to the <a href="../introduction/index.md">architecture</a>
 to have a better understanding of the components and how they work towards the bigger picture.</p>
 
-<p>To get up and running quickly, or for a small, non-high availability instance we have
+<p>To get up and running quickly, or for a small, not highly available instance we have
 a <a href="https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose">docker-compose</a> version available.<br>
-This is a great way to see how the components connect with one another as well as a sample configuration
-for each machine that works together.</p>
+This is a great way to see the way that components connect with one another as well as sample configurations
+for each machine.</p>
 
 <h2 id="cluster-composition-determination">Cluster composition determination<a class="header-anchor" href="#cluster-composition-determination" name="cluster-composition-determination"></a>
 </h2>
 
 <p>The XMiDT cluster can be configured either to dynamically coordinate via Consul (<code>consul</code> option)
 or be statically configured (<code>fixed</code> option).  The coordination defines how Petasos routes traffic to Talaria
-machines as well as ensuring Talaria machines accept the same traffic.  At all times Petasos and Talaria should
+machines as well as ensuring Talaria machines accept the same traffic.  Petasos and Talaria should always
 be in lock-step to prevent inbound connections from possibly being stranded.  For any production or
-production-like instances we recommend the <code>consul</code> option.</p>
+production-like instances, we recommend the <code>consul</code> option.</p>
 
 <h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
 </h2>
@@ -200,7 +200,7 @@ This step will be done at each service level, by providing a list of urls.</p>
 <h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
 </h1>
 
-<p>Once you have your approach, and it is up and running you can standup <a href="/docs/operating/getting_started/talaria">Talaria</a>.</p>
+<p>Once you have your approach and it is up and running, you can stand up <a href="/docs/operating/getting_started/talaria">Talaria</a>.</p>
 </body></html>
 
       <p class="open-source-notice">

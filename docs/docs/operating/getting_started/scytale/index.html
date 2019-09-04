@@ -128,19 +128,20 @@ for how to configure scytale.</p>
 <h2 id="connecting-to-petasos">Connecting to petasos<a class="header-anchor" href="#connecting-to-petasos" name="connecting-to-petasos"></a>
 </h2>
 
-<p>To provide the petasoses that scytale should connect to, the fanout block in scytales configuration should look similar to the example below:</p>
+<p>To provide the petasoses that scytale should connect to, the fanout block in scytale's configuration should look similar to the example below:</p>
 
 <pre><code class="yaml">fanout:
-  endpoints: [ "https://petasos:6400/api/v2/device/send" ]
+  endpoints: [ "https://PETASOS_HOSTNAME:PRIMARY_PORT/api/v2/device/send" ]
   authorization: dXNlcjpwYXNz
   fanoutTimeout: "127s"
   clientTimeout: "127s"
   concurrency: 10
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address.</p>
+<p>Where PETASOS<em>HOSTNAME is your Petasos DNS record, docker container, or ip address listening on the
+PRIMARY</em>PORT.</p>
 
-<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available we recommend
+<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.</p>
 
 <p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for petasos. DO NOT use
@@ -173,14 +174,14 @@ Connection: close
 <h2 id="test-device">Test Device<a class="header-anchor" href="#test-device" name="test-device"></a>
 </h2>
 
-<p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a></p>
+<p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.</p>
 
 <pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address.
-Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.
-Where DEVICE_ID is the device that is connect to talaria.</p>
+<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY<em>PORT. Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.
+Where DEVICE</em>ID is the device that is connected to talaria.</p>
 
 <pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6300/api/v2/device/mac:112233445566/stat
 HTTP/1.1 200 OK
@@ -210,7 +211,7 @@ Date: Mon, 26 Aug 2019 19:52:10 GMT
 <h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
 </h1>
 
-<p>scytale is up and running now, let's stand up <a href="/docs/operating/getting_started/tr1d1um">tr1d1um</a>.</p>
+<p>scytale is up and running now; let's stand up <a href="/docs/operating/getting_started/tr1d1um">tr1d1um</a>.</p>
 </body></html>
 
       <p class="open-source-notice">

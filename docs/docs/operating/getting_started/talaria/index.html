@@ -108,6 +108,8 @@
 </a></li>
 <li><a href="#test-device-connection">Test Device Connection
 </a></li>
+<ul><li><a href="#get-connected-devices">Get Connected Devices
+</a></li></ul>
 </ul></div>
 
 <h1 id="installation" class="page-header">Installation<a class="header-anchor" href="#installation" name="installation"></a>
@@ -135,18 +137,19 @@ for how to configure talaria.</p>
 <pre><code class="yaml">service:
   defaultScheme: http
   fixed:
-    - http://&lt;HOSTNAME&gt;:6200
+    - http://HOSTNAME:PRIMARY_PORT
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address.</p>
+<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT.</p>
 
-<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available we recommend
+<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.</p>
 
 <h2 id="consul">Consul<a class="header-anchor" href="#consul" name="consul"></a>
 </h2>
 
-<p>For a consul managed list of talarias and caduceuses, the service block in talaria's configuration should look similar to the example below:</p>
+<p>For a consul managed list of talarias, the service block in talaria's configuration should look similar to the example below:</p>
 
 <pre><code class="yaml">service:
   defaultScheme: http
@@ -184,6 +187,9 @@ always running the service (and all components in the service) in https mode.</p
             deregisterCriticalServiceAfter: "70s"
 </code></pre>
 
+<p>Where CONSUL<em>ADDRESS is your Consul DNS record, docker container, or ip address.
+Where HOSTNAME is your DNS record, docker container, or ip address for this service listening on the HEALTH</em>PORT.</p>
+
 <p>Talaria is watching for the other talarias and is registering itself.</p>
 
 <p><em><strong>NOTE</strong></em>: if you have certs available, change http to https. HTTP should never
@@ -216,24 +222,28 @@ Connection: close
 <h2 id="test-device-connection">Test Device Connection<a class="header-anchor" href="#test-device-connection" name="test-device-connection"></a>
 </h2>
 
-<p>Using a <a href="https://github.com/xmidt-org/xmidt/tree/master/simulator">simulator</a> we
-can mock a device connecting to our cluster. Or you can do hands on with <a href="https://github.com/xmidt-org/kratos">kratos</a></p>
+<p>Using a <a href="https://github.com/xmidt-org/xmidt/tree/master/simulator">device simulator</a> we
+can mock a device connecting to our cluster. The core part of the device simulator that
+connects to talaria is <a href="https://github.com/xmidt-org/parodus">Parados</a>. Instead of
+mocking the device we can also mock parados with <a href="https://github.com/xmidt-org/kratos">kratos</a>.</p>
 
 <pre><code class="bash">docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address.
-<em><strong>NOTE</strong></em>: If you are running talaria locally you will need to provide the ip
+<p>Where HOSTNAME is your DNS record, docker container, or ip address.
+<em><strong>NOTE</strong></em>: If you are running talaria locally, you will need to provide the ip
 address of your machine.</p>
 
-<p>Get Connected Devices
-<em><strong>NOTE</strong></em>: This is a very expensive command. Do NOT run it in production.</p>
+<h3 id="get-connected-devices">Get Connected Devices<a class="header-anchor" href="#get-connected-devices" name="get-connected-devices"></a>
+</h3>
+
+<p><em><strong>NOTE</strong></em>: This is a very expensive command. Do NOT run it in production.</p>
 
 <pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/devices
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address.
-Where AUTHOKEN is the <code>inbound.authKey"</code> in the yaml configuration file.</p>
+<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT. Where AUTHOKEN is the <code>inbound.authKey"</code> in the yaml configuration file.</p>
 
 <p>The following is an example. Do not use this auth key in production.</p>
 

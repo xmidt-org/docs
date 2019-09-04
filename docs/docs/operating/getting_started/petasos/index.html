@@ -135,13 +135,14 @@ for how to configure petasos.</p>
 <pre><code class="yaml">service:
   defaultScheme: http
   fixed:
-    - http://HOSTNAME:PRIMARY_PORT
-    - http://HOSTNAME:PRIMARY_PORT
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
 </code></pre>
 
-<p>Where HOSTNAME is your DNS record, docker container, or ip address.</p>
+<p>Where TALARIA<em>HOSTNAME is your Talaria DNS record, docker container, or ip address listening on the
+PRIMARY</em>PORT.</p>
 
-<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available we recommend
+<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.</p>
 
 <h2 id="consul">Consul<a class="header-anchor" href="#consul" name="consul"></a>
@@ -163,6 +164,8 @@ always running the service (and all components in the service) in https mode.</p
         passingOnly: true
     vnodeCount: 211
 </code></pre>
+
+<p>Where CONSUL_ADDRESS is your Consul DNS record, docker container, or ip address.</p>
 
 <p>Petasos is now using consul to watch for talarias.</p>
 
@@ -199,8 +202,8 @@ Connection: close
 <pre><code class="bash">curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  HOSTNAME:PRIMARY_PORT/api/v2/device
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address.
-Where DEVICE_ID is the device that is connect to talaria.</p>
+<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY<em>PORT. Where DEVICE</em>ID is the device that is connected to talaria.</p>
 
 <pre><code class="bash">$ curl -i  -H "X-Webpa-Device-Name:mac:112233445566" localhost:6400/api/v2/device
 HTTP/1.1 307 Temporary Redirect
@@ -225,7 +228,7 @@ Content-Length: 71
 <h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
 </h1>
 
-<p>Petasos is up and running now, lets stand up <a href="/docs/operating/getting_started/scytale">scytale</a></p>
+<p>Petasos is up and running now; let's stand up <a href="/docs/operating/getting_started/scytale">scytale</a>.</p>
 </body></html>
 
       <p class="open-source-notice">

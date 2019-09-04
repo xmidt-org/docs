@@ -133,9 +133,10 @@ for how to configure tr1d1um.</p>
 <pre><code class="yaml">targetURL: http://SCYTALE_HOSTNAME:PRIMARY_PORT
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record or docker container or ip address.</p>
+<p>Where SCYTALE<em>HOSTNAME is your Scytale DNS record, docker container, or ip address listening on the
+PRIMARY</em>PORT.</p>
 
-<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available we recommend
+<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.</p>
 
 <p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use
@@ -168,14 +169,14 @@ Connection: close
 <h2 id="test-device">Test Device<a class="header-anchor" href="#test-device" name="test-device"></a>
 </h2>
 
-<p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a></p>
+<p>Connect a device to talaria as described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.</p>
 
 <pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address.
-Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file
-Where DEVICE_ID is the device that is connect to talaria.</p>
+<p>Where HOSTNAME is you DNS record, docker container, or ip address listening on the PRIMARY<em>PORT.
+Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.
+Where DEVICE</em>ID is the device that is connect to talaria.</p>
 
 <pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6100/api/v2/device/mac:112233445566/stat
 HTTP/1.1 200 OK

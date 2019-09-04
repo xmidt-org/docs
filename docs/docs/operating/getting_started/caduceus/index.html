@@ -100,7 +100,7 @@
 <h1 id="caduceus" class="page-header">Caduceus<a class="header-anchor" href="#caduceus" name="caduceus"></a>
 </h1>
 <div class="toc toc-right"><ul>
-<li><a href="#fixed">Fixed
+<li><a href="#connecting-to-aws">Connecting to aws
 </a></li>
 <li><a href="#test-health">Test Health
 </a></li>
@@ -135,7 +135,7 @@
 <p>Refer to <a href="https://github.com/xmidt-org/caduceus/blob/master/caduceus.yaml">configuration file</a>
 for how to configure caduceus.</p>
 
-<h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
+<h2 id="connecting-to-aws">Connecting to aws<a class="header-anchor" href="#connecting-to-aws" name="connecting-to-aws"></a>
 </h2>
 
 <p>Under the aws block of the yaml file you will have</p>
@@ -187,8 +187,8 @@ Connection: close
 <pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
 </code></pre>
 
-<p>Where HOSTNAME is you DNS record, docker container, or ip address.
-Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.</p>
+<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY_PORT. Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.</p>
 
 <pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6000/hooks
 HTTP/1.1 200 OK
@@ -205,17 +205,18 @@ Content-Length: 2
 </code></pre>
 
 <p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for caduceus. DO NOT use
-this in production</p>
+this in production.</p>
 
 <h3 id="register-a-webhook">Register a webhook<a class="header-anchor" href="#register-a-webhook" name="register-a-webhook"></a>
 </h3>
 
-<p>Create a <a href="https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener">listener</a>, you should see it by checking the <code>hooks</code> endpoint</p>
+<p>Create a <a href="https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener">listener</a>.<br>
+You should see it by checking the <code>hooks</code> endpoint.</p>
 
 <h3 id="testing-webhook">Testing webhook<a class="header-anchor" href="#testing-webhook" name="testing-webhook"></a>
 </h3>
 
-<p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>
+<p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.
 When the device connects and disconnects to talaria, the listener should receive an online and offline event.</p>
 
 <h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>

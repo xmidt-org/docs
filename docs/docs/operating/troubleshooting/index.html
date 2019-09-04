@@ -116,7 +116,7 @@
 
 <ul>
 <li>
-<p>Problem: Parados has the incorrect url.</p>
+<p>Problem: Parados (the application of the device that connects to talaria) has the incorrect url.</p>
 
 <ul>
 <li>Solution: Validate Parados has the correct url.</li>
@@ -131,19 +131,19 @@
 <p>Problem: TLS is inconsistent between talaria and petasos.</p>
 
 <ul>
-<li>Fixed Solution: Change talaria and petasos Configuration to be consistent with <code>http</code> or <code>https</code>.</li>
+<li>Fixed Solution: Change talaria and petasos configurations to be consistent with <code>http</code> or <code>https</code>.</li>
 </ul>
 
 <pre><code class="yaml"># talaria  
 service:
   defaultScheme: http
   fixed:
-    - http://talaria:6200
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
 # petasos
 service:
 defaultScheme: http
 fixed:
-  - http://talaria:6200
+  - http://TALARIA_HOSTNAME:PRIMARY_PORT
 </code></pre>
 
 <ul>
@@ -156,7 +156,7 @@ service:
   # ^ important
   consul:
     client:
-      address: "CONSUL_ADDRESS:8500"
+      address: "CONSUL_ADDRESS:CONSUL_API_PORT"
       scheme: "http"
       waitTime: "30s"
     disableGenerateID: true
@@ -177,7 +177,7 @@ service:
           - "docker"
           - "stage=dev"
           - "flavor=docker"
-        address: "http://HOSTNAME"
+        address: "http://HOSTNAME:PRIMARY_PORT"
         # ^ important
         scheme: "http"
         # ^ important
@@ -210,7 +210,7 @@ consul:
 <p>Problem: Talaria is not registering with Consul.</p>
 
 <ul>
-<li>Detection: On a consul node run the following commands.</li>
+<li>Detection: On a consul node, run the following command(s):</li>
 </ul>
 
 <pre><code class="bash">consul catalog services
@@ -218,12 +218,12 @@ consul:
 </code></pre>
 
 <ul>
-<li>Solution: Validate Consul client config, with TLS and address</li>
+<li>Solution: Validate Consul client block in Talaria config, with TLS and address.</li>
 </ul>
 
 <pre><code class="yaml">consul:
   client:
-    address: "HOSTNAME:API_PORT"
+    address: "CONSUL_ADDRESS:CONSUL_API_PORT"
     # ^ important
     scheme: "http"
     # ^ important
@@ -250,7 +250,7 @@ consul:
 </li>
 </ul>
 
-<h1 id="general-error" class="page-header">General Error<a class="header-anchor" href="#general-error" name="general-error"></a>
+<h1 id="general-errors" class="page-header">General Errors<a class="header-anchor" href="#general-errors" name="general-errors"></a>
 </h1>
 
 <ul>
@@ -258,7 +258,7 @@ consul:
 
 <ul>
 <li>Solution: Use the ip address of the host machine.
-You can not use localhost when working with docker.</li>
+You can not use <code>localhost</code> when working with docker.</li>
 </ul>
 </li>
 </ul>

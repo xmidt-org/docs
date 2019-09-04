@@ -82,7 +82,7 @@ Connection: close
 curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  HOSTNAME:PRIMARY_PORT/api/v2/device
 ```
 Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT. Where DEVICE_ID is the device that is connect to talaria.
+PRIMARY_PORT. Where DEVICE_ID is the device that is connected to talaria.
 
 ```bash
 $ curl -i  -H "X-Webpa-Device-Name:mac:112233445566" localhost:6400/api/v2/device
@@ -105,4 +105,4 @@ The most common error is conflicting [TLS configuration](/docs/operating/trouble
 
 
 # Next
-Petasos is up and running now, let's stand up [scytale](/docs/operating/getting_started/scytale).
+Petasos is up and running now; let's stand up [scytale](/docs/operating/getting_started/scytale).

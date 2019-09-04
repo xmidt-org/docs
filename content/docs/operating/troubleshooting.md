@@ -105,7 +105,7 @@ sort_rank: 2
     # talaria should show up in list, if not try the solution
     ```
 
-  - Solution: Validate Consul client config, with TLS and address.
+  - Solution: Validate Consul client block in Talaria config, with TLS and address.
 
     ```yaml
     consul:

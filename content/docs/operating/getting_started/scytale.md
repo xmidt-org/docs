@@ -65,7 +65,7 @@ curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/D
 ```
 Where HOSTNAME is your DNS record, docker container, or ip address listening on the
 PRIMARY_PORT. Where AUTHOKEN is the `authHeader` in the yaml configuration file.
-Where DEVICE_ID is the device that is connect to talaria.
+Where DEVICE_ID is the device that is connected to talaria.
 
 ```
 $ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6300/api/v2/device/mac:112233445566/stat
@@ -92,4 +92,4 @@ Date: Mon, 26 Aug 2019 19:52:10 GMT
 The most common error is getting a 404, meaning the [device is not connected](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria) to the cluster.
 
 # Next
-scytale is up and running now, let's stand up [tr1d1um](/docs/operating/getting_started/tr1d1um).
+scytale is up and running now; let's stand up [tr1d1um](/docs/operating/getting_started/tr1d1um).

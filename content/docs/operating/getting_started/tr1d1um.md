@@ -58,7 +58,7 @@ Connect a device to talaria as described [here](/docs/operating/getting_started/
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address.
+Where HOSTNAME is you DNS record, docker container, or ip address listening on the PRIMARY_PORT.
 Where AUTHOKEN is the `authHeader` in the yaml configuration file.
 Where DEVICE_ID is the device that is connect to talaria.
 

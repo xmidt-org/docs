@@ -87,7 +87,7 @@
         
           <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
-          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active current"><a href="/docs/operating/getting_started/">Getting started</a></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
         
@@ -95,10 +95,113 @@
     </div>
 
     <div class="col-md-9 doc-content">
-      <h1 id="introduction" class="page-header">Introduction<a class="header-anchor" href="#introduction" name="introduction"></a>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1 id="getting-started" class="page-header">Getting Started<a class="header-anchor" href="#getting-started" name="getting-started"></a>
+</h1>
+<div class="toc toc-right"><ul>
+<li><a href="#cluster-composition-determination">Cluster composition determination
+</a></li>
+<li><a href="#fixed">Fixed
+</a></li>
+<ul><li><a href="#setup">Setup
+</a></li></ul>
+<li><a href="#consul">Consul
+</a></li>
+<ul><li><a href="#setup">Setup
+</a></li></ul>
+</ul></div>
+
+<p>The orchestration of XMiDT can be quite complicated. Please refer to the <a href="../introduction/index.md">architecture</a>
+to have a better understanding of the components and how they work towards the bigger picture.</p>
+
+<p>To get up and running quickly, or for a small, not highly available instance we have
+a <a href="https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose">docker-compose</a> version available.<br>
+This is a great way to see the way that components connect with one another as well as sample configurations
+for each machine.</p>
+
+<h2 id="cluster-composition-determination">Cluster composition determination<a class="header-anchor" href="#cluster-composition-determination" name="cluster-composition-determination"></a>
+</h2>
+
+<p>The XMiDT cluster can be configured either to dynamically coordinate via Consul (<code>consul</code> option)
+or be statically configured (<code>fixed</code> option).  The coordination defines how Petasos routes traffic to Talaria
+machines as well as ensuring Talaria machines accept the same traffic.  Petasos and Talaria should always
+be in lock-step to prevent inbound connections from possibly being stranded.  For any production or
+production-like instances, we recommend the <code>consul</code> option.</p>
+
+<h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
+</h2>
+
+<p>Fixed routing involves configuring each petasos to know the fqdn/ip of all talarias in the cluster/region.</p>
+
+<table class=" table table-bordered">
+<thead>
+<tr>
+<th>Pro</th>
+<th>Con</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fast to standup</td>
+<td>Scaling is harder</td>
+</tr>
+<tr>
+<td>One less component to manage</td>
+<td>Node failover not supported</td>
+</tr>
+<tr>
+<td></td>
+<td>Prometheus auto-discovery is harder</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="setup">Setup<a class="header-anchor" href="#setup" name="setup"></a>
+</h3>
+
+<p>No prior setup is necessary.
+This step will be done at each service level, by providing a list of urls.</p>
+
+<h2 id="consul">Consul<a class="header-anchor" href="#consul" name="consul"></a>
+</h2>
+
+<p><a href="https://www.consul.io/">Consul</a> allows petasos to dynamically know about all the talarias in the datacenter.</p>
+
+<table class=" table table-bordered">
+<thead>
+<tr>
+<th>Pro</th>
+<th>Con</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scaling is fast and easy</td>
+<td>TLS can be more complicated</td>
+</tr>
+<tr>
+<td>Easier metric monitoring</td>
+<td>Management of Consul</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="setup">Setup<a class="header-anchor" href="#setup-0" name="setup-0"></a>
+</h3>
+
+<ul>
+<li>  <a href="https://learn.hashicorp.com/consul/getting-started/install">Installation</a>
+</li>
+<li>  <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-consul-with-tls-encryption-on-ubuntu-14-04">TLS Setup</a>
+</li>
+</ul>
+
+<h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
 </h1>
 
-<p>TBD</p>
+<p>Once you have your approach and it is up and running, you can stand up <a href="/docs/operating/getting_started/talaria">Talaria</a>.</p>
+</body></html>
 
       <p class="open-source-notice">
           <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.

@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
 
     
-    <title>Getting started | Xmidt</title>
+    <title>Petasos | Xmidt</title>
     
 
     <!-- Bootstrap core CSS -->
@@ -87,7 +87,7 @@
         
           <li><span class="nav-header"><i class="fa fa-wrench"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
         
-          <li><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav "><li><span class="nav-subheader">Getting started</span><ul class="nav "><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li class="active"><span class="nav-subheader">Getting started</span><ul class="nav active"><li><a href="/docs/operating/getting_started/talaria/">Talaria</a></li><li class="active current"><a href="/docs/operating/getting_started/petasos/">Petasos</a></li><li><a href="/docs/operating/getting_started/scytale/">Scytale</a></li><li><a href="/docs/operating/getting_started/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/getting_started/caduceus/">Caduceus</a></li></ul></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-code"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
         
@@ -95,13 +95,141 @@
     </div>
 
     <div class="col-md-9 doc-content">
-      
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1 id="petasos" class="page-header">Petasos<a class="header-anchor" href="#petasos" name="petasos"></a>
+</h1>
+<div class="toc toc-right"><ul>
+<li><a href="#fixed">Fixed
+</a></li>
+<li><a href="#consul">Consul
+</a></li>
+<li><a href="#test-health">Test Health
+</a></li>
+<li><a href="#test-device-redirection">Test Device Redirection
+</a></li>
+</ul></div>
 
-<h1 id="getting-started" class="page-header">Getting started<a class="header-anchor" href="#getting-started" name="getting-started"></a>
+<h1 id="installation" class="page-header">Installation<a class="header-anchor" href="#installation" name="installation"></a>
 </h1>
 
-<p>This is a sample to get our documentation system started.  More will come later.</p>
+<ul>
+<li>  <a href="https://xmidt.io/download/#petasos">RPM</a>
+</li>
+<li>  <a href="https://xmidt.io/download/#petasos">Binary</a>
+</li>
+<li>  Docker (Link TBC)</li>
+</ul>
 
+<h1 id="configuration" class="page-header">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
+</h1>
+
+<p>Refer to <a href="https://github.com/xmidt-org/petasos/blob/master/petasos.yaml">configuration file</a>
+for how to configure petasos.</p>
+
+<h2 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
+</h2>
+
+<p>For fixed routing, the service block in petasos' configuration should look similar to the example below:</p>
+
+<pre><code class="yaml">service:
+  defaultScheme: http
+  fixed:
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
+</code></pre>
+
+<p>Where TALARIA<em>HOSTNAME is your Talaria DNS record, docker container, or ip address listening on the
+PRIMARY</em>PORT.</p>
+
+<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
+always running the service (and all components in the service) in https mode.</p>
+
+<h2 id="consul">Consul<a class="header-anchor" href="#consul" name="consul"></a>
+</h2>
+
+<p>For a consul managed list of talarias, the petasos configuration should look similar to the example below:</p>
+
+<pre><code class="yaml">service:
+  defaultScheme: http
+  consul:
+    client:
+      address: "CONSUL_ADDRESS:8500"
+      scheme: "http"
+      waitTime: "30s"
+    disableGenerateID: true
+    watches:
+      -
+        service: "talaria"
+        passingOnly: true
+    vnodeCount: 211
+</code></pre>
+
+<p>Where CONSUL_ADDRESS is your Consul DNS record, docker container, or ip address.</p>
+
+<p>Petasos is now using consul to watch for talarias.</p>
+
+<p><em><strong>NOTE</strong></em>: if you have certs available, change http to https. HTTP should never
+be run in production.</p>
+
+<h1 id="validation" class="page-header">Validation<a class="header-anchor" href="#validation" name="validation"></a>
+</h1>
+
+<h2 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
+</h2>
+
+<pre><code class="bash">curl -i HOSTNAME:HEALTH_PORT/health
+</code></pre>
+
+<pre><code>$ curl -i localhost:6401/health
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Petasos-Build: development
+X-Petasos-Flavor: development
+X-Petasos-Region: local
+X-Petasos-Server: localhost
+X-Petasos-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 19:32:48 GMT
+Content-Length: 427
+Connection: close
+
+{"CurrentMemoryUtilizationActive":900415488,"CurrentMemoryUtilizationAlloc":3725928,"CurrentMemoryUtilizationHeapSys":66224128,"MaxMemoryUtilizationActive":946319360,"MaxMemoryUtilizationAlloc":3814840,"MaxMemoryUtilizationHeapSys":66322432,"PayloadsOverHundred":0,"PayloadsOverTenThousand":0,"PayloadsOverThousand":0,"PayloadsOverZero":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0}
+</code></pre>
+
+<h2 id="test-device-redirection">Test Device Redirection<a class="header-anchor" href="#test-device-redirection" name="test-device-redirection"></a>
+</h2>
+
+<pre><code class="bash">curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  HOSTNAME:PRIMARY_PORT/api/v2/device
+</code></pre>
+
+<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+PRIMARY<em>PORT. Where DEVICE</em>ID is the device that is connected to talaria.</p>
+
+<pre><code class="bash">$ curl -i  -H "X-Webpa-Device-Name:mac:112233445566" localhost:6400/api/v2/device
+HTTP/1.1 307 Temporary Redirect
+Content-Type: text/html; charset=utf-8
+Location: http://talaria-0:6200/api/v2/device
+X-Petasos-Build: development
+X-Petasos-Flavor: development
+X-Petasos-Region: local
+X-Petasos-Server: localhost
+X-Petasos-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 19:35:12 GMT
+Content-Length: 71
+
+&lt;a href="http://talaria-0:6200/api/v2/device"&gt;Temporary Redirect&lt;/a&gt;.
+</code></pre>
+
+<h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
+</h1>
+
+<p>The most common error is conflicting <a href="/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria">TLS configuration</a>.</p>
+
+<h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
+</h1>
+
+<p>Petasos is up and running now; let's stand up <a href="/docs/operating/getting_started/scytale">scytale</a>.</p>
+</body></html>
 
       <p class="open-source-notice">
           <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.

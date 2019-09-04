@@ -24,7 +24,7 @@ service:
     - http://TALARIA_HOSTNAME:PRIMARY_PORT
     - http://TALARIA_HOSTNAME:PRIMARY_PORT
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address listening on the
+Where TALARIA_HOSTNAME is your Talaria DNS record, docker container, or ip address listening on the
 PRIMARY_PORT.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend

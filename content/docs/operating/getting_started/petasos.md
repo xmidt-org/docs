@@ -21,7 +21,7 @@ For fixed routing, the service block in petasos' configuration should look simil
 service:
   defaultScheme: http
   fixed:
-    - http://HOSTNAME:PRIMARY_PORT
+    - http://TALARIA_HOSTNAME:PRIMARY_PORT
     - http://HOSTNAME:PRIMARY_PORT
 ```
 Where HOSTNAME is your DNS record, docker container, or ip address listening on the

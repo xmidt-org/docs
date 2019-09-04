@@ -1,6 +1,6 @@
 ---
 title: Talaria
-sort_rank: 2
+sort_rank: 20
 ---
 
 # Talaria
@@ -142,4 +142,4 @@ Content-Length: 245
 The most common error is [devices not showing](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria).
 
 # Next
-Talaria should be up and running now; let's stand up [petasos](/docs/operating/getting_started/petasos).
+Talaria should be up and running now; let's stand up [petasos](/docs/operating/petasos).

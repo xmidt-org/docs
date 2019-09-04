@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-sort_rank: 2
+sort_rank: 100
 ---
 
 # Troubleshooting

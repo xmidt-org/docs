@@ -1,3 +1,9 @@
+---
+title: Repo Naming Guidelines
+layout: /page.*
+
+---
+
 # Repo Guidelines
 
 Below are the guidelines for naming a repository in xmidt-org.  We have four 

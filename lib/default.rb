@@ -6,6 +6,9 @@ include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::Blogging
 include Nanoc::Helpers::Tagging
 
+use_helper Nanoc::Helpers::ChildParent
+use_helper Nanoc::Helpers::Capturing
+
 module BlogHelper
   def get_pretty_date(post)
     attribute_to_time(post[:created_at]).strftime('%B %-d, %Y')

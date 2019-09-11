@@ -12,7 +12,7 @@
   <icon>https://xmidt.io/assets/favicons/favicon.ico</icon>
   <logo>https://xmidt.io/assets/xmidt_logo.png</logo>
   <entry>
-    <id>tag:xmidt.io,2019-08-07:/blog/2019/08/02/hello-world/</id>
+    <id>tag:xmidt.io,2019-08-07:/blog/2019-08-02-hello-world/</id>
     <title type="html">Hello, world!</title>
     <published>2019-08-07T00:00:00Z</published>
     <updated>2019-08-07T00:00:00Z</updated>
@@ -20,7 +20,7 @@
       <name>Weston Schmidt</name>
       <uri>https://xmidt.io/blog/</uri>
     </author>
-    <link rel="alternate" href="https://xmidt.io/blog/2019/08/02/hello-world/"/>
+    <link rel="alternate" href="https://xmidt.io/blog/2019-08-02-hello-world/"/>
     <content type="html">&lt;p&gt;Hello, world!&lt;/p&gt;
 
 &lt;p&gt;We've been working at getting the new site up and today we're far enough along

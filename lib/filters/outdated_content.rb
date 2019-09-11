@@ -12,7 +12,7 @@ class OutdatedContent < ::Nanoc::Filter
       Check out the <a href="#{params[:outdated]}getting_started/">latest version</a>.</p>)
 
     body = doc.css('body')
-    if first = body.children.first
+    if first = children_of(body).first
       first.add_previous_sibling(warning)
     else
       body << Nokogiri::HTML::DocumentFragment.parse(warning)

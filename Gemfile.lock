@@ -116,7 +116,7 @@ DEPENDENCIES
   guard-livereload
   guard-nanoc
   kramdown
-  nanoc (>= 4.11)
+  nanoc (~> 4.11)
   nokogiri (>= 1.10.4)
   pygments.rb
   rb-fchange

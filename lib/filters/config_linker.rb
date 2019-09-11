@@ -23,12 +23,12 @@ class ConfigLinker < ::Nanoc::Filter
   def types(codes)
     # Select all placeholders.
     elements = codes.select do |code|
-      code.children.size == 1 && code.text =~ /\A<[^>]+>\Z/
+      children_of(code).size == 1 && code.text =~ /\A<[^>]+>\Z/
     end
 
     # Initialize dictionary with placeholders which are headers, as these are already linked.
     dict = elements.each_with_object({}) do |e, memo|
-      if e.parent.attr('id') == e.text
+      if parent_of(e).attr('id') == e.text
         memo[e.text] = e.inner_html
       end
     end

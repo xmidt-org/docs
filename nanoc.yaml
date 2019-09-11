@@ -17,7 +17,7 @@ index_filenames: [ 'index.html' ]
 # Whether or not to generate a diff of the compiled content when compiling a
 # site. The diff will contain the differences between the compiled content
 # before and after the last site compilation.
-enable_output_diff: false
+enable_output_diff: true
 
 prune:
   # Whether to automatically remove files not managed by nanoc from the output
@@ -33,13 +33,13 @@ prune:
 # hashes; each array element represents a single data source. By default,
 # there is only a single data source that reads data from the “content/” and
 # “layout/” directories in the site directory.
-string_pattern_type: legacy
+string_pattern_type: glob
 data_sources:
   -
     # The type is the identifier of the data source. By default, this will be
     # `filesystem_unified`.
     type: filesystem_unified
-    identifier_type: legacy
+    identifier_type: full
 
     # The path where items should be mounted (comparable to mount points in
     # Unix-like systems). This is “/” by default, meaning that items will have
@@ -65,7 +65,7 @@ data_sources:
     encoding: utf-8
   -
     type: repo_docs
-    identifier_type: legacy
+    identifier_type: full
     items_root: /docs/caduceus/latest/
     config:
       name: 'latest (0.1)'
@@ -73,7 +73,7 @@ data_sources:
       refspec: master
   -
     type: repo_docs
-    identifier_type: legacy
+    identifier_type: full
     items_root: /docs/caduceus/1.0/
     config:
       name: '0.1'
@@ -82,7 +82,7 @@ data_sources:
       canonical: /docs/caduceus/latest/
   -
     type: repo_docs
-    identifier_type: legacy
+    identifier_type: full
     items_root: /docs/svalinn/latest/
     config:
       name: 'latest (0.11)'
@@ -91,7 +91,7 @@ data_sources:
       canonical: /docs/codex/svalinn/latest/
   -
     type: repo_docs
-    identifier_type: legacy
+    identifier_type: full
     items_root: /docs/gungnir/latest/
     config:
       name: 'latest (0.9)'
@@ -100,7 +100,7 @@ data_sources:
       canonical: /docs/codex/gungnir/latest/
   -
     type: repo_docs
-    identifier_type: legacy
+    identifier_type: full
     items_root: /docs/fenrir/latest/
     config:
       name: 'latest (0.5)'
@@ -109,7 +109,7 @@ data_sources:
       canonical: /docs/codex/fenrir/latest/
   -
     type: repo_docs
-    identifier_type: legacy
+    identifier_type: full
     items_root: /docs/heimdall/latest/
     config:
       name: 'latest (0.1)'

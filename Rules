@@ -10,32 +10,31 @@
 #
 # * Item identifiers start and end with a slash (e.g. “/about/” for the file
 #   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
+#   item, use the pattern “/about/**/*/”.
 
-passthrough '/assets/**'
+passthrough '/assets/**/*'
 
-# TODO(ts): Remove these hacks once the nanoc4 upgrade is done.
-compile '*/images/*' do
+compile '/static/**/*' do
 end
 
-route '*/images/*' do
-  item.identifier.chop + '.' + item[:extension]
+route '/static/**/*' do
+  # /static/foo.html → /foo.html
+  item.identifier.to_s.sub(/\A\/static/, '')
 end
 
 # RSS Feed
-compile '/blog/feed/' do
+compile '/blog/feed.*' do
     filter :erb
 end
 
-route '/blog/feed/' do
+route '/blog/feed.*' do
     '/blog/feed.xml'
 end
 
-compile '*' do
+compile '/**/*' do
   filter :erb
 
-  if item[:extension] == 'md'
+  if item.identifier.ext == 'md'
     filter :redcarpet, options: {filter_html: true, autolink: true, no_intraemphasis: true, fenced_code_blocks: true, gh_blockcode: true, tables: true}, renderer_options: {with_toc_data: true}
     filter :normalize_links, item[:repo_docs] if item[:repo_docs]
     filter :outdated_content, item[:repo_docs] if item[:repo_docs] && item[:repo_docs][:outdated]
@@ -46,45 +45,49 @@ compile '*' do
     filter :config_linker if item[:title] == 'Configuration'
     filter :toc, style: item[:toc]
     if item[:kind] == 'article'
-      layout 'blog'
+      layout '/blog.*'
     else
       # TODO(mr): separate layout selection from Markdown handling
-      layout item[:layout] || 'docs'
+      layout item[:layout] || '/docs.*'
     end
-  elsif item[:extension] == 'css'
+  elsif item.identifier.ext == 'css'
     # don’t filter stylesheets
   elsif item.binary?
     # don’t filter binary items
   elsif item[:layout]
     layout item[:layout]
   else
-    layout 'default'
+    layout '/default.*'
   end
-end
-
-route '/blog/' do
-  '/blog/index.html'
 end
 
 # Transform /blog/<YYYY>-<MM>-<DD>-<post title> to
 # /blog/<YYYY>/<MM>/<DD>/<post title>.
 route '/blog/*' do
-  y, m, d, slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/.match(item.identifier).captures
-
-  "/blog/#{y}/#{m}/#{d}/#{slug}/index.html"
-end
-
-route '*' do
-  if item[:extension] == 'css'
-    # Write item with identifier /foo/ to /foo.css
-    item.identifier.chop + '.css'
-  elsif item.binary?
-    # Write item with identifier /foo.dat to /foo.dat
-    item.identifier.to_s
+  if item.identifier.without_exts.end_with?('index')
+    item.identifier.to_str
   else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
+  # y, m, d, slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/.match(item.identifier.without_ext).capture
+
+  # "/blog/#{y}/#{m}/#{d}/#{slug}/index.html"
+    item.identifier.without_ext + "/index.html"
   end
 end
 
-layout '*', :erb
+route '/**/*' do
+  if item.identifier.ext == 'css'
+    # Write item with identifier /foo.css to /foo.css
+    item.identifier.to_str
+  elsif item.binary?
+    # Write item with identifier /foo.dat to /foo.dat
+    item.identifier.to_str
+  elsif item.identifier.without_exts.end_with?('index')
+    # Write item with identifier /foo/index.html to /foo/index.html
+    item.identifier.to_str
+  else
+    # Write item with identifier /foo.html to /foo/index.html
+    item.identifier.without_exts + '/index.html'
+  end
+end
+
+layout '/**/*', :erb

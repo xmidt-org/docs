@@ -1,4 +1,4 @@
-<% render 'default' do %>
+<% render '/default.*' do %>
 <div class="row">
   <div class="col-md-9 blog doc-content">
     <h1><%= item[:title] %></h1>
@@ -22,6 +22,6 @@
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
 
-  <%= render 'blog_sidebar' %>
+  <%= render '/blog_sidebar.*' %>
 </div>
 <% end %>

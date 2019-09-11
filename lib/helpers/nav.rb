@@ -60,7 +60,7 @@ def nav_title_of(i)
 end
 
 def nav_children(item)
-  item.children
+  children_of(item)
     .select { |child| !child[:is_hidden] && child.path }
     .sort_by { |child| child[:sort_rank] || 0 }
 end
@@ -101,9 +101,8 @@ module Versioned
     options = versions.map do |v|
       selected = current?(v, page) ? 'selected="selected"' : ''
       # TODO(ts): Refactor and think about linking directly to the page of the same version.
-      first = items
-        .find { |i| i.path.start_with?(v[:items_root]) }
-        .children.sort_by { |c| c[:sort_rank] || 0 }.first
+      first = children_of(items.find { |i| i.path.start_with?(v[:items_root]) })
+        .sort_by { |c| c[:sort_rank] || 0 }.first
       %(<option value="#{first.path}" #{selected}>#{v[:name]}</option>)
     end
     classes = active ? 'active' : ''

@@ -30,10 +30,10 @@ class RepoDocsDataSource < ::Nanoc::DataSources::Filesystem
       # TODO(ts): Remove assumptions about the path layout, rewrite datasource.
       attrs[:repo_docs][:version_root] = config.fetch(:items_root).sub(%r{(.+/)[^/]+/\Z}, '\\1')
       # TODO(ts): Document that repo doc index.md will be ignored.
-      if item.identifier == '/'
+      if item.identifier.without_ext == '/index'
         attrs[:nav] = { strip: true }
       end
-      new_item(item.content, attrs, item.identifier)
+      new_item(item.content, attrs, item.identifier.to_str)
     end
   end
 

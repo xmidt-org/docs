@@ -1,6 +1,6 @@
 ---
 title: Governance
-layout: page
+layout: /page.*
 
 ---
 

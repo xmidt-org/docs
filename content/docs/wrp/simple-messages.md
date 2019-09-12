@@ -1,6 +1,6 @@
 ---
 title: Simple Message Types
-sort_rank: 3
+sort_rank: 30
 ---
 
 # Simple Message Types

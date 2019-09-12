@@ -1,6 +1,6 @@
 ---
 title: Basics
-sort_rank: 2
+sort_rank: 20
 ---
 
 # Basics

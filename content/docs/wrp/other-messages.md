@@ -1,6 +1,6 @@
 ---
 title: Other Message Types
-sort_rank: 5
+sort_rank: 50
 ---
 
 # Other Message Types

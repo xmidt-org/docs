@@ -1,6 +1,6 @@
 ---
 title: CRUD Message Types
-sort_rank: 4
+sort_rank: 40
 ---
 
 # CRUD Message Types

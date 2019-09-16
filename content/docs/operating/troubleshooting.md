@@ -127,7 +127,7 @@ sort_rank: 100
           # double check http vs https and the hostname
     ```
 
-# General Errors
+## General Errors
 - Problem: Docker networking with localhost.
   - Solution: Use the ip address of the host machine.
   You can not use `localhost` when working with docker.

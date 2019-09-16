@@ -5,16 +5,16 @@ sort_rank: 50
 
 # Tr1d1um
 
-# Installation
+## Installation
 -   [RPM](https://xmidt.io/download/#tr1d1um)
 -   [Binary](https://xmidt.io/download/#tr1d1um)
 -   Docker (Link TBC)
 
-# Configuration
+## Configuration
 Refer to [configuration file](https://github.com/xmidt-org/tr1d1um/blob/master/tr1d1um.yaml)
 for how to configure tr1d1um.
 
-## Connecting to scytale
+### Connecting to scytale
 Under the fanout block of the yaml file you will have
 
 ```yaml
@@ -29,8 +29,8 @@ always running the service (and all components in the service) in https mode.
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use
 this in production.
 
-# Validation
-## Test Health
+## Validation
+### Test Health
 ```bash
 curl HOSTNAME:HEALTH_PORT/health -i
 ```
@@ -52,7 +52,7 @@ Connection: close
 {"CurrentMemoryUtilizationActive":905760768,"CurrentMemoryUtilizationAlloc":3218168,"CurrentMemoryUtilizationHeapSys":66289664,"MaxMemoryUtilizationActive":946307072,"MaxMemoryUtilizationAlloc":3881600,"MaxMemoryUtilizationHeapSys":66322432,"PayloadsOverHundred":0,"PayloadsOverTenThousand":0,"PayloadsOverThousand":0,"PayloadsOverZero":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0}
 ```
 
-## Test Device
+### Test Device
 Connect a device to talaria as described [here](/docs/operating/getting_started/talaria/#test-device-connection).
 
 ```bash
@@ -89,8 +89,8 @@ Content-Length: 234
 {"id": "mac:112233445566", "pending": 0, "statistics": {"bytesSent": 0, "messagesSent": 0, "bytesReceived": 0, "messagesReceived": 0, "duplications": 0, "connectedAt": "2019-08-26T18:43:57.666272023Z", "upTime": "1h17m54.056809601s"}}
 ```
 
-# Troubleshooting
+## Troubleshooting
 The most common error is getting a 404, meaning the [device is not connected](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria) to the cluster.
 
-# Next
+## Next
 tr1d1um is up and running now; let's stand up [caduceus](/docs/operating/caduceus).

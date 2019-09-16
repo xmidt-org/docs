@@ -100,26 +100,30 @@
 <h1 id="caduceus" class="page-header">Caduceus<a class="header-anchor" href="#caduceus" name="caduceus"></a>
 </h1>
 <div class="toc toc-right"><ul>
-<li><a href="#connecting-to-aws">Connecting to aws
+<li><a href="#installation">Installation
 </a></li>
+<li><a href="#configuration">Configuration
+</a></li>
+<ul><li><a href="#connecting-to-aws">Connecting to aws
+</a></li></ul>
+<li><a href="#validation">Validation
+</a></li>
+<ul>
 <li><a href="#test-health">Test Health
 </a></li>
 <li><a href="#test-webhooks">Test Webhooks
 </a></li>
-<ul>
-<li><a href="#get-webhooks">Get webhooks
-</a></li>
-<li><a href="#register-a-webhook">Register a webhook
-</a></li>
-<li><a href="#testing-webhook">Testing webhook
-</a></li>
 </ul>
+<li><a href="#troubleshooting">Troubleshooting
+</a></li>
+<li><a href="#next">Next
+</a></li>
 </ul></div>
 
 <p>Currently Caduceus depends on <a href="https://aws.amazon.com/sns/getting-started/">SNS</a></p>
 
-<h1 id="installation" class="page-header">Installation<a class="header-anchor" href="#installation" name="installation"></a>
-</h1>
+<h2 id="installation">Installation<a class="header-anchor" href="#installation" name="installation"></a>
+</h2>
 
 <ul>
 <li>  <a href="https://xmidt.io/download/#caduceus">RPM</a>
@@ -129,14 +133,14 @@
 <li>  Docker (Link TBC)</li>
 </ul>
 
-<h1 id="configuration" class="page-header">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
-</h1>
+<h2 id="configuration">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
+</h2>
 
 <p>Refer to <a href="https://github.com/xmidt-org/caduceus/blob/master/caduceus.yaml">configuration file</a>
 for how to configure caduceus.</p>
 
-<h2 id="connecting-to-aws">Connecting to aws<a class="header-anchor" href="#connecting-to-aws" name="connecting-to-aws"></a>
-</h2>
+<h3 id="connecting-to-aws">Connecting to aws<a class="header-anchor" href="#connecting-to-aws" name="connecting-to-aws"></a>
+</h3>
 
 <p>Under the aws block of the yaml file you will have</p>
 
@@ -154,11 +158,11 @@ for how to configure caduceus.</p>
 <p>For local testing you can use <a href="https://github.com/p4tin/goaws">a mock sns instance</a>
 <em><strong>NOTE</strong></em>: Do not use this in production. It is untested.</p>
 
-<h1 id="validation" class="page-header">Validation<a class="header-anchor" href="#validation" name="validation"></a>
-</h1>
-
-<h2 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
+<h2 id="validation">Validation<a class="header-anchor" href="#validation" name="validation"></a>
 </h2>
+
+<h3 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
+</h3>
 
 <pre><code class="bash">curl -i HOSTNAME:HEALTH_PORT/health
 </code></pre>
@@ -178,11 +182,11 @@ Connection: close
 {"CurrentMemoryUtilizationActive":895574016,"CurrentMemoryUtilizationAlloc":3190504,"CurrentMemoryUtilizationHeapSys":66224128,"MaxMemoryUtilizationActive":946352128,"MaxMemoryUtilizationAlloc":3908816,"MaxMemoryUtilizationHeapSys":66420736,"PayloadsOverHundred":0,"PayloadsOverTenThousand":0,"PayloadsOverThousand":0,"PayloadsOverZero":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0}
 </code></pre>
 
-<h2 id="test-webhooks">Test Webhooks<a class="header-anchor" href="#test-webhooks" name="test-webhooks"></a>
-</h2>
-
-<h3 id="get-webhooks">Get webhooks<a class="header-anchor" href="#get-webhooks" name="get-webhooks"></a>
+<h3 id="test-webhooks">Test Webhooks<a class="header-anchor" href="#test-webhooks" name="test-webhooks"></a>
 </h3>
+
+<h4 id="get-webhooks">Get webhooks<a class="header-anchor" href="#get-webhooks" name="get-webhooks"></a>
+</h4>
 
 <pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
 </code></pre>
@@ -207,25 +211,25 @@ Content-Length: 2
 <p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for caduceus. DO NOT use
 this in production.</p>
 
-<h3 id="register-a-webhook">Register a webhook<a class="header-anchor" href="#register-a-webhook" name="register-a-webhook"></a>
-</h3>
+<h4 id="register-a-webhook">Register a webhook<a class="header-anchor" href="#register-a-webhook" name="register-a-webhook"></a>
+</h4>
 
 <p>Create a <a href="https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener">listener</a>.<br>
 You should see it by checking the <code>hooks</code> endpoint.</p>
 
-<h3 id="testing-webhook">Testing webhook<a class="header-anchor" href="#testing-webhook" name="testing-webhook"></a>
-</h3>
+<h4 id="testing-webhook">Testing webhook<a class="header-anchor" href="#testing-webhook" name="testing-webhook"></a>
+</h4>
 
 <p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.
 When the device connects and disconnects to talaria, the listener should receive an online and offline event.</p>
 
-<h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
-</h1>
+<h2 id="troubleshooting">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
+</h2>
 
 <p>The most common error is that talaria is <a href="/docs/operating/troubleshooting/#event-errors">not configured correctly to talk to caduceus</a>.</p>
 
-<h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
-</h1>
+<h2 id="next">Next<a class="header-anchor" href="#next" name="next"></a>
+</h2>
 
 <p>The Cluster is up and running. Take a look at <a href="/docs/codex/overview/">Codex</a> for how to build
 a codex cluster.</p>

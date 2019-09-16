@@ -100,16 +100,28 @@
 <h1 id="scytale" class="page-header">Scytale<a class="header-anchor" href="#scytale" name="scytale"></a>
 </h1>
 <div class="toc toc-right"><ul>
-<li><a href="#connecting-to-petasos">Connecting to petasos
+<li><a href="#installation">Installation
 </a></li>
+<li><a href="#configuration">Configuration
+</a></li>
+<ul><li><a href="#connecting-to-petasos">Connecting to petasos
+</a></li></ul>
+<li><a href="#validation">Validation
+</a></li>
+<ul>
 <li><a href="#test-health">Test Health
 </a></li>
 <li><a href="#test-device">Test Device
 </a></li>
+</ul>
+<li><a href="#troubleshooting">Troubleshooting
+</a></li>
+<li><a href="#next">Next
+</a></li>
 </ul></div>
 
-<h1 id="installation" class="page-header">Installation<a class="header-anchor" href="#installation" name="installation"></a>
-</h1>
+<h2 id="installation">Installation<a class="header-anchor" href="#installation" name="installation"></a>
+</h2>
 
 <ul>
 <li>  <a href="https://xmidt.io/download/#scytale">RPM</a>
@@ -119,14 +131,14 @@
 <li>  Docker (Link TBC)</li>
 </ul>
 
-<h1 id="configuration" class="page-header">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
-</h1>
+<h2 id="configuration">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
+</h2>
 
 <p>Refer to <a href="https://github.com/xmidt-org/scytale/blob/master/scytale.yaml">configuration file</a>
 for how to configure scytale.</p>
 
-<h2 id="connecting-to-petasos">Connecting to petasos<a class="header-anchor" href="#connecting-to-petasos" name="connecting-to-petasos"></a>
-</h2>
+<h3 id="connecting-to-petasos">Connecting to petasos<a class="header-anchor" href="#connecting-to-petasos" name="connecting-to-petasos"></a>
+</h3>
 
 <p>To provide the petasoses that scytale should connect to, the fanout block in scytale's configuration should look similar to the example below:</p>
 
@@ -147,11 +159,11 @@ always running the service (and all components in the service) in https mode.</p
 <p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for petasos. DO NOT use
 this in production.</p>
 
-<h1 id="validation" class="page-header">Validation<a class="header-anchor" href="#validation" name="validation"></a>
-</h1>
-
-<h2 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
+<h2 id="validation">Validation<a class="header-anchor" href="#validation" name="validation"></a>
 </h2>
+
+<h3 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
+</h3>
 
 <pre><code class="bash">curl HOSTNAME:HEALTH_PORT/health -i
 </code></pre>
@@ -171,8 +183,8 @@ Connection: close
 {"CurrentMemoryUtilizationActive":903426048,"CurrentMemoryUtilizationAlloc":1711536,"CurrentMemoryUtilizationHeapSys":66224128,"MaxMemoryUtilizationActive":946319360,"MaxMemoryUtilizationAlloc":3915152,"MaxMemoryUtilizationHeapSys":66289664,"PayloadsOverHundred":0,"PayloadsOverTenThousand":0,"PayloadsOverThousand":0,"PayloadsOverZero":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0}
 </code></pre>
 
-<h2 id="test-device">Test Device<a class="header-anchor" href="#test-device" name="test-device"></a>
-</h2>
+<h3 id="test-device">Test Device<a class="header-anchor" href="#test-device" name="test-device"></a>
+</h3>
 
 <p>Connect a device to talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.</p>
 
@@ -203,13 +215,13 @@ Date: Mon, 26 Aug 2019 19:52:10 GMT
 {"id": "mac:112233445566", "pending": 0, "statistics": {"bytesSent": 0, "messagesSent": 0, "bytesReceived": 0, "messagesReceived": 0, "duplications": 0, "connectedAt": "2019-08-26T18:43:57.666272023Z", "upTime": "1h8m12.684567688s"}}
 </code></pre>
 
-<h1 id="troubleshooting" class="page-header">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
-</h1>
+<h2 id="troubleshooting">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
+</h2>
 
 <p>The most common error is getting a 404, meaning the <a href="/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria">device is not connected</a> to the cluster.</p>
 
-<h1 id="next" class="page-header">Next<a class="header-anchor" href="#next" name="next"></a>
-</h1>
+<h2 id="next">Next<a class="header-anchor" href="#next" name="next"></a>
+</h2>
 
 <p>scytale is up and running now; let's stand up <a href="/docs/operating/tr1d1um">tr1d1um</a>.</p>
 </body></html>

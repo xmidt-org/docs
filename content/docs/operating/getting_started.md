@@ -47,5 +47,5 @@ This step will be done at each service level, by providing a list of urls.
 -   [TLS Setup](https://www.digitalocean.com/community/tutorials/how-to-secure-consul-with-tls-encryption-on-ubuntu-14-04)
 
 
-# Next
+## Next
 Once you have your approach and it is up and running, you can stand up [Talaria](/docs/operating/talaria).

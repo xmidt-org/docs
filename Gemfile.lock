@@ -67,6 +67,8 @@ GEM
       ref (~> 2.0)
       slow_enumerator_tools (~> 1.0)
       tomlrb (~> 1.2)
+    nanoc-redirector (0.4.0)
+      nanoc (~> 4.9)
     nenv (0.3.0)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
@@ -116,7 +118,8 @@ DEPENDENCIES
   guard-livereload
   guard-nanoc
   kramdown
-  nanoc (~> 4.11)
+  nanoc (~> 4.9)
+  nanoc-redirector (~> 0.4.0)
   nokogiri (>= 1.10.4)
   pygments.rb
   rb-fchange

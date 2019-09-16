@@ -6,16 +6,16 @@ sort_rank: 60
 # Caduceus
 Currently Caduceus depends on [SNS](https://aws.amazon.com/sns/getting-started/)
 
-# Installation
+## Installation
 -   [RPM](https://xmidt.io/download/#caduceus)
 -   [Binary](https://xmidt.io/download/#caduceus)
 -   Docker (Link TBC)
 
-# Configuration
+## Configuration
 Refer to [configuration file](https://github.com/xmidt-org/caduceus/blob/master/caduceus.yaml)
 for how to configure caduceus.
 
-## Connecting to aws
+### Connecting to aws
 Under the aws block of the yaml file you will have
 
 ```yaml
@@ -32,8 +32,8 @@ aws:
 For local testing you can use [a mock sns instance](https://github.com/p4tin/goaws)
 _**NOTE**_: Do not use this in production. It is untested.
 
-# Validation
-## Test Health
+## Validation
+### Test Health
 ```bash
 curl -i HOSTNAME:HEALTH_PORT/health
 ```
@@ -55,14 +55,14 @@ Connection: close
 ```
 
 
-## Test Webhooks
+### Test Webhooks
 
-### Get webhooks
+#### Get webhooks
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT. Where AUTHOKEN is the `authHeader` in the yaml configuration file.
+Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the
+`PRIMARY_PORT`. Where `AUTHOKEN` is the `authHeader` in the yaml configuration file.
 
 
 ```
@@ -82,20 +82,20 @@ Content-Length: 2
 _**NOTE**_: dXNlcjpwYXNz is an example auth string for caduceus. DO NOT use
 this in production.
 
-### Register a webhook
+#### Register a webhook
 Create a [listener](https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener).  
 You should see it by checking the `hooks` endpoint.
 
 
-### Testing webhook
+#### Testing webhook
 Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection).
 When the device connects and disconnects to talaria, the listener should receive an online and offline event.
 
 
-# Troubleshooting
+## Troubleshooting
 The most common error is that talaria is [not configured correctly to talk to caduceus](/docs/operating/troubleshooting/#event-errors).
 
 
-# Next
+## Next
 The Cluster is up and running. Take a look at [Codex](/docs/codex/overview/) for how to build
 a codex cluster.

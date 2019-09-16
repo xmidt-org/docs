@@ -67,7 +67,9 @@ end
 
 # hidden? returns true if the item is not part of the currently selected group.
 def hidden?(item)
-  Versioned.versioned?(item) && !Versioned.current?(item[:repo_docs], @item_rep)
+  # TODO: fix this for versioning
+  FALSE
+  # Versioned.versioned?(item) && !Versioned.current?(item[:repo_docs], @item_rep)
 end
 
 # Versioned repository docs related functions.

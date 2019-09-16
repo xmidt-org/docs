@@ -35,6 +35,7 @@ compile '/**/*' do
   filter :erb
 
   if item.identifier.ext == 'md'
+    filter :redirect_to, { :redirect_to => @item[:redirect_to] }
     filter :redcarpet, options: {filter_html: true, autolink: true, no_intraemphasis: true, fenced_code_blocks: true, gh_blockcode: true, tables: true}, renderer_options: {with_toc_data: true}
     filter :normalize_links, item[:repo_docs] if item[:repo_docs]
     filter :outdated_content, item[:repo_docs] if item[:repo_docs] && item[:repo_docs][:outdated]
@@ -91,3 +92,12 @@ route '/**/*' do
 end
 
 layout '/**/*', :erb
+
+require 'nanoc-redirector'
+
+postprocess do
+  @items.each do |item|
+    config = { output_dir: "docs", index_filenames: [ 'index.html' ] }
+    NanocRedirector::RedirectFrom.process(item, item.identifier.without_ext, @config)
+  end
+end

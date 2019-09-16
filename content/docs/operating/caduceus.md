@@ -61,8 +61,8 @@ Connection: close
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT. Where AUTHOKEN is the `authHeader` in the yaml configuration file.
+Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the
+`PRIMARY_PORT`. Where `AUTHOKEN` is the `authHeader` in the yaml configuration file.
 
 
 ```

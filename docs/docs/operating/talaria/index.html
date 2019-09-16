@@ -140,8 +140,8 @@ for how to configure talaria.</p>
     - http://HOSTNAME:PRIMARY_PORT
 </code></pre>
 
-<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT.</p>
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the
+<code>PRIMARY_PORT</code>.</p>
 
 <p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.</p>
@@ -187,8 +187,8 @@ always running the service (and all components in the service) in https mode.</p
             deregisterCriticalServiceAfter: "70s"
 </code></pre>
 
-<p>Where CONSUL<em>ADDRESS is your Consul DNS record, docker container, or ip address.
-Where HOSTNAME is your DNS record, docker container, or ip address for this service listening on the HEALTH</em>PORT.</p>
+<p>Where <code>CONSUL_ADDRESS</code> is your Consul DNS record, docker container, or ip address.
+Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address for this service listening on the <code>HEALTH_PORT</code>.</p>
 
 <p>Talaria is watching for the other talarias and is registering itself.</p>
 
@@ -230,7 +230,8 @@ mocking the device we can also mock parados with <a href="https://github.com/xmi
 <pre><code class="bash">docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 </code></pre>
 
-<p>Where HOSTNAME is your DNS record, docker container, or ip address.
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the 
+<code>PRIMARY_PORT</code>.
 <em><strong>NOTE</strong></em>: If you are running talaria locally, you will need to provide the ip
 address of your machine.</p>
 
@@ -242,8 +243,8 @@ address of your machine.</p>
 <pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/devices
 </code></pre>
 
-<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT. Where AUTHOKEN is the <code>inbound.authKey"</code> in the yaml configuration file.</p>
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the
+<code>PRIMARY_PORT</code>. Where <code>AUTHOKEN</code> is the <code>inbound.authKey"</code> in the yaml configuration file.</p>
 
 <p>The following is an example. Do not use this auth key in production.</p>
 

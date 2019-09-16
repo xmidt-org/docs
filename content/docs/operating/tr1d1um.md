@@ -20,8 +20,8 @@ Under the fanout block of the yaml file you will have
 ```yaml
 targetURL: http://SCYTALE_HOSTNAME:PRIMARY_PORT
 ```
-Where SCYTALE_HOSTNAME is your Scytale DNS record, docker container, or ip address listening on the
-PRIMARY_PORT.
+Where `SCYTALE_HOSTNAME` is your Scytale DNS record, docker container, or ip address listening on the
+`PRIMARY_PORT`.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
@@ -58,9 +58,9 @@ Connect a device to talaria as described [here](/docs/operating/getting_started/
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 ```
-Where HOSTNAME is you DNS record, docker container, or ip address listening on the PRIMARY_PORT.
-Where AUTHOKEN is the `authHeader` in the yaml configuration file.
-Where DEVICE_ID is the device that is connect to talaria.
+Where `HOSTNAME` is you DNS record, docker container, or ip address listening on the `PRIMARY_PORT`.
+Where `AUTHOKEN` is the `authHeader` in the yaml configuration file.
+Where `DEVICE_ID` is the device that is connect to talaria.
 
 ```
 $ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6100/api/v2/device/mac:112233445566/stat

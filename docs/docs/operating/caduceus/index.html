@@ -187,8 +187,8 @@ Connection: close
 <pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
 </code></pre>
 
-<p>Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT. Where AUTHOKEN is the <code>authHeader</code> in the yaml configuration file.</p>
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the
+<code>PRIMARY_PORT</code>. Where <code>AUTHOKEN</code> is the <code>authHeader</code> in the yaml configuration file.</p>
 
 <pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6000/hooks
 HTTP/1.1 200 OK

@@ -23,8 +23,8 @@ service:
   fixed:
     - http://HOSTNAME:PRIMARY_PORT
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT.
+Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the
+`PRIMARY_PORT`.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
@@ -68,8 +68,8 @@ service:
             interval: "30s"
             deregisterCriticalServiceAfter: "70s"
 ```
-Where CONSUL_ADDRESS is your Consul DNS record, docker container, or ip address.
-Where HOSTNAME is your DNS record, docker container, or ip address for this service listening on the HEALTH_PORT.
+Where `CONSUL_ADDRESS` is your Consul DNS record, docker container, or ip address.
+Where `HOSTNAME` is your DNS record, docker container, or ip address for this service listening on the `HEALTH_PORT`.
 
 Talaria is watching for the other talarias and is registering itself.
 
@@ -108,7 +108,8 @@ mocking the device we can also mock parados with [kratos](https://github.com/xmi
 ```bash
 docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address.
+Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the 
+`PRIMARY_PORT`.
 _**NOTE**_: If you are running talaria locally, you will need to provide the ip
 address of your machine.
 
@@ -118,8 +119,8 @@ _**NOTE**_: This is a very expensive command. Do NOT run it in production.
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/devices
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT. Where AUTHOKEN is the `inbound.authKey"` in the yaml configuration file.
+Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the
+`PRIMARY_PORT`. Where `AUTHOKEN` is the `inbound.authKey"` in the yaml configuration file.
 
 The following is an example. Do not use this auth key in production.
 

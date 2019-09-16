@@ -24,8 +24,8 @@ service:
     - http://TALARIA_HOSTNAME:PRIMARY_PORT
     - http://TALARIA_HOSTNAME:PRIMARY_PORT
 ```
-Where TALARIA_HOSTNAME is your Talaria DNS record, docker container, or ip address listening on the
-PRIMARY_PORT.
+Where `TALARIA_HOSTNAME` is your Talaria DNS record, docker container, or ip address listening on the
+`PRIMARY_PORT`.
 
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
@@ -49,7 +49,7 @@ service:
         passingOnly: true
     vnodeCount: 211
 ```
-Where CONSUL_ADDRESS is your Consul DNS record, docker container, or ip address.
+Where `CONSUL_ADDRESS` is your Consul DNS record, docker container, or ip address.
 
 Petasos is now using consul to watch for talarias.
 
@@ -83,8 +83,8 @@ Connection: close
 ```bash
 curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  HOSTNAME:PRIMARY_PORT/api/v2/device
 ```
-Where HOSTNAME is your DNS record, docker container, or ip address listening on the
-PRIMARY_PORT. Where DEVICE_ID is the device that is connected to talaria.
+Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the
+`PRIMARY_PORT`. Where `DEVICE_ID` is the device that is connected to talaria.
 
 ```bash
 $ curl -i  -H "X-Webpa-Device-Name:mac:112233445566" localhost:6400/api/v2/device

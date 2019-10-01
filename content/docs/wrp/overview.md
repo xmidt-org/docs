@@ -5,14 +5,14 @@ sort_rank: 10
 
 # Overview
 
-Xmidt has a few design requirements that both set it apart from other solutions
+XMiDT has a few design requirements that both set it apart from other solutions
 as well as imposes several needs.  Based on the needs enumerated below, the
 message envelope named WRP was defined.  WRP is short for
 **Web Routing Protocol** since there are also a few semantics that go along with
 the envelope.
 
 ### Must provide a mechanism for routing
-At the core, the Xmidt
+At the core, the XMiDT
 
 ### Span communication protocols
 Data must consistently and easily span at least the following communication

@@ -21,7 +21,7 @@ be in lock-step to prevent inbound connections from possibly being stranded.  Fo
 production-like instances, we recommend the `consul` option.
 
 ## Fixed
-Fixed routing involves configuring each petasos to know the fqdn/ip of all talarias in the cluster/region.
+Fixed routing involves configuring each Petasos to know the fqdn/ip of all Talarias in the cluster/region.
 
 | Pro                          | Con                         |
 |------------------------------|-----------------------------|
@@ -35,7 +35,7 @@ No prior setup is necessary.
 This step will be done at each service level, by providing a list of urls.
 
 ## Consul
-[Consul](https://www.consul.io/) allows petasos to dynamically know about all the talarias in the datacenter.
+[Consul](https://www.consul.io/) allows Petasos to dynamically know about all the Talarias in the datacenter.
 
 | Pro                       | Con                            |
 |---------------------------|--------------------------------|

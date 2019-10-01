@@ -16,4 +16,4 @@ designed to be a fire and forget type of message.
 ### WRP
 
 Short for [Web Routing Protocol](../../wrp/) which is the core message
-envilope used by Xmidt and it's associated services.
+envelope used by XMiDT and it's associated services.

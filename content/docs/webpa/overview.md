@@ -10,20 +10,20 @@ Webpa is a translation service that provides a RESTful interface for the TR-181
 
 ## A Bit of History
 
-Originally, Webpa was a combination of the core routing of Xmidt and the RESTful
+Originally, Webpa was a combination of the core routing of XMiDT and the RESTful
 translation of TR-181.  This was done to reduce the amount of project risk.
 Shortly after the first large scale deployment the team determined we should
 split the translation layer off as a separate micro service.
 
-The core routing portions of the project reside under the Xmidt project and the
+The core routing portions of the project reside under the XMiDT project and the
 translation portion (as well as a few other compatibility features) became Webpa.
 
 ### Benefits
 
-The first and most valuable benefit for the teams developing Xmidt is that they
+The first and most valuable benefit for the teams developing XMiDT is that they
 also have a real customer of that API.  This is valuable because often issues
 are not perceived the same way on two sides of an API and being active consumers
-enables us to solve the problems that Xmidt customers may encounter.
+enables us to solve the problems that XMiDT customers may encounter.
 
 ## Architecture
 

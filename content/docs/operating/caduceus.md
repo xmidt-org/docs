@@ -13,10 +13,10 @@ Currently Caduceus depends on [SNS](https://aws.amazon.com/sns/getting-started/)
 
 ## Configuration
 Refer to [configuration file](https://github.com/xmidt-org/caduceus/blob/master/caduceus.yaml)
-for how to configure caduceus.
+for how to configure code Caduceus.
 
-### Connecting to aws
-Under the aws block of the yaml file you will have
+### Connecting to AWS
+Under the AWS block of the yaml file you will have
 
 ```yaml
 aws:
@@ -79,7 +79,7 @@ Content-Length: 2
 
 []
 ```
-_**NOTE**_: dXNlcjpwYXNz is an example auth string for caduceus. DO NOT use
+_**NOTE**_: dXNlcjpwYXNz is an example auth string for Caduceus. DO NOT use
 this in production.
 
 #### Register a webhook
@@ -88,14 +88,14 @@ You should see it by checking the `hooks` endpoint.
 
 
 #### Testing webhook
-Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection).
-When the device connects and disconnects to talaria, the listener should receive an online and offline event.
+Connect a device to Talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection).
+When the device connects and disconnects to Talaria, the listener should receive an online and offline event.
 
 
 ## Troubleshooting
-The most common error is that talaria is [not configured correctly to talk to caduceus](/docs/operating/troubleshooting/#event-errors).
+The most common error is that Talaria is [not configured correctly to talk to Caduceus](/docs/operating/troubleshooting/#event-errors).
 
 
 ## Next
 The Cluster is up and running. Take a look at [Codex](/docs/codex/overview/) for how to build
-a codex cluster.
+a Codex cluster.

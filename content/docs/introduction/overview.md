@@ -5,27 +5,27 @@ sort_rank: 10
 
 # Overview
 
-## What is Xmidt?
+## What is XMiDT?
 
-Xmidt is a message routing and delivery platform designed to scale to millions
+XMiDT is a message routing and delivery platform designed to scale to millions
 of connected clients and billions of messages delivered daily.
 
 ### Features
 
-* a highly portable linux client [parodus](link) that provides a simple device integration experience
+* a highly portable Linux client [Parodus](link) that provides a simple device integration experience
 * a cloud infrastructure designed to be highly available
 * each cloud component is individually scalable providing granular control
 * the cloud infrastructure is designed to be nearly unlimited in the size
 
 ### Architecture
 
-This diagram illustrates the architecture of the Xmidt core routing cloud:
+This diagram illustrates the architecture of the XMiDT core routing cloud:
 
-![Xmidt core routing architecture](/assets/xmidt_core.png)
+![XMiDT core routing architecture](/assets/xmidt_core.png)
 
 ### Components
 
-The Xmidt core routing cloud consists of several components.
+The XMiDT core routing cloud consists of several components.
 
  * Talaria - secure web socket termination server
  * Petasos - HTTP redirector for CPE devices
@@ -38,20 +38,20 @@ The Xmidt core routing cloud consists of several components.
 
 ### When does it fit?
 
-Xmidt is designed to provide message delivery to **lots** of continuously connected
-devices.  Xmidt makes the cloud easier for CPE devices to participate in at
+XMiDT is designed to provide message delivery to **lots** of continuously connected
+devices.  XMiDT makes the cloud easier for CPE devices to participate in at
 scale and makes the cloud interactions with the CPE devices more cloud friendly.
 
 If you have a large (or potentially large) number of clients that can exist
-behind firewalls, NATs or other infrastructure you need to operate, Xmidt can
+behind firewalls, NATs or other infrastructure you need to operate, XMiDT can
 be a good match.  The CPE devices do not need to expose services like telnet,
-SSH, SNMP or others that can be compromised.  Instead, the Xmidt client (Parodus)
+SSH, SNMP or others that can be compromised.  Instead, the XMiDT client (Parodus)
 reaches out to your cloud via a known URL and securely ensures it is connected
 only to your cluster.
 
-Xmidt provides a highly scalable and cost effective solution to device management.
+XMiDT provides a highly scalable and cost effective solution to device management.
 
 ### When does it not fit?
 
-Xmidt is not designed to replace streaming protocols (like WebRTC or streaming
+XMiDT is not designed to replace streaming protocols (like WebRTC or streaming
 audio/video).

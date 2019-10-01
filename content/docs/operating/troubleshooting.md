@@ -9,19 +9,19 @@ sort_rank: 100
 
 ### Device is not showing up in Cluster/Talaria
 
-- Problem: Parados (the application of the device that connects to talaria) has the incorrect url.
+- Problem: Parados (the application of the device that connects to Talaria) has the incorrect url.
 
   - Solution: Validate Parados has the correct url.
 
     ```bash
     docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
-    # HOSTNAME should be either a talaria or petasos address, with
+    # HOSTNAME should be either a Talaria or Petasos address, with
     # the correct corresponding PRIMARY_PORT
     ```
 
-- Problem: TLS is inconsistent between talaria and petasos.
+- Problem: TLS is inconsistent between Talaria and Petasos.
 
-  - Fixed Solution: Change talaria and petasos configurations to be consistent with `http` or `https`.
+  - Fixed Solution: Change Talaria and Petasos configurations to be consistent with `http` or `https`.
 
     ```yaml
     # talaria  
@@ -36,7 +36,7 @@ sort_rank: 100
       - http://TALARIA_HOSTNAME:PRIMARY_PORT
     ```
 
-  - Consul Solution: Change talaria and petasos Configuration to be consistent with `http` or `https`. `https` is default.
+  - Consul Solution: Change Talaria and Petasos Configuration to be consistent with `http` or `https`. `https` is default.
 
     ```yaml
     # talaria  
@@ -102,7 +102,7 @@ sort_rank: 100
 
     ```bash
     consul catalog services
-    # talaria should show up in list, if not try the solution
+    # Talaria should show up in list, if not try the solution
     ```
 
   - Solution: Validate Consul client block in Talaria config, with TLS and address.
@@ -119,7 +119,7 @@ sort_rank: 100
 
 ## Event Errors
 - Problem: Caduceus is not receiving events.
-  - Solution: Update the talaria yaml with the correct information.
+  - Solution: Update the Talaria yaml with the correct information.
 
     ```yaml
     eventMap:

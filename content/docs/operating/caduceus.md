@@ -13,7 +13,7 @@ Currently Caduceus depends on [SNS](https://aws.amazon.com/sns/getting-started/)
 
 ## Configuration
 Refer to [configuration file](https://github.com/xmidt-org/caduceus/blob/master/caduceus.yaml)
-for how to configure code Caduceus.
+for how to configure Caduceus.
 
 ### Connecting to AWS
 Under the AWS block of the yaml file you will have

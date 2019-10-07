@@ -12,10 +12,10 @@ sort_rank: 40
 
 ## Configuration
 Refer to [configuration file](https://github.com/xmidt-org/scytale/blob/master/scytale.yaml)
-for how to configure scytale.
+for how to configure Scytale.
 
-### Connecting to petasos
-To provide the petasoses that scytale should connect to, the fanout block in scytale's configuration should look similar to the example below:
+### Connecting to Petasos
+To provide the Petasoses that Scytale should connect to, the fanout block in Scytale's configuration should look similar to the example below:
 
 ```yaml
 fanout:
@@ -31,7 +31,7 @@ Where `PETASOS_HOSTNAME` is your Petasos DNS record, docker container, or ip add
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
 
-_**NOTE**_: dXNlcjpwYXNz is an example auth string for petasos. DO NOT use
+_**NOTE**_: dXNlcjpwYXNz is an example auth string for Petasos. DO NOT use
 this in production.
 
 ## Validation
@@ -58,14 +58,14 @@ Connection: close
 ```
 
 ### Test Device
-Connect a device to talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection).
+Connect a device to Talaria, described [here](/docs/operating/getting_started/talaria/#test-device-connection).
 
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 ```
 Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the
 `PRIMARY_PORT`. Where `AUTHOKEN` is the `authHeader` in the yaml configuration file.
-Where `DEVICE_ID` is the device that is connected to talaria.
+Where `DEVICE_ID` is the device that is connected to Talaria.
 
 ```
 $ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6300/api/v2/device/mac:112233445566/stat
@@ -92,4 +92,4 @@ Date: Mon, 26 Aug 2019 19:52:10 GMT
 The most common error is getting a 404, meaning the [device is not connected](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria) to the cluster.
 
 ## Next
-scytale is up and running now; let's stand up [tr1d1um](/docs/operating/tr1d1um).
+Scytale is up and running now; let's stand up [tr1d1um](/docs/operating/tr1d1um).

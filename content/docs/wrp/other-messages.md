@@ -35,7 +35,7 @@ status | The status of the device to which the message is sent.
 ## On Device Service Registration Message Definition
 
 This message is used by services running on a CPE that wish to register for
-messages from the Xmidt cluster.  This message is not able to be routed beyond
+messages from the XMiDT cluster.  This message is not able to be routed beyond
 the immediate connection it is flowing across.
 
 #### Schema

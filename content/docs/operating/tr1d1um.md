@@ -12,9 +12,9 @@ sort_rank: 50
 
 ## Configuration
 Refer to [configuration file](https://github.com/xmidt-org/tr1d1um/blob/master/tr1d1um.yaml)
-for how to configure tr1d1um.
+for how to configure Tr1d1um.
 
-### Connecting to scytale
+### Connecting to Scytale
 Under the fanout block of the yaml file you will have
 
 ```yaml
@@ -26,7 +26,7 @@ Where `SCYTALE_HOSTNAME` is your Scytale DNS record, docker container, or ip add
 _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
 
-_**NOTE**_: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use
+_**NOTE**_: dXNlcjpwYXNz is an example auth string for Tr1d1um. DO NOT use
 this in production.
 
 ## Validation
@@ -53,14 +53,14 @@ Connection: close
 ```
 
 ### Test Device
-Connect a device to talaria as described [here](/docs/operating/getting_started/talaria/#test-device-connection).
+Connect a device to Talaria as described [here](/docs/operating/getting_started/talaria/#test-device-connection).
 
 ```bash
 curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 ```
 Where `HOSTNAME` is you DNS record, docker container, or ip address listening on the `PRIMARY_PORT`.
 Where `AUTHOKEN` is the `authHeader` in the yaml configuration file.
-Where `DEVICE_ID` is the device that is connect to talaria.
+Where `DEVICE_ID` is the device that is connect to Talaria.
 
 ```
 $ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6100/api/v2/device/mac:112233445566/stat
@@ -93,4 +93,4 @@ Content-Length: 234
 The most common error is getting a 404, meaning the [device is not connected](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria) to the cluster.
 
 ## Next
-tr1d1um is up and running now; let's stand up [caduceus](/docs/operating/caduceus).
+Tr1d1um is up and running now; let's stand up [Caduceus](/docs/operating/caduceus).

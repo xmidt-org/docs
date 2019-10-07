@@ -12,10 +12,10 @@ sort_rank: 20
 
 ## Configuration
 Refer to [configuration file](https://github.com/xmidt-org/talaria/blob/master/talaria.yaml)
-for how to configure talaria.
+for how to configure Talaria.
 
 ### Fixed
-For fixed routing, the service block in talaria's configuration should look similar to the example below:
+For fixed routing, the service block in Talaria's configuration should look similar to the example below:
 
 ```yaml
 service:
@@ -30,7 +30,7 @@ _**NOTE**_: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.
 
 ### Consul
-For a consul managed list of talarias, the service block in talaria's configuration should look similar to the example below:
+For a consul managed list of Talarias, the service block in Talaria's configuration should look similar to the example below:
 
 ```yaml
 service:
@@ -71,7 +71,7 @@ service:
 Where `CONSUL_ADDRESS` is your Consul DNS record, docker container, or ip address.
 Where `HOSTNAME` is your DNS record, docker container, or ip address for this service listening on the `HEALTH_PORT`.
 
-Talaria is watching for the other talarias and is registering itself.
+Talaria is watching for the other Talarias and is registering itself.
 
 _**NOTE**_: if you have certs available, change http to https. HTTP should never
 be run in production.
@@ -102,15 +102,15 @@ Connection: close
 ### Test Device Connection
 Using a [device simulator](https://github.com/xmidt-org/xmidt/tree/master/simulator) we
 can mock a device connecting to our cluster. The core part of the device simulator that
-connects to talaria is [Parados](https://github.com/xmidt-org/parodus). Instead of
-mocking the device we can also mock parados with [kratos](https://github.com/xmidt-org/kratos).
+connects to Talaria is [Parados](https://github.com/xmidt-org/parodus). Instead of
+mocking the device we can also mock Parados with [kratos](https://github.com/xmidt-org/kratos).
 
 ```bash
 docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 ```
-Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the 
+Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the
 `PRIMARY_PORT`.
-_**NOTE**_: If you are running talaria locally, you will need to provide the ip
+_**NOTE**_: If you are running Talaria locally, you will need to provide the ip
 address of your machine.
 
 #### Get Connected Devices
@@ -143,4 +143,4 @@ Content-Length: 245
 The most common error is [devices not showing](/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria).
 
 ## Next
-Talaria should be up and running now; let's stand up [petasos](/docs/operating/petasos).
+Talaria should be up and running now; let's stand up [Petasos](/docs/operating/petasos).

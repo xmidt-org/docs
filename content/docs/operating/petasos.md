@@ -12,10 +12,10 @@ sort_rank: 30
 
 ## Configuration
 Refer to [configuration file](https://github.com/xmidt-org/petasos/blob/master/petasos.yaml)
-for how to configure petasos.
+for how to configure Petasos.
 
 ### Fixed
-For fixed routing, the service block in petasos' configuration should look similar to the example below:
+For fixed routing, the service block in Petasos' configuration should look similar to the example below:
 
 ```yaml
 service:
@@ -32,7 +32,7 @@ always running the service (and all components in the service) in https mode.
 
 
 ### Consul
-For a consul managed list of talarias, the petasos configuration should look similar to the example below:
+For a consul managed list of Talarias, the Petasos configuration should look similar to the example below:
 
 ```yaml
 service:
@@ -51,7 +51,7 @@ service:
 ```
 Where `CONSUL_ADDRESS` is your Consul DNS record, docker container, or ip address.
 
-Petasos is now using consul to watch for talarias.
+Petasos is now using consul to watch for Talarias.
 
 _**NOTE**_: if you have certs available, change http to https. HTTP should never
 be run in production.
@@ -84,7 +84,7 @@ Connection: close
 curl -i -H "X-Webpa-Device-Name: DEVICE_ID"  HOSTNAME:PRIMARY_PORT/api/v2/device
 ```
 Where `HOSTNAME` is your DNS record, docker container, or ip address listening on the
-`PRIMARY_PORT`. Where `DEVICE_ID` is the device that is connected to talaria.
+`PRIMARY_PORT`. Where `DEVICE_ID` is the device that is connected to Talaria.
 
 ```bash
 $ curl -i  -H "X-Webpa-Device-Name:mac:112233445566" localhost:6400/api/v2/device

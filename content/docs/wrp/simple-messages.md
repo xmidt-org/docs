@@ -18,7 +18,7 @@ to and from JSON and HTTP headers as well as it's native msgpack format.
 
 This is one of the primary message definitions used.  This provides a point to
 point (request, response) semantic.  An example of where this message is used is
-between Webpa's `tr1d1um` machine and the `parodus2ccsp` client that interprets
+between Webpa's `Tr1d1um` machine and the `Parodus2ccsp` client that interprets
 the request, gathers data and responds back.  Both requests and responses use
 the same message type.
 

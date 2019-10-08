@@ -1,7 +1,7 @@
 # Xmidt Documentation
 
 This repository contains both the content and the static-site generator code for the
-Xmidt documentation site.
+Xmidt documentation site.  The site can be found at https://xmidt.io
 
 ## Contributing Changes
 

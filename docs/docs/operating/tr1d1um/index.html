@@ -104,7 +104,7 @@
 </a></li>
 <li><a href="#configuration">Configuration
 </a></li>
-<ul><li><a href="#connecting-to-scytale">Connecting to scytale
+<ul><li><a href="#connecting-to-scytale">Connecting to Scytale
 </a></li></ul>
 <li><a href="#validation">Validation
 </a></li>
@@ -135,9 +135,9 @@
 </h2>
 
 <p>Refer to <a href="https://github.com/xmidt-org/tr1d1um/blob/master/tr1d1um.yaml">configuration file</a>
-for how to configure tr1d1um.</p>
+for how to configure Tr1d1um.</p>
 
-<h3 id="connecting-to-scytale">Connecting to scytale<a class="header-anchor" href="#connecting-to-scytale" name="connecting-to-scytale"></a>
+<h3 id="connecting-to-scytale">Connecting to Scytale<a class="header-anchor" href="#connecting-to-scytale" name="connecting-to-scytale"></a>
 </h3>
 
 <p>Under the fanout block of the yaml file you will have</p>
@@ -151,7 +151,7 @@ for how to configure tr1d1um.</p>
 <p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
 always running the service (and all components in the service) in https mode.</p>
 
-<p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for tr1d1um. DO NOT use
+<p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for Tr1d1um. DO NOT use
 this in production.</p>
 
 <h2 id="validation">Validation<a class="header-anchor" href="#validation" name="validation"></a>
@@ -181,14 +181,14 @@ Connection: close
 <h3 id="test-device">Test Device<a class="header-anchor" href="#test-device" name="test-device"></a>
 </h3>
 
-<p>Connect a device to talaria as described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.</p>
+<p>Connect a device to Talaria as described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.</p>
 
 <pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/device/DEVICE_ID/stat
 </code></pre>
 
 <p>Where <code>HOSTNAME</code> is you DNS record, docker container, or ip address listening on the <code>PRIMARY_PORT</code>.
 Where <code>AUTHOKEN</code> is the <code>authHeader</code> in the yaml configuration file.
-Where <code>DEVICE_ID</code> is the device that is connect to talaria.</p>
+Where <code>DEVICE_ID</code> is the device that is connect to Talaria.</p>
 
 <pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6100/api/v2/device/mac:112233445566/stat
 HTTP/1.1 200 OK
@@ -224,7 +224,7 @@ Content-Length: 234
 <h2 id="next">Next<a class="header-anchor" href="#next" name="next"></a>
 </h2>
 
-<p>tr1d1um is up and running now; let's stand up <a href="/docs/operating/caduceus">caduceus</a>.</p>
+<p>Tr1d1um is up and running now; let's stand up <a href="/docs/operating/caduceus">Caduceus</a>.</p>
 </body></html>
 
       <p class="open-source-notice">

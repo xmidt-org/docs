@@ -118,22 +118,22 @@
 
 <ul>
 <li>
-<p>Problem: Parados (the application of the device that connects to talaria) has the incorrect url.</p>
+<p>Problem: Parados (the application of the device that connects to Talaria) has the incorrect url.</p>
 
 <ul>
 <li>Solution: Validate Parados has the correct url.</li>
 </ul>
 
 <pre><code class="bash">docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
-# HOSTNAME should be either a talaria or petasos address, with
+# HOSTNAME should be either a Talaria or Petasos address, with
 # the correct corresponding PRIMARY_PORT
 </code></pre>
 </li>
 <li>
-<p>Problem: TLS is inconsistent between talaria and petasos.</p>
+<p>Problem: TLS is inconsistent between Talaria and Petasos.</p>
 
 <ul>
-<li>Fixed Solution: Change talaria and petasos configurations to be consistent with <code>http</code> or <code>https</code>.</li>
+<li>Fixed Solution: Change Talaria and Petasos configurations to be consistent with <code>http</code> or <code>https</code>.</li>
 </ul>
 
 <pre><code class="yaml"># talaria  
@@ -149,7 +149,7 @@ fixed:
 </code></pre>
 
 <ul>
-<li>Consul Solution: Change talaria and petasos Configuration to be consistent with <code>http</code> or <code>https</code>. <code>https</code> is default.</li>
+<li>Consul Solution: Change Talaria and Petasos Configuration to be consistent with <code>http</code> or <code>https</code>. <code>https</code> is default.</li>
 </ul>
 
 <pre><code class="yaml"># talaria  
@@ -216,7 +216,7 @@ consul:
 </ul>
 
 <pre><code class="bash">consul catalog services
-# talaria should show up in list, if not try the solution
+# Talaria should show up in list, if not try the solution
 </code></pre>
 
 <ul>
@@ -242,7 +242,7 @@ consul:
 <p>Problem: Caduceus is not receiving events.</p>
 
 <ul>
-<li>Solution: Update the talaria yaml with the correct information.</li>
+<li>Solution: Update the Talaria yaml with the correct information.</li>
 </ul>
 
 <pre><code class="yaml">eventMap:

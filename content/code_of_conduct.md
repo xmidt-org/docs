@@ -1,3 +1,9 @@
+---
+title: Code of Conduct
+layout: /page.*
+
+---
+
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge

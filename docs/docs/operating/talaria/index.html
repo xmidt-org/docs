@@ -139,12 +139,12 @@
 </h2>
 
 <p>Refer to <a href="https://github.com/xmidt-org/talaria/blob/master/talaria.yaml">configuration file</a>
-for how to configure talaria.</p>
+for how to configure Talaria.</p>
 
 <h3 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
 </h3>
 
-<p>For fixed routing, the service block in talaria's configuration should look similar to the example below:</p>
+<p>For fixed routing, the service block in Talaria's configuration should look similar to the example below:</p>
 
 <pre><code class="yaml">service:
   defaultScheme: http
@@ -161,7 +161,7 @@ always running the service (and all components in the service) in https mode.</p
 <h3 id="consul">Consul<a class="header-anchor" href="#consul" name="consul"></a>
 </h3>
 
-<p>For a consul managed list of talarias, the service block in talaria's configuration should look similar to the example below:</p>
+<p>For a consul managed list of Talarias, the service block in Talaria's configuration should look similar to the example below:</p>
 
 <pre><code class="yaml">service:
   defaultScheme: http
@@ -202,7 +202,7 @@ always running the service (and all components in the service) in https mode.</p
 <p>Where <code>CONSUL_ADDRESS</code> is your Consul DNS record, docker container, or ip address.
 Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address for this service listening on the <code>HEALTH_PORT</code>.</p>
 
-<p>Talaria is watching for the other talarias and is registering itself.</p>
+<p>Talaria is watching for the other Talarias and is registering itself.</p>
 
 <p><em><strong>NOTE</strong></em>: if you have certs available, change http to https. HTTP should never
 be run in production.</p>
@@ -236,15 +236,15 @@ Connection: close
 
 <p>Using a <a href="https://github.com/xmidt-org/xmidt/tree/master/simulator">device simulator</a> we
 can mock a device connecting to our cluster. The core part of the device simulator that
-connects to talaria is <a href="https://github.com/xmidt-org/parodus">Parados</a>. Instead of
-mocking the device we can also mock parados with <a href="https://github.com/xmidt-org/kratos">kratos</a>.</p>
+connects to Talaria is <a href="https://github.com/xmidt-org/parodus">Parados</a>. Instead of
+mocking the device we can also mock Parados with <a href="https://github.com/xmidt-org/kratos">kratos</a>.</p>
 
 <pre><code class="bash">docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
 </code></pre>
 
-<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the 
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the
 <code>PRIMARY_PORT</code>.
-<em><strong>NOTE</strong></em>: If you are running talaria locally, you will need to provide the ip
+<em><strong>NOTE</strong></em>: If you are running Talaria locally, you will need to provide the ip
 address of your machine.</p>
 
 <h4 id="get-connected-devices">Get Connected Devices<a class="header-anchor" href="#get-connected-devices" name="get-connected-devices"></a>
@@ -282,7 +282,7 @@ Content-Length: 245
 <h2 id="next">Next<a class="header-anchor" href="#next" name="next"></a>
 </h2>
 
-<p>Talaria should be up and running now; let's stand up <a href="/docs/operating/petasos">petasos</a>.</p>
+<p>Talaria should be up and running now; let's stand up <a href="/docs/operating/petasos">Petasos</a>.</p>
 </body></html>
 
       <p class="open-source-notice">

@@ -3,15 +3,18 @@
 This repository contains both the content and the static-site generator code for the
 Xmidt documentation site.  The site can be found at https://xmidt.io
 
-## Contributing Changes
+## Table of Contents
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for general instructions for new Xmidt contributors.
+- [Code of Conduct](#code-of-conduct)
+- [Prerequisites](#prerequisites)
+- [Build](#build)
+- [Deploy](#deploy)
+- [Contributing](#contributing)
 
-The main documentation contents of this website are located in the [`content/docs`](content/docs) directory.
+## Code of Conduct
 
-Documentation concerning the various Xmidt/Codex/Webpa servers is cloned into the website at build time.
-
-As a guideline, please keep the documentation generally applicable and avoid use-case-specific changes.
+This project and everyone participating in it are governed by the [XMiDT Code Of Conduct](https://xmidt.io/code_of_conduct/). 
+By participating, you agree to this Code.
 
 ## Prerequisites
 
@@ -23,7 +26,7 @@ cd docs
 make bundle
 ```
 
-## Building
+## Build
 
 To generate the static site, run:
 
@@ -38,7 +41,9 @@ Optionally, you can use an API token to avoid rate limits on the API. You can ge
 export GITHUB_AUTHENTICATION='-u user:token'
 ```
 
-## Development Server
+## Deploy
+
+### Local Development Server
 
 To run a local server that displays the generated site, run:
 
@@ -52,10 +57,18 @@ make serve
 You should now be able to view the generated site at
 [http://localhost:3000/](http://localhost:3000).
 
-## Automatic Deployment
+### Automatic Production Deployment
 
-TBD
+Pull requests should contain the newly built site, in the `docs/` folder.  When 
+changes to the `docs/` folder are committed to master, the site automatically 
+gets redeployed.
 
-## License
+## Contributing
 
-Apache License 2.0, see [LICENSE](LICENSE).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for general instructions for new Xmidt contributors.
+
+The main documentation contents of this website are located in the [`content/docs`](content/docs) directory.
+
+Documentation concerning the various Xmidt/Codex/Webpa servers is cloned into the website at build time.
+
+As a guideline, please keep the documentation generally applicable and avoid use-case-specific changes.

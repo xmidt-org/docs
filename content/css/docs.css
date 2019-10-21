@@ -416,6 +416,21 @@ footer {
   margin-top: 1.5em;
 }
 
+.yes {
+  color: #090;
+	font-size: 1.5em;
+}
+
+.no {
+  color: #900;
+	font-size: 1.5em;
+}
+
+.maybe {
+  color: #F90;
+	font-size: 1.5em;
+}
+
 .toc {
   padding: 1em;
   background-color: #f5f5f5;

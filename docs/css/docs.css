@@ -367,8 +367,8 @@ footer {
 
 .doc-content a.header-anchor:after {
   content: "\F0C1";
-  font-family: FontAwesome;
-  font-weight: normal;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   font-size: .8em;
 }
 

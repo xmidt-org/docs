@@ -30,7 +30,6 @@ aws:
     urlPath: "/api/v2/aws/sns"
 ```
 For local testing you can use [a mock sns instance](https://github.com/p4tin/goaws)
-_**NOTE**_: Do not use this in production. It is untested.
 
 ## Validation
 ### Test Health

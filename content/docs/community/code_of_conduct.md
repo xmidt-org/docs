@@ -1,7 +1,6 @@
 ---
 title: Code of Conduct
-layout: /page.*
-
+sort_rank: 20
 ---
 
 # Contributor Covenant Code of Conduct

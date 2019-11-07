@@ -1,7 +1,6 @@
 ---
 title: Governance
-layout: /page.*
-
+sort_rank: 30
 ---
 
 # Governance

@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
 
     
-    <title>Governance | Xmidt</title>
+    <title>Overview | Xmidt</title>
     
 
     <!-- Bootstrap core CSS -->
@@ -67,7 +67,7 @@
             <li><a href="/docs/introduction/overview/">Docs</a></li>
             <li><a href="/download/">Download</a></li>
             <li><a href="https://discussion.xmidt.io">Collaborate</a></li>
-            <li><a href="/community/">Community</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="https://github.com/xmidt-org"><i class="fab fa-github"></i></a></li>
           </ul>
         </div>
@@ -78,132 +78,65 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 doc-content">
+    <div class="col-md-3 side-nav-col">
+      <ul class="nav navbar-nav side-nav">
+        
+          <li><span class="nav-header"><i class="fa fa-sitemap"></i> <span>Introduction</span></span><ul class="nav "><li><a href="/docs/introduction/overview/">Overview</a></li><li><a href="/docs/introduction/glossary/">Glossary</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-book"></i> <span>Codex</span></span><ul class="nav "><li><a href="/docs/codex/overview/">Overview</a></li><li><span class="nav-subheader">Svalinn</span><ul class="nav "><li><a href="/docs/codex/svalinn/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Gungnir</span><ul class="nav "><li><a href="/docs/codex/gungnir/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Fenrir</span><ul class="nav "><li><a href="/docs/codex/fenrir/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Heimdall</span><ul class="nav "><li><a href="/docs/codex/heimdall/getting_started/">Getting started</a></li></ul></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-exchange-alt"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav "><li><a href="/docs/operating/getting_started/">Getting started</a></li><li><a href="/docs/operating/talaria/">Talaria</a></li><li><a href="/docs/operating/petasos/">Petasos</a></li><li><a href="/docs/operating/scytale/">Scytale</a></li><li><a href="/docs/operating/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/caduceus/">Caduceus</a></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-envelope-open-text"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
+        
+          <li class="active"><span class="nav-header"><i class="fa fa-balance-scale"></i> <span>Community</span></span><ul class="nav active"><li class="active current"><a href="/docs/community/overview/">Overview</a></li><li><a href="/docs/community/code_of_conduct/">Code of Conduct</a></li><li><a href="/docs/community/governance/">Governance</a></li></ul></li>
+        
+      </ul>
+    </div>
+
+    <div class="col-md-9 doc-content">
       <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><body>
-<h1 id="governance" class="page-header">Governance<a class="header-anchor" href="#governance" name="governance"></a>
+<h1 id="community" class="page-header">Community<a class="header-anchor" href="#community" name="community"></a>
 </h1>
 <div class="toc toc-right"><ul>
-<li><a href="#values">Values
+<li><a href="#issue-tracker">Issue Tracker
 </a></li>
-<li><a href="#repository-guidelines">Repository Guidelines
+<li><a href="#contributing">Contributing
 </a></li>
-<li><a href="#decision-making">Decision making
-</a></li>
-<ul>
-<li><a href="#team-members">Team members
-</a></li>
-<li><a href="#maintainers">Maintainers
-</a></li>
-<li><a href="#technical-decisions">Technical decisions
-</a></li>
-<li><a href="#governance-changes">Governance changes
-</a></li>
-<li><a href="#other-matters">Other matters
-</a></li>
-</ul>
-<li><a href="#faq">FAQ
-</a></li>
-<ul>
-<li><a href="#how-do-i-propose-a-decision">How do I propose a decision?
-</a></li>
-<li><a href="#how-do-i-become-a-team-member">How do I become a team member?
-</a></li>
-<li><a href="#how-do-i-add-a-project">How do I add a project?
-</a></li>
-<li><a href="#how-do-i-archive-or-remove-a-project">How do I archive or remove a project?
-</a></li>
-<li><a href="#how-do-i-remove-an-inactive-maintainer">How do I remove an inactive maintainer?
-</a></li>
-<li><a href="#how-do-i-remove-a-team-member">How do I remove a team member?
-</a></li>
-</ul>
 </ul></div>
 
-<p>This document describes the rules and governance of the project. It is meant to be followed by all the developers of the project and the Xmidt community. Common terminology used in this governance document are listed below:</p>
+<p>Xmidt and it's ecosystem is developed in the open. Here are some of the 
+channels we use to communicate and contribute:</p>
 
-<ul>
-<li><p><strong>Maintainers</strong>: Maintainers lead an individual project or parts thereof (<a href="maintainers.md"><code>MAINTAINERS.md</code></a>).</p></li>
-<li><p><strong>Projects</strong>: A collection of repositories in the <a href="https://github.com/xmidt-org">Xmidt organization</a> is referred to as a project. (Examples: Codex, Xmidt, Webpa)</p></li>
-<li><p><strong>Repos</strong>: A single git repository in the <a href="gh">Xmidt organization</a> is referred to as a repo.</p></li>
-<li><p><strong>The Xmidt Organization</strong>: The sum of all activities performed under this governance, concerning one or more repositories or the community.</p></li>
-</ul>
-
-<h2 id="values">Values<a class="header-anchor" href="#values" name="values"></a>
+<h2 id="issue-tracker">Issue Tracker<a class="header-anchor" href="#issue-tracker" name="issue-tracker"></a>
 </h2>
 
-<p>TBD</p>
+<p>Use the GitHub issue tracker for the various <a href="http://github.com/xmidt-org">Xmidt repositories</a>
+to file bugs and features request.  If you need support, please ask your questions
+to the <a href="https://discussion.xmidt.io">discussion site</a> rather than filing a GitHub issue.</p>
 
-<h2 id="repository-guidelines">Repository Guidelines<a class="header-anchor" href="#repository-guidelines" name="repository-guidelines"></a>
+<p><strong>Please do not ask individual project members for support. Use the channels
+above instead, where the whole community can help you and benefit from the
+solutions provided.</strong></p>
+
+<h2 id="contributing">Contributing<a class="header-anchor" href="#contributing" name="contributing"></a>
 </h2>
 
-<p>Repo names shall follow the convention outlined <a href="/repo-naming/">here</a>.</p>
-
-<h2 id="decision-making">Decision making<a class="header-anchor" href="#decision-making" name="decision-making"></a>
-</h2>
-
-<h3 id="team-members">Team members<a class="header-anchor" href="#team-members" name="team-members"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="maintainers">Maintainers<a class="header-anchor" href="#maintainers" name="maintainers"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="technical-decisions">Technical decisions<a class="header-anchor" href="#technical-decisions" name="technical-decisions"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="governance-changes">Governance changes<a class="header-anchor" href="#governance-changes" name="governance-changes"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="other-matters">Other matters<a class="header-anchor" href="#other-matters" name="other-matters"></a>
-</h3>
-
-<p>TBD</p>
-
-<h2 id="faq">FAQ<a class="header-anchor" href="#faq" name="faq"></a>
-</h2>
-
-<p>This section is informational. In case of disagreement, the rules above overrule any FAQ.</p>
-
-<h3 id="how-do-i-propose-a-decision">How do I propose a decision?<a class="header-anchor" href="#how-do-i-propose-a-decision" name="how-do-i-propose-a-decision"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="how-do-i-become-a-team-member">How do I become a team member?<a class="header-anchor" href="#how-do-i-become-a-team-member" name="how-do-i-become-a-team-member"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="how-do-i-add-a-project">How do I add a project?<a class="header-anchor" href="#how-do-i-add-a-project" name="how-do-i-add-a-project"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="how-do-i-archive-or-remove-a-project">How do I archive or remove a project?<a class="header-anchor" href="#how-do-i-archive-or-remove-a-project" name="how-do-i-archive-or-remove-a-project"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="how-do-i-remove-an-inactive-maintainer">How do I remove an inactive maintainer?<a class="header-anchor" href="#how-do-i-remove-an-inactive-maintainer" name="how-do-i-remove-an-inactive-maintainer"></a>
-</h3>
-
-<p>TBD</p>
-
-<h3 id="how-do-i-remove-a-team-member">How do I remove a team member?<a class="header-anchor" href="#how-do-i-remove-a-team-member" name="how-do-i-remove-a-team-member"></a>
-</h3>
-
-<p>TBD</p>
+<p>We welcome community contributions! Please see the <code>CONTRIBUTING.md</code> file in
+the respective Xmidt repository for instructions on how to submit changes. If
+you are planning on making more elaborate or controversial changes, please
+discuss them on the <a href="https://discussion.xmidt.io">discussion site</a> before
+sending a pull request.</p>
 </body></html>
 
+      <p class="open-source-notice">
+          <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.
+      </p>
     </div>
+
   </div>
   <hr>
 

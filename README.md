@@ -42,7 +42,7 @@ export GITHUB_AUTHENTICATION='-u user:token'
 
 For building the codex swagger docs run
 ```bash
-redoc-cli  bundle -o swagger.html --title "Codex Documentation" swagger.yaml
+redoc-cli  bundle -o swagger.html --title "Codex Documentation" codex.yaml
 ```
 ```markdown
 # then add the following to the top of the file

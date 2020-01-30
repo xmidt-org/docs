@@ -27,6 +27,8 @@ compile '**/*/swagger/**/*' do
 end
 compile '**/*/swagger.*' do
 end
+compile '**/*/codex.yaml' do
+end
 
 # RSS Feed
 compile '/blog/feed.*' do

@@ -122,7 +122,7 @@ components:
           format: int64
           example: 4
         partner_ids:
-          description: the partner ids used by the device. Determined from the same event that provides the state.
+          description: The partner ids used by the device. Determined from the same event that provides the state.
           type: array
           items:
             type: string
@@ -138,7 +138,7 @@ components:
           type: integer
           format: int64
         source:
-          description: the originating description of the request or response.
+          description: The originating description of the request or response.
           type: string
           example: dns:talaria.xmidt.example.com
         spans:
@@ -180,11 +180,11 @@ components:
       properties:
         deviceid:
           type: string
-          description: The device ID
+          description: The device ID sent in the request.
           example: "1234"
         state:
           type: string
-          description: the status of the device
+          description: The best effort guess of the devices status.
           enum:
           - online
           - offline
@@ -192,17 +192,19 @@ components:
         since:
           type: string
           format: date-time
+          description: The last event scene from the device to determine the status.
           example: "2019-02-26T20:18:15.188881748Z"
         now:
           type: string
           format: date-time
+          description: The timestamp of when the status was determined.
           example: "2019-02-26T20:18:15.188881748Z"
         last_offline_reason:
           type: string
-          description: the last reason the device went offline
+          description: The last reason the device went offline.
           example: ping miss
         partner_ids:
-          description: the partner ids used by the device. Determined from the same event that provides the state
+          description: The partner ids used by the device. Determined from the same event that provides the state.
           type: array
           items:
             type: string

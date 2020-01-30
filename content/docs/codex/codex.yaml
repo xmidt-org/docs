@@ -138,7 +138,7 @@ components:
           type: integer
           format: int64
         source:
-          description: the originating descriptoin of the request or response.
+          description: the originating description of the request or response.
           type: string
           example: dns:talaria.xmidt.example.com
         spans:

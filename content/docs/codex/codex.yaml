@@ -59,7 +59,7 @@ paths:
           description: Internal Sever Error
   /device/{deviceID}/status:
     get:
-      summary: Get the best effor status of the device
+      summary: Get the best effort status of the device.
       parameters:
         - name: deviceID
           in: path
@@ -81,7 +81,7 @@ paths:
 components:
   schemas:
     Event:
-      description: Event is the extension of wrp message
+      description: Event is the extension of wrp message.
       externalDocs:
         url: https://github.com/Comcast/wrp-c/wiki/Web-Routing-Protocol
       type: object
@@ -122,7 +122,7 @@ components:
           format: int64
           example: 4
         partner_ids:
-          description: the partner ids used by the device. Determined from the same event that provides the state
+          description: the partner ids used by the device. Determined from the same event that provides the state.
           type: array
           items:
             type: string
@@ -134,7 +134,7 @@ components:
             format: uint8
           example: eyJpZCI6IjUiLCJ0cyI6IjIwMTktMDItMTJUMTE6MTA6MDIuNjE0MTkxNzM1WiIsImJ5dGVzLXNlbnQiOjAsIm1lc3NhZ2VzLXNlbnQiOjEsImJ5dGVzLXJlY2VpdmVkIjowLCJtZXNzYWdlcy1yZWNlaXZlZCI6MH0=
         rdr:
-          description: RequestDeliveryResponse The request delivery response is the delivery result of the previous (implied request) message with a matching transaction_uuid
+          description: RequestDeliveryResponse The request delivery response is the delivery result of the previous (implied request) message with a matching transaction_uuid.
           type: integer
           format: int64
         source:
@@ -153,11 +153,11 @@ components:
           type: integer
           format: int64
         transaction_uuid:
-          description: The transaction key for the message
+          description: The transaction key for the message.
           type: string
           example: 546514d4-9cb6-41c9-88ca-ccd4c130c525
         url:
-          description: The url to use when connecting to the nanomsg pipeline
+          description: The url to use when connecting to the nanomsg pipeline.
           type: string
       example:
         {

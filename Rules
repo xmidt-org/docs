@@ -27,7 +27,7 @@ compile '**/*/swagger/**/*' do
 end
 compile '**/*/swagger.*' do
 end
-compile '**/*.yaml' do 
+compile '**/*.yaml' do
   write nil
 end
 
@@ -62,8 +62,6 @@ compile '/**/*' do
     end
   elsif item.identifier.ext == 'css'
     # don’t filter stylesheets
-  elsif item.identifier.ext == 'yaml'
-    filter
   elsif item.binary?
     # don’t filter binary items
   elsif item[:layout]

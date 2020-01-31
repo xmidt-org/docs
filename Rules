@@ -27,6 +27,9 @@ compile '**/*/swagger/**/*' do
 end
 compile '**/*/swagger.*' do
 end
+compile '**/*.yaml' do
+  write nil
+end
 
 # RSS Feed
 compile '/blog/feed.*' do

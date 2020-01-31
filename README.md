@@ -13,7 +13,7 @@ Xmidt documentation site.  The site can be found at https://xmidt.io
 
 ## Code of Conduct
 
-This project and everyone participating in it are governed by the [XMiDT Code Of Conduct](https://xmidt.io/code_of_conduct/). 
+This project and everyone participating in it are governed by the [XMiDT Code Of Conduct](https://xmidt.io/code_of_conduct/).
 By participating, you agree to this Code.
 
 ## Prerequisites
@@ -39,6 +39,17 @@ The resulting static site will be stored in the `output` directory.
 Optionally, you can use an API token to avoid rate limits on the API. You can get an API token from https://github.com/settings/tokens/new.
 ```bash
 export GITHUB_AUTHENTICATION='-u user:token'
+
+For building the codex swagger docs run
+```bash
+redoc-cli  bundle -o swagger.html --title "Codex Documentation" codex.yaml
+```
+```markdown
+# then add the following to the top of the file
+---
+title: Swagger
+sort_rank: 15
+---
 ```
 
 ## Deploy
@@ -59,8 +70,8 @@ You should now be able to view the generated site at
 
 ### Automatic Production Deployment
 
-Pull requests should contain the newly built site, in the `docs/` folder.  When 
-changes to the `docs/` folder are committed to master, the site automatically 
+Pull requests should contain the newly built site, in the `docs/` folder.  When
+changes to the `docs/` folder are committed to master, the site automatically
 gets redeployed.
 
 ## Contributing

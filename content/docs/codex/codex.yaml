@@ -1,0 +1,229 @@
+openapi: 3.0.1
+info:
+  title: Codex API
+  description: The purpose of this application is to provide an API that returns event information for a device.
+  license:
+    name: Apache 2.0
+    url: https://opensource.org/licenses/Apache-2.0
+  version: 0.12.3
+externalDocs:
+  description: Find out more about Codex
+  url: https://xmidt.io/docs/codex/overview/
+
+servers:
+  - url: https://localhost/api/v1
+  - url: http://localhost/api/v1
+
+
+paths:
+  /device/{deviceID}/events:
+    get:
+      summary: Get Device Events
+      description: Get latest events related to a specific device id.
+      parameters:
+        - name: deviceID
+          in: path
+          description: the id of the device known to the xmidt cluster
+          required: true
+          schema:
+            type: string
+        - name: after
+          in: query
+          description: get events after the state hash provided from a previous request
+          required: false
+          schema:
+            type: string
+
+      responses:
+        200:
+          description: Event List
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+          headers:
+            X-Codex-Hash:
+              description: The state hash of the events provided
+              schema:
+                type: string
+              example: 72531eba-42ce-11ea-b823-b235bd9ded32
+        204:
+          description: No events received after state hash within timeout period
+        404:
+          description: No events found for device
+        499:
+          description: Client closed request before timeout period
+        500:
+          description: Internal Sever Error
+  /device/{deviceID}/status:
+    get:
+      summary: Get the best effort status of the device.
+      parameters:
+        - name: deviceID
+          in: path
+          description: deviceID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Device Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+        404:
+          description: No events found for device
+        500:
+          description: Internal Sever Error
+components:
+  schemas:
+    Event:
+      description: Event is the extension of wrp message.
+      externalDocs:
+        url: https://github.com/Comcast/wrp-c/wiki/Web-Routing-Protocol
+      type: object
+      required:
+        - msg_type
+      properties:
+        accept:
+          description: Accept the media type accepted in the response.
+          type: string
+        birth_date:
+          description: BirthDate the time codex received the message in nanoseconds.
+          type: integer
+          format: int64
+          example: 1580325276910667000
+        content_type:
+          description: ContentType the media type of the payload.
+          type: string
+          example: "json"
+        dest:
+          description: Destination the device_id name of the target device of the request or response.
+          type: string
+          example: event:device-status/mac:ffffffffdae4/online
+        headers:
+          type: array
+          items:
+            type: string
+        include_spans:
+          type: boolean
+          description: IncludeSpans (Deprecated) If the timing values should be included in the response.
+          deprecated: true
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          example: {"/boot-time": "1542834188","/last-reconnect-reason": "spanish inquisition" }
+        msg_type:
+          type: integer
+          format: int64
+          example: 4
+        partner_ids:
+          description: The partner ids used by the device. Determined from the same event that provides the state.
+          type: array
+          items:
+            type: string
+          example: ["example_partner", ".*"]
+        payload:
+          type: array
+          items:
+            type: integer
+            format: uint8
+          example: eyJpZCI6IjUiLCJ0cyI6IjIwMTktMDItMTJUMTE6MTA6MDIuNjE0MTkxNzM1WiIsImJ5dGVzLXNlbnQiOjAsIm1lc3NhZ2VzLXNlbnQiOjEsImJ5dGVzLXJlY2VpdmVkIjowLCJtZXNzYWdlcy1yZWNlaXZlZCI6MH0=
+        rdr:
+          description: RequestDeliveryResponse The request delivery response is the delivery result of the previous (implied request) message with a matching transaction_uuid.
+          type: integer
+          format: int64
+        source:
+          description: The originating description of the request or response.
+          type: string
+          example: dns:talaria.xmidt.example.com
+        spans:
+          description: "Spans An array of arrays of timing values as a list in the format: \"parent\" (string), \"name\" (string),\n\"start time\" (int), \"duration\" (int), \"status\" (int)"
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+        status:
+          description: The response status from the originating service.
+          type: integer
+          format: int64
+        transaction_uuid:
+          description: The transaction key for the message.
+          type: string
+          example: 546514d4-9cb6-41c9-88ca-ccd4c130c525
+        url:
+          description: The url to use when connecting to the nanomsg pipeline.
+          type: string
+      example:
+        {
+          "msg_type": 4,
+          "source": "dns:talaria.xmidt.example.com",
+          "dest": "event:device-status/event:device-status/mac:ffffffffdae4/online/online",
+          "transaction_uuid": "546514d4-9cb6-41c9-88ca-ccd4c130c525",
+          "content_type": "json",
+          "metadata": {
+            "/boot-time": "1542834188",
+            "/last-reconnect-reason": "spanish inquisition"
+          },
+          "payload": "eyJpZCI6IjUiLCJ0cyI6IjIwMTktMDItMTJUMTE6MTA6MDIuNjE0MTkxNzM1WiIsImJ5dGVzLXNlbnQiOjAsIm1lc3NhZ2VzLXNlbnQiOjEsImJ5dGVzLXJlY2VpdmVkIjowLCJtZXNzYWdlcy1yZWNlaXZlZCI6MH0=",
+          "birth_date": 1580326503649365642
+        }
+
+
+    Status:
+      type: object
+      properties:
+        deviceid:
+          type: string
+          description: The device ID sent in the request.
+          example: "1234"
+        state:
+          type: string
+          description: The best effort guess of the devices status.
+          enum:
+          - online
+          - offline
+          example: "offline"
+        since:
+          type: string
+          format: date-time
+          description: The last event scene from the device to determine the status.
+          example: "2019-02-26T20:18:15.188881748Z"
+        now:
+          type: string
+          format: date-time
+          description: The timestamp of when the status was determined.
+          example: "2019-02-26T20:18:15.188881748Z"
+        last_offline_reason:
+          type: string
+          description: The last reason the device went offline.
+          example: ping miss
+        partner_ids:
+          description: The partner ids used by the device. Determined from the same event that provides the state.
+          type: array
+          items:
+            type: string
+          example: ["example_partner", ".*"]
+      example:
+        {
+          "deviceid": "1234",
+          "state": "online",
+          "since": "2020-01-29T19:45:39.49854578Z",
+          "now": "2020-01-29T19:52:02.424551903Z",
+          "last_offline_reason": "*no error*:readerror",
+          "partner_ids": null
+        }
+
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    bearer:
+      type: apiKey
+      name: bearer
+      in: header

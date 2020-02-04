@@ -29,7 +29,7 @@ paths:
             type: string
         - name: after
           in: query
-          description: get events after the state hash provided from a previous request
+          description: create a long poll request to get the events after the state hash provided from a previous request.
           required: false
           schema:
             type: string

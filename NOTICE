@@ -4,7 +4,7 @@ started with the prometheus docs hash 7bbd3dcd93cabf2270fd3aa46b22d2e59ce01711.
 
 We plan to bring in fixes from the prometheus documentation project as they are
 appropriate.
-The changes and Xmidt projects documentation are Copyright 2015-2019 The Xmidt Authors
+The changes and Xmidt projects documentation are Copyright Comcast 2015-2020
 
 The following components are included in this product:
 Prometheus documentation

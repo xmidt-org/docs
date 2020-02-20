@@ -103,4 +103,4 @@ partner_ids | (optional) The list of partner ids the message is meant to target.
 headers | (optional) The headers associated with the payload.
 metadata | (optional) The map of name/value pairs used by consumers of WRP messages for filtering & other purposes.
 payload | The bin format packed data.
-sessionID | A unique ID for the source device's connection session with XMiDT
+sessionID | A unique ID for the device's connection session with XMiDT

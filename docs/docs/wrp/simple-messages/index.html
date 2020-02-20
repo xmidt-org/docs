@@ -232,7 +232,7 @@ the same message type.</p>
 
 <p>This is one of the primary message definitions used.  It provides a one
 directional (no responses needed or sent) message from a component to whatever
-happens to be listening.  It's alot like a UDP message, but it's over TCP and
+happens to be listening.  It's a lot like a UDP message, but it's over TCP and
 TLS.  Generally the <code>dest</code> is targeted to an <code>event:some_event_type_here/ignored</code>
 which flows out to the event listeners for consumption.  This message type is
 great at sending metrics, publishing a report, sending an SOS.</p>
@@ -249,6 +249,7 @@ great at sending metrics, publishing a report, sending an SOS.</p>
     Array.String headers
     Map[String] metadata
     Binary payload
+    String sessionID
 }
 </code></pre>
 
@@ -291,6 +292,10 @@ great at sending metrics, publishing a report, sending an SOS.</p>
 <tr>
 <td>payload</td>
 <td>The bin format packed data.</td>
+</tr>
+<tr>
+<td>sessionID</td>
+<td>A unique ID for the device's connection session with XMiDT</td>
 </tr>
 </tbody>
 </table>

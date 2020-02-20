@@ -72,7 +72,7 @@ payload | The msgpack binary format packed data.
 
 This is one of the primary message definitions used.  It provides a one
 directional (no responses needed or sent) message from a component to whatever
-happens to be listening.  It's alot like a UDP message, but it's over TCP and
+happens to be listening.  It's a lot like a UDP message, but it's over TCP and
 TLS.  Generally the `dest` is targeted to an `event:some_event_type_here/ignored`
 which flows out to the event listeners for consumption.  This message type is
 great at sending metrics, publishing a report, sending an SOS.
@@ -89,6 +89,7 @@ great at sending metrics, publishing a report, sending an SOS.
     Array.String headers
     Map[String] metadata
     Binary payload
+    String sessionID
 }
 ~~~~~
 
@@ -102,3 +103,4 @@ partner_ids | (optional) The list of partner ids the message is meant to target.
 headers | (optional) The headers associated with the payload.
 metadata | (optional) The map of name/value pairs used by consumers of WRP messages for filtering & other purposes.
 payload | The bin format packed data.
+sessionID | A unique ID for the source device's connection session with XMiDT

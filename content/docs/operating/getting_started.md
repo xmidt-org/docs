@@ -37,10 +37,11 @@ This step will be done at each service level, by providing a list of urls.
 ## Consul
 [Consul](https://www.consul.io/) allows Petasos to dynamically know about all the Talarias in the datacenter.
 
-| Pro                       | Con                            |
-|---------------------------|--------------------------------|
-| Scaling is fast and easy  | TLS can be more complicated    |
-| Easier metric monitoring  | Management of Consul           |
+| Pro                        | Con                                |
+|----------------------------|------------------------------------|
+| Scaling is fast and easy   | TLS can be more complicated        |
+| Easier metric monitoring   | Management of Consul               |
+| Node failover is supported | Complicated, difficult to stand up |
 
 ### Setup
 -   [Installation](https://learn.hashicorp.com/consul/getting-started/install)

@@ -3,8 +3,8 @@
   <id>https://xmidt.io/</id>
   <title>XMiDT Blog</title>
   <updated>2019-08-07T00:00:00Z</updated>
-  <link rel="alternate" href="https://xmidt.io/"/>
-  <link rel="self" href="https://xmidt.io/blog/feed.xml"/>
+  <link rel="alternate" href="https://xmidt.io/" type="text/html"/>
+  <link rel="self" href="https://xmidt.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>© XMiDT Authors 2019</name>
     <uri>https://xmidt.io/blog/</uri>
@@ -20,7 +20,7 @@
       <name>Weston Schmidt</name>
       <uri>https://xmidt.io/blog/</uri>
     </author>
-    <link rel="alternate" href="https://xmidt.io/blog/2019-08-02-hello-world/"/>
+    <link rel="alternate" href="https://xmidt.io/blog/2019-08-02-hello-world/" type="text/html"/>
     <content type="html">&lt;p&gt;Hello, world!&lt;/p&gt;
 
 &lt;p&gt;We've been working at getting the new site up and today we're far enough along

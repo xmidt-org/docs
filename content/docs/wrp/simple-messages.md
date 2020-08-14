@@ -91,6 +91,7 @@ great at sending metrics, publishing a report, sending an SOS.
 {
     Integer msg_type = 4
     String source
+    String dest
     String content_type
     Array.String partner_ids
     Array.String headers

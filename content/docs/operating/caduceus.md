@@ -12,7 +12,7 @@ Currently Caduceus depends on [SNS](https://aws.amazon.com/sns/getting-started/)
 -   Docker (Link TBC)
 
 ## Configuration
-Refer to [configuration file](https://github.com/xmidt-org/caduceus/blob/master/caduceus.yaml)
+Refer to [configuration file](https://github.com/xmidt-org/caduceus/blob/main/caduceus.yaml)
 for how to configure Caduceus.
 
 ### Connecting to AWS
@@ -82,7 +82,7 @@ _**NOTE**_: dXNlcjpwYXNz is an example auth string for Caduceus. DO NOT use
 this in production.
 
 #### Register a webhook
-Create a [listener](https://github.com/xmidt-org/wrp-listener/blob/master/examples/configurableListener).  
+Create a [listener](https://github.com/xmidt-org/wrp-listener/blob/main/examples/configurableListener).  
 You should see it by checking the `hooks` endpoint.
 
 

@@ -70,7 +70,7 @@ data_sources:
     config:
       name: 'latest (0.1)'
       repository: https://github.com/xmidt-org/caduceus.git
-      refspec: master
+      refspec: main
   -
     type: repo_docs
     identifier_type: full
@@ -78,7 +78,7 @@ data_sources:
     config:
       name: 'latest (0.11)'
       repository: https://github.com/xmidt-org/svalinn.git
-      refspec: master
+      refspec: main
     encoding: utf-8
   -
     type: repo_docs
@@ -87,7 +87,7 @@ data_sources:
     config:
       name: 'latest (0.9)'
       repository: https://github.com/xmidt-org/gungnir.git
-      refspec: master
+      refspec: main
   -
     type: repo_docs
     identifier_type: full
@@ -95,7 +95,7 @@ data_sources:
     config:
       name: 'latest (0.5)'
       repository: https://github.com/xmidt-org/fenrir.git
-      refspec: master
+      refspec: main
   -
     type: repo_docs
     identifier_type: full
@@ -103,7 +103,7 @@ data_sources:
     config:
       name: 'latest (0.1)'
       repository: https://github.com/xmidt-org/heimdall.git
-      refspec: master
+      refspec: main
   -
     type: filesystem
     items_root: /assets

@@ -8,7 +8,7 @@ The orchestration of XMiDT can be quite complicated. Please refer to the [archit
 to have a better understanding of the components and how they work towards the bigger picture.
 
 To get up and running quickly, or for a small, not highly available instance we have
-a [docker-compose](https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose) version available.  
+a [docker-compose](https://github.com/xmidt-org/xmidt/tree/main/deploy/docker-compose) version available.  
 This is a great way to see the way that components connect with one another as well as sample configurations
 for each machine.
 

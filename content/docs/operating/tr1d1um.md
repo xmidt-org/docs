@@ -11,7 +11,7 @@ sort_rank: 50
 -   Docker (Link TBC)
 
 ## Configuration
-Refer to [configuration file](https://github.com/xmidt-org/tr1d1um/blob/master/tr1d1um.yaml)
+Refer to [configuration file](https://github.com/xmidt-org/tr1d1um/blob/main/tr1d1um.yaml)
 for how to configure Tr1d1um.
 
 ### Connecting to Scytale

@@ -11,7 +11,7 @@ sort_rank: 40
 -   Docker (Link TBC)
 
 ## Configuration
-Refer to [configuration file](https://github.com/xmidt-org/scytale/blob/master/scytale.yaml)
+Refer to [configuration file](https://github.com/xmidt-org/scytale/blob/main/scytale.yaml)
 for how to configure Scytale.
 
 ### Connecting to Petasos

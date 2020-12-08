@@ -6,7 +6,8 @@ build: clean downloads compile CNAME
 
 bundle:
 	bundle config build.nokogiri --use-system-libraries
-	bundle install --path vendor
+	bundle config set path 'vendor'
+	bundle install
 
 CNAME:
 	echo "xmidt.io" > docs/CNAME

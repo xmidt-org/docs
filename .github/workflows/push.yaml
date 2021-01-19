@@ -22,4 +22,8 @@ jobs:
         with:
           ruby-version: 2.6
       - name: Install dependencies
-        run: bundle install
+        run: make bundle
+      - name: Build static site
+        run: make build
+      - name: Build swagger
+        run: make swagger

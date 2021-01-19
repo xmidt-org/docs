@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  create:
+  pull_requests:
+  push:
+    branches:
+      - main
+      - automate
+
+jobs:
+  test: Test Publish
+  runs-on: [ ubuntu-latest ]
+  steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Setup nanoc
+    - name: Setup nanoc
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Install dependencies
+      run: bundle install

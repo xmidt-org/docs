@@ -27,7 +27,9 @@ jobs:
         run: make build
       - name: Build swagger
         run: make swagger
+
   deploy:
+    name: Build and deploy
     if: github.event_name == 'push'
     runs-on: [ ubuntu-latest ]
     steps:
@@ -45,10 +47,11 @@ jobs:
         run: make build
       - name: Build swagger
         run: make swagger
-    uses: JamesIves/github-pages-deploy-action@3.7.1
-    with:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      BRANCH: gh-pages
-      FOLDER: docs
-      CLEAN: true
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs
+          CLEAN: true
       

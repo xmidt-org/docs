@@ -2,7 +2,7 @@ name: CI
 
 on:
   create:
-  pull_requests:
+  pull_request:
   push:
     branches:
       - main

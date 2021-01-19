@@ -73,7 +73,7 @@ You should now be able to view the generated site at
 ### Automatic Production Deployment
 
 Pull requests should contain the newly built site, in the `docs/` folder.  When
-changes to the `docs/` folder are committed to master, the site automatically
+changes to the `docs/` folder are committed to main, the site automatically
 gets redeployed.
 
 ## Contributing

@@ -9,7 +9,7 @@ on:
       - automate
 
 jobs:
-  test:
+  build:
     name: Test Publish
     runs-on: [ ubuntu-latest ]
     steps:
@@ -27,3 +27,14 @@ jobs:
         run: make build
       - name: Build swagger
         run: make swagger
+  deploy:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: [ ubuntu-latest ]
+    uses: JamesIves/github-pages-deploy-action@3.7.1
+    with:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BRANCH: gh-pages
+      FOLDER: docs
+      CLEAN: true
+      

@@ -9,8 +9,8 @@ on:
       - automate
 
 jobs:
-  build:
-    name: Test Publish
+  deploy:
+    name: Build and Deploy
     runs-on: [ ubuntu-latest ]
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -27,14 +27,8 @@ jobs:
         run: make build
       - name: Build swagger
         run: make swagger
-
-  deploy:
-    name: Build and deploy
-    needs: build
-    if: github.event_name == 'push'
-    runs-on: [ ubuntu-latest ]
-    steps:
       - name: Deploy
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/automate' }}
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Highly scalable pipes for communicating with devices located anywhere.">
+    <meta name="keywords" content="xmidt, webpa, codex, rdk, routing">
+    <meta name="author" content="Xmidt">
+
+    <link rel="alternate" type="application/atom+xml" title="Xmidt Blog » Feed" href="/blog/feed.xml">
+
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/assets/favicons/android-chrome-manifest.json">
+    
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <title>Caduceus | Xmidt</title>
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap-3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/docs.css" rel="stylesheet">
+    <link href="/css/routing-tree-editor.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/fontawesome-free-5.10.1-web/css/all.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,300italic,400' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+
+  <div class="">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/assets/logo-white.png" alt="Xmidt logo"> Xmidt</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right main-nav">
+            <li><a href="/docs/introduction/overview/">Docs</a></li>
+            <li><a href="/download/">Download</a></li>
+            <li><a href="https://discussion.xmidt.io">Collaborate</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="https://github.com/xmidt-org"><i class="fab fa-github"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 side-nav-col">
+      <ul class="nav navbar-nav side-nav">
+        
+          <li><span class="nav-header"><i class="fa fa-sitemap"></i> <span>Introduction</span></span><ul class="nav "><li><a href="/docs/introduction/overview/">Overview</a></li><li><a href="/docs/introduction/glossary/">Glossary</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-book"></i> <span>Codex</span></span><ul class="nav "><li><a href="/docs/codex/overview/">Overview</a></li><li><a href="/docs/codex/swagger/">Swagger</a></li><li><span class="nav-subheader">Svalinn</span><ul class="nav "><li><a href="/docs/codex/svalinn/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Gungnir</span><ul class="nav "><li><a href="/docs/codex/gungnir/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Fenrir</span><ul class="nav "><li><a href="/docs/codex/fenrir/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Heimdall</span><ul class="nav "><li><a href="/docs/codex/heimdall/getting_started/">Getting started</a></li></ul></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-exchange-alt"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
+        
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li><a href="/docs/operating/getting_started/">Getting started</a></li><li><a href="/docs/operating/talaria/">Talaria</a></li><li><a href="/docs/operating/petasos/">Petasos</a></li><li><a href="/docs/operating/scytale/">Scytale</a></li><li><a href="/docs/operating/tr1d1um/">Tr1d1um</a></li><li class="active current"><a href="/docs/operating/caduceus/">Caduceus</a></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-envelope-open-text"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-balance-scale"></i> <span>Community</span></span><ul class="nav "><li><a href="/docs/community/overview/">Overview</a></li><li><a href="/docs/community/code_of_conduct/">Code of Conduct</a></li><li><a href="/docs/community/governance/">Governance</a></li></ul></li>
+        
+      </ul>
+    </div>
+
+    <div class="col-md-9 doc-content">
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1 id="caduceus" class="page-header">Caduceus<a class="header-anchor" href="#caduceus" name="caduceus"></a>
+</h1>
+<div class="toc toc-right"><ul>
+<li><a href="#installation">Installation
+</a></li>
+<li><a href="#configuration">Configuration
+</a></li>
+<ul><li><a href="#connecting-to-aws">Connecting to AWS
+</a></li></ul>
+<li><a href="#validation">Validation
+</a></li>
+<ul>
+<li><a href="#test-health">Test Health
+</a></li>
+<li><a href="#test-webhooks">Test Webhooks
+</a></li>
+</ul>
+<li><a href="#troubleshooting">Troubleshooting
+</a></li>
+<li><a href="#next">Next
+</a></li>
+</ul></div>
+
+<p>Currently Caduceus depends on <a href="https://aws.amazon.com/sns/getting-started/">SNS</a></p>
+
+<h2 id="installation">Installation<a class="header-anchor" href="#installation" name="installation"></a>
+</h2>
+
+<ul>
+<li>  <a href="https://xmidt.io/download/#caduceus">RPM</a>
+</li>
+<li>  <a href="https://xmidt.io/download/#caduceus">Binary</a>
+</li>
+<li>  Docker (Link TBC)</li>
+</ul>
+
+<h2 id="configuration">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
+</h2>
+
+<p>Refer to <a href="https://github.com/xmidt-org/caduceus/blob/main/caduceus.yaml">configuration file</a>
+for how to configure Caduceus.</p>
+
+<h3 id="connecting-to-aws">Connecting to AWS<a class="header-anchor" href="#connecting-to-aws" name="connecting-to-aws"></a>
+</h3>
+
+<p>Under the AWS block of the yaml file you will have</p>
+
+<pre><code class="yaml">aws:
+  accessKey: ""
+  secretKey: ""
+  env: local-dev
+  sns:
+    awsEndpoint: http://goaws:4100
+    region: "us-east-1"
+    topicArn: arn:aws:sns:us-east-1:000000000000:xmidt-local-caduceus
+    urlPath: "/api/v2/aws/sns"
+</code></pre>
+
+<p>For local testing you can use <a href="https://github.com/p4tin/goaws">a mock sns instance</a></p>
+
+<h2 id="validation">Validation<a class="header-anchor" href="#validation" name="validation"></a>
+</h2>
+
+<h3 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
+</h3>
+
+<pre><code class="bash">curl -i HOSTNAME:HEALTH_PORT/health
+</code></pre>
+
+<pre><code>$ curl -i localhost:6001/health
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Caduceus-Build: development
+X-Caduceus-Flavor: development
+X-Caduceus-Region: local
+X-Caduceus-Server: localhost
+X-Caduceus-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 20:10:28 GMT
+Content-Length: 427
+Connection: close
+
+{"CurrentMemoryUtilizationActive":895574016,"CurrentMemoryUtilizationAlloc":3190504,"CurrentMemoryUtilizationHeapSys":66224128,"MaxMemoryUtilizationActive":946352128,"MaxMemoryUtilizationAlloc":3908816,"MaxMemoryUtilizationHeapSys":66420736,"PayloadsOverHundred":0,"PayloadsOverTenThousand":0,"PayloadsOverThousand":0,"PayloadsOverZero":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0}
+</code></pre>
+
+<h3 id="test-webhooks">Test Webhooks<a class="header-anchor" href="#test-webhooks" name="test-webhooks"></a>
+</h3>
+
+<h4 id="get-webhooks">Get webhooks<a class="header-anchor" href="#get-webhooks" name="get-webhooks"></a>
+</h4>
+
+<pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/hooks
+</code></pre>
+
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the
+<code>PRIMARY_PORT</code>. Where <code>AUTHOKEN</code> is the <code>authHeader</code> in the yaml configuration file.</p>
+
+<pre><code>$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" localhost:6000/hooks
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Caduceus-Build: development
+X-Caduceus-Flavor: development
+X-Caduceus-Region: local
+X-Caduceus-Server: localhost
+X-Caduceus-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 20:12:36 GMT
+Content-Length: 2
+
+[]
+</code></pre>
+
+<p><em><strong>NOTE</strong></em>: dXNlcjpwYXNz is an example auth string for Caduceus. DO NOT use
+this in production.</p>
+
+<h4 id="register-a-webhook">Register a webhook<a class="header-anchor" href="#register-a-webhook" name="register-a-webhook"></a>
+</h4>
+
+<p>Create a <a href="https://github.com/xmidt-org/wrp-listener/blob/main/examples/configurableListener">listener</a>.<br>
+You should see it by checking the <code>hooks</code> endpoint.</p>
+
+<h4 id="testing-webhook">Testing webhook<a class="header-anchor" href="#testing-webhook" name="testing-webhook"></a>
+</h4>
+
+<p>Connect a device to Talaria, described <a href="/docs/operating/getting_started/talaria/#test-device-connection">here</a>.
+When the device connects and disconnects to Talaria, the listener should receive an online and offline event.</p>
+
+<h2 id="troubleshooting">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
+</h2>
+
+<p>The most common error is that Talaria is <a href="/docs/operating/troubleshooting/#event-errors">not configured correctly to talk to Caduceus</a>.</p>
+
+<h2 id="next">Next<a class="header-anchor" href="#next" name="next"></a>
+</h2>
+
+<p>The Cluster is up and running. Take a look at <a href="/docs/codex/overview/">Codex</a> for how to build
+a Codex cluster.</p>
+</body></html>
+
+      <p class="open-source-notice">
+          <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.
+      </p>
+    </div>
+
+  </div>
+  <hr>
+
+<footer>
+  <p class="pull-left">
+    &copy; Comcast 2015-2021 | Documentation Distributed under CC-BY-4.0
+  </p>
+</footer>
+
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="/assets/bootstrap-3.3.1/js/bootstrap.min.js"></script>
+    <script src="/assets/docs.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/assets/ie10-viewport-bug-workaround.js"></script>
+    <!-- TODO: Google Analytics -->
+  </body>
+</html>
+

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Highly scalable pipes for communicating with devices located anywhere.">
+    <meta name="keywords" content="xmidt, webpa, codex, rdk, routing">
+    <meta name="author" content="Xmidt">
+
+    <link rel="alternate" type="application/atom+xml" title="Xmidt Blog » Feed" href="/blog/feed.xml">
+
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/assets/favicons/android-chrome-manifest.json">
+    
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <title>Talaria | Xmidt</title>
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap-3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/docs.css" rel="stylesheet">
+    <link href="/css/routing-tree-editor.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/fontawesome-free-5.10.1-web/css/all.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,300italic,400' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+
+  <div class="">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/assets/logo-white.png" alt="Xmidt logo"> Xmidt</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right main-nav">
+            <li><a href="/docs/introduction/overview/">Docs</a></li>
+            <li><a href="/download/">Download</a></li>
+            <li><a href="https://discussion.xmidt.io">Collaborate</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="https://github.com/xmidt-org"><i class="fab fa-github"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 side-nav-col">
+      <ul class="nav navbar-nav side-nav">
+        
+          <li><span class="nav-header"><i class="fa fa-sitemap"></i> <span>Introduction</span></span><ul class="nav "><li><a href="/docs/introduction/overview/">Overview</a></li><li><a href="/docs/introduction/glossary/">Glossary</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-book"></i> <span>Codex</span></span><ul class="nav "><li><a href="/docs/codex/overview/">Overview</a></li><li><a href="/docs/codex/swagger/">Swagger</a></li><li><span class="nav-subheader">Svalinn</span><ul class="nav "><li><a href="/docs/codex/svalinn/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Gungnir</span><ul class="nav "><li><a href="/docs/codex/gungnir/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Fenrir</span><ul class="nav "><li><a href="/docs/codex/fenrir/getting_started/">Getting started</a></li></ul></li><li><span class="nav-subheader">Heimdall</span><ul class="nav "><li><a href="/docs/codex/heimdall/getting_started/">Getting started</a></li></ul></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-exchange-alt"></i> <span>Webpa</span></span><ul class="nav "><li><a href="/docs/webpa/overview/">Overview</a></li></ul></li>
+        
+          <li class="active"><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav active"><li><a href="/docs/operating/getting_started/">Getting started</a></li><li class="active current"><a href="/docs/operating/talaria/">Talaria</a></li><li><a href="/docs/operating/petasos/">Petasos</a></li><li><a href="/docs/operating/scytale/">Scytale</a></li><li><a href="/docs/operating/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/caduceus/">Caduceus</a></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-envelope-open-text"></i> <span>Web Routing Protocol</span></span><ul class="nav "><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li></ul></li>
+        
+          <li><span class="nav-header"><i class="fa fa-balance-scale"></i> <span>Community</span></span><ul class="nav "><li><a href="/docs/community/overview/">Overview</a></li><li><a href="/docs/community/code_of_conduct/">Code of Conduct</a></li><li><a href="/docs/community/governance/">Governance</a></li></ul></li>
+        
+      </ul>
+    </div>
+
+    <div class="col-md-9 doc-content">
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1 id="talaria" class="page-header">Talaria<a class="header-anchor" href="#talaria" name="talaria"></a>
+</h1>
+<div class="toc toc-right"><ul>
+<li><a href="#installation">Installation
+</a></li>
+<li><a href="#configuration">Configuration
+</a></li>
+<ul>
+<li><a href="#fixed">Fixed
+</a></li>
+<li><a href="#consul">Consul
+</a></li>
+</ul>
+<li><a href="#validation">Validation
+</a></li>
+<ul>
+<li><a href="#test-health">Test Health
+</a></li>
+<li><a href="#test-device-connection">Test Device Connection
+</a></li>
+</ul>
+<li><a href="#troubleshooting">Troubleshooting
+</a></li>
+<li><a href="#next">Next
+</a></li>
+</ul></div>
+
+<h2 id="installation">Installation<a class="header-anchor" href="#installation" name="installation"></a>
+</h2>
+
+<ul>
+<li>  <a href="https://xmidt.io/download/#talaria">RPM</a>
+</li>
+<li>  <a href="https://xmidt.io/download/#talaria">Binary</a>
+</li>
+<li>  Docker (Link TBC)</li>
+</ul>
+
+<h2 id="configuration">Configuration<a class="header-anchor" href="#configuration" name="configuration"></a>
+</h2>
+
+<p>Refer to <a href="https://github.com/xmidt-org/talaria/blob/main/talaria.yaml">configuration file</a>
+for how to configure Talaria.</p>
+
+<h3 id="fixed">Fixed<a class="header-anchor" href="#fixed" name="fixed"></a>
+</h3>
+
+<p>For fixed routing, the service block in Talaria's configuration should look similar to the example below:</p>
+
+<pre><code class="yaml">service:
+  defaultScheme: http
+  fixed:
+    - http://HOSTNAME:PRIMARY_PORT
+</code></pre>
+
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the
+<code>PRIMARY_PORT</code>.</p>
+
+<p><em><strong>NOTE</strong></em>: if you have domain or host certificates available, we recommend
+always running the service (and all components in the service) in https mode.</p>
+
+<h3 id="consul">Consul<a class="header-anchor" href="#consul" name="consul"></a>
+</h3>
+
+<p>For a consul managed list of Talarias, the service block in Talaria's configuration should look similar to the example below:</p>
+
+<pre><code class="yaml">service:
+  defaultScheme: http
+  consul:
+    client:
+      address: "CONSUL_ADDRESS:8500"
+      scheme: "http"
+      waitTime: "30s"
+    disableGenerateID: true
+    vnodeCount: 211
+    watches:
+      -
+        service: "talaria"
+        tags:
+          - "dev"
+          - "docker"
+        passingOnly: true
+    registrations:
+      -
+        id: "HOSTNAME"
+        name: "talaria"
+        tags:
+          - "dev"
+          - "docker"
+          - "stage=dev"
+          - "flavor=docker"
+        address: "http://HOSTNAME"
+        scheme: "http"
+        port: 6210
+        checks:
+          -
+            checkID: "talaria-1:http"
+            http: "http://HOSTNAME:HEALTH_PORT/health"
+            interval: "30s"
+            deregisterCriticalServiceAfter: "70s"
+</code></pre>
+
+<p>Where <code>CONSUL_ADDRESS</code> is your Consul DNS record, docker container, or ip address.
+Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address for this service listening on the <code>HEALTH_PORT</code>.</p>
+
+<p>Talaria is watching for the other Talarias and is registering itself.</p>
+
+<p><em><strong>NOTE</strong></em>: if you have certs available, change http to https. HTTP should never
+be run in production.</p>
+
+<h2 id="validation">Validation<a class="header-anchor" href="#validation" name="validation"></a>
+</h2>
+
+<h3 id="test-health">Test Health<a class="header-anchor" href="#test-health" name="test-health"></a>
+</h3>
+
+<pre><code class="bash">curl HOSTNAME:HEALTH_PORT/health -i
+</code></pre>
+
+<pre><code>$ curl localhost:6201/health -i
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Talaria-Build: development
+X-Talaria-Flavor: development
+X-Talaria-Region: local
+X-Talaria-Server: localhost
+X-Talaria-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 18:44:30 GMT
+Content-Length: 497
+Connection: close
+
+{"CurrentMemoryUtilizationActive":931160064,"CurrentMemoryUtilizationAlloc":2907696,"CurrentMemoryUtilizationHeapSys":66093056,"DeviceCount":0,"MaxMemoryUtilizationActive":931160064,"MaxMemoryUtilizationAlloc":3649496,"MaxMemoryUtilizationHeapSys":66125824,"TotalConnectionEvents":0,"TotalDisconnectionEvents":0,"TotalPingMessagesReceived":0,"TotalPongMessagesReceived":0,"TotalRequestsDenied":0,"TotalRequestsReceived":0,"TotalRequestsSuccessfullyServiced":0,"TotalWRPRequestResponseProcessed":0}
+</code></pre>
+
+<h3 id="test-device-connection">Test Device Connection<a class="header-anchor" href="#test-device-connection" name="test-device-connection"></a>
+</h3>
+
+<p>Using a <a href="https://github.com/xmidt-org/xmidt/tree/main/simulator">device simulator</a> we
+can mock a device connecting to our cluster. The core part of the device simulator that
+connects to Talaria is <a href="https://github.com/xmidt-org/parodus">Parados</a>. Instead of
+mocking the device we can also mock Parados with <a href="https://github.com/xmidt-org/kratos">kratos</a>.</p>
+
+<pre><code class="bash">docker run -e URL=http://HOSTNAME:PRIMARY_PORT rdkb-simulator
+</code></pre>
+
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the
+<code>PRIMARY_PORT</code>.
+<em><strong>NOTE</strong></em>: If you are running Talaria locally, you will need to provide the ip
+address of your machine.</p>
+
+<h4 id="get-connected-devices">Get Connected Devices<a class="header-anchor" href="#get-connected-devices" name="get-connected-devices"></a>
+</h4>
+
+<p><em><strong>NOTE</strong></em>: This is a very expensive command. Do NOT run it in production.</p>
+
+<pre><code class="bash">curl -i -H "Authorization: Basic AUTHOKEN" HOSTNAME:PRIMARY_PORT/api/v2/devices
+</code></pre>
+
+<p>Where <code>HOSTNAME</code> is your DNS record, docker container, or ip address listening on the
+<code>PRIMARY_PORT</code>. Where <code>AUTHOKEN</code> is the <code>inbound.authKey"</code> in the yaml configuration file.</p>
+
+<p>The following is an example. Do not use this auth key in production.</p>
+
+<pre><code class="bash">$ curl -i -H "Authorization: Basic dXNlcjpwYXNz" http://localhost:6200/api/v2/devices
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Talaria-Build: development
+X-Talaria-Flavor: development
+X-Talaria-Region: local
+X-Talaria-Server: localhost
+X-Talaria-Start-Time: 26 Aug 19 18:43 UTC
+Date: Mon, 26 Aug 2019 18:57:54 GMT
+Content-Length: 245
+
+{"devices":[{"id": "mac:112233445566", "pending": 0, "statistics": {"bytesSent": 0, "messagesSent": 0, "bytesReceived": 0, "messagesReceived": 0, "duplications": 0, "connectedAt": "2019-08-26T18:43:57.666272023Z", "upTime": "13m56.48957368s"}}]}
+</code></pre>
+
+<h2 id="troubleshooting">Troubleshooting<a class="header-anchor" href="#troubleshooting" name="troubleshooting"></a>
+</h2>
+
+<p>The most common error is <a href="/docs/operating/troubleshooting/#device-is-not-showing-up-in-cluster-talaria">devices not showing</a>.</p>
+
+<h2 id="next">Next<a class="header-anchor" href="#next" name="next"></a>
+</h2>
+
+<p>Talaria should be up and running now; let's stand up <a href="/docs/operating/petasos">Petasos</a>.</p>
+</body></html>
+
+      <p class="open-source-notice">
+          <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.
+      </p>
+    </div>
+
+  </div>
+  <hr>
+
+<footer>
+  <p class="pull-left">
+    &copy; Comcast 2015-2021 | Documentation Distributed under CC-BY-4.0
+  </p>
+</footer>
+
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="/assets/bootstrap-3.3.1/js/bootstrap.min.js"></script>
+    <script src="/assets/docs.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/assets/ie10-viewport-bug-workaround.js"></script>
+    <!-- TODO: Google Analytics -->
+  </body>
+</html>
+

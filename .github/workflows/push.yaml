@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  create:
+  pull_request:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: [ ubuntu-latest ]
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+  
+      - name: Setup nanoc
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+
+      - name: Install dependencies
+        run: make bundle
+
+      - name: Build static site
+        run: make build
+
+      - name: Build swagger
+        run: make swagger
+
+      - name: Deploy
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs
+          CLEAN: true
+      

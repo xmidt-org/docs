@@ -2,7 +2,7 @@ NANOC      = bundle exec nanoc
 GUARD      = bundle exec guard
 DOWNLOADS := docs caduceus svalinn gungnir fenrir heimdall
 
-.default: compile
+.default: build
 
 bundle:
 	bundle config build.nokogiri --use-system-libraries
@@ -23,7 +23,7 @@ clean:
 clean-all: clean
 	rm -rf vendor tmp
 
-compile: bundle downloads swagger CNAME
+build: bundle downloads swagger CNAME
 	$(NANOC)
 
 downloads: $(DOWNLOADS:%=downloads/%/repo.json) $(DOWNLOADS:%=downloads/%/releases.json)
@@ -52,4 +52,4 @@ swagger-codex:
 
 swagger: swagger-codex
 
-.PHONY: build bundle clean clean-all compile downloads serve swagger swagger-codex
+.PHONY: build bundle clean clean-all build downloads serve swagger swagger-codex

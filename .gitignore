@@ -4,6 +4,8 @@
 output/
 /docs
 
+swagger.html
+
 # Temporary file directory
 tmp/
 /downloads/

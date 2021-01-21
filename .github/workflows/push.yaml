@@ -26,9 +26,6 @@ jobs:
       - name: Build static site
         run: make build
 
-      - name: Build swagger
-        run: make swagger
-
       - name: Deploy
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@3.7.1

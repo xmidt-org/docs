@@ -2,9 +2,9 @@ NANOC      = bundle exec nanoc
 GUARD      = bundle exec guard
 DOWNLOADS := docs caduceus svalinn gungnir fenrir heimdall
 
-build: bundle
+.default: compile
 
-bundle: compile
+bundle:
 	bundle config build.nokogiri --use-system-libraries
 	bundle config set path 'vendor'
 	bundle install
@@ -23,7 +23,7 @@ clean:
 clean-all: clean
 	rm -rf vendor tmp
 
-compile: downloads swagger CNAME
+compile: bundle downloads swagger CNAME
 	$(NANOC)
 
 downloads: $(DOWNLOADS:%=downloads/%/repo.json) $(DOWNLOADS:%=downloads/%/releases.json)

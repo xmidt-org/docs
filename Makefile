@@ -46,7 +46,7 @@ serve:
 
 swagger-codex: 
 	npx redoc-cli  bundle -o tmp.html --title "Codex Documentation" content/docs/codex/codex.yaml
-	echo -e "---\ntitle: Swagger\nsort_rank: 15\n---" > content/docs/codex/swagger.html
+	echo -e "---\ntitle: Swagger\nsort_rank: 15\n---\n\n" > content/docs/codex/swagger.html
 	cat tmp.html >> content/docs/codex/swagger.html
 	rm tmp.html
 

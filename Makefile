@@ -10,6 +10,7 @@ bundle: compile
 	bundle install
 
 CNAME:
+	@mkdir -p docs
 	echo "xmidt.io" > docs/CNAME
 
 clean:

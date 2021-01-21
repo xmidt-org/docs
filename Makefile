@@ -2,9 +2,9 @@ NANOC      = bundle exec nanoc
 GUARD      = bundle exec guard
 DOWNLOADS := docs caduceus svalinn gungnir fenrir heimdall
 
-build: clean downloads compile CNAME
+build: bundle
 
-bundle:
+bundle: compile
 	bundle config build.nokogiri --use-system-libraries
 	bundle config set path 'vendor'
 	bundle install
@@ -13,12 +13,16 @@ CNAME:
 	echo "xmidt.io" > docs/CNAME
 
 clean:
-	rm -rf docs downloads repositories
+	rm -rf docs \
+           downloads \
+           repositories \
+           content/docs/codex/swagger.html \
 
+    
 clean-all: clean
 	rm -rf vendor tmp
 
-compile:
+compile: downloads swagger CNAME
 	$(NANOC)
 
 downloads: $(DOWNLOADS:%=downloads/%/repo.json) $(DOWNLOADS:%=downloads/%/releases.json)

@@ -2,29 +2,32 @@ NANOC      = bundle exec nanoc
 GUARD      = bundle exec guard
 DOWNLOADS := docs caduceus svalinn gungnir fenrir heimdall
 
-.default: build
+SWAGGER = \
+    content/docs/codex/swagger.html \
+    content/docs/webpa/swagger.html
+
+.DEFAULT_GOAL := build
 
 bundle:
 	bundle config build.nokogiri --use-system-libraries
 	bundle config set path 'vendor'
 	bundle install
 
-CNAME:
+docs/CNAME:
 	@mkdir -p docs
 	echo "xmidt.io" > docs/CNAME
-
+    
 clean:
 	rm -rf docs \
            downloads \
            repositories \
-           content/docs/codex/swagger.html \
+		   $(SWAGGER) \
 
-    
 clean-all: clean
 	rm -rf vendor tmp
 
-build: bundle downloads swagger CNAME
-	$(NANOC)
+build: bundle downloads $(SWAGGER) docs/CNAME
+	$(NANOC) -V
 
 downloads: $(DOWNLOADS:%=downloads/%/repo.json) $(DOWNLOADS:%=downloads/%/releases.json)
 
@@ -44,15 +47,22 @@ guard:
 serve:
 	$(NANOC) view
 
-swagger-codex: 
-	npx redoc-cli  bundle -o tmp.html --title "Codex Documentation" content/docs/codex/codex.yaml
-	@echo "---"             > content/docs/codex/swagger.html
-	@echo "title: Swagger" >> content/docs/codex/swagger.html
-	@echo "sort_rank: 15"  >> content/docs/codex/swagger.html
-	@echo "---"            >> content/docs/codex/swagger.html
-	cat tmp.html          >> content/docs/codex/swagger.html
+content/docs/webpa/swagger.html: content/docs/webpa/swagger.yaml
+	npx redoc-cli  bundle -o tmp.html --title "WebPA Documentation" $<
+	@echo "---"             > $@
+	@echo "title: Swagger" >> $@
+	@echo "sort_rank: 15"  >> $@
+	@echo "---"            >> $@
+	cat tmp.html           >> $@
 	rm tmp.html
 
-swagger: swagger-codex
+content/docs/codex/swagger.html: content/docs/codex/swagger.yaml
+	npx redoc-cli  bundle -o tmp.html --title "Codex Documentation" $<
+	@echo "---"             > $@
+	@echo "title: Swagger" >> $@
+	@echo "sort_rank: 15"  >> $@
+	@echo "---"            >> $@
+	cat tmp.html           >> $@
+	rm tmp.html
 
-.PHONY: build bundle clean clean-all build downloads serve swagger swagger-codex
+.PHONY: build bundle clean clean-all build downloads serve

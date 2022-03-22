@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     adsf (1.4.3)
       rack (>= 1.0.0, < 3.0.0)
@@ -104,7 +104,7 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (4.0.5)
+    public_suffix (4.0.6)
     pygments.rb (1.2.1)
       multi_json (>= 1.0.0)
     racc (1.6.0)

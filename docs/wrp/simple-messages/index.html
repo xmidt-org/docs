@@ -144,6 +144,7 @@ the same message type.</p>
     Array.Array spans
     String span_parent
     Boolean include_spans
+    Integer qos
     Binary payload
 
 }
@@ -214,18 +215,15 @@ the same message type.</p>
 <td>(optional) (<strong>Deprecated</strong>) If the timing values should be included in the response.</td>
 </tr>
 <tr>
+<td>qos</td>
+<td>(optional) Indicates the quality of service to use for delivery of this event.</td>
+</tr>
+<tr>
 <td>payload</td>
 <td>The msgpack binary format packed data.</td>
 </tr>
 </tbody>
 </table>
-
-<h4 id="request-delivery-response-rdr-codes">Request Delivery Response (rdr) Codes:<a class="header-anchor" href="#request-delivery-response-rdr-codes" name="request-delivery-response-rdr-codes"></a>
-</h4>
-
-<pre><code>* 0 - Delivered
-* The rest are TBD today.
-</code></pre>
 
 <h2 id="simple-event-definition">Simple Event Definition<a class="header-anchor" href="#simple-event-definition" name="simple-event-definition"></a>
 </h2>
@@ -249,7 +247,10 @@ great at sending metrics, publishing a report, sending an SOS.</p>
     Array.String headers
     Map[String] metadata
     Binary payload
-    String sessionID
+    String session_id
+    Integer qos
+    String transaction_uuid
+    Integer rdr
 }
 </code></pre>
 
@@ -294,11 +295,43 @@ great at sending metrics, publishing a report, sending an SOS.</p>
 <td>The bin format packed data.</td>
 </tr>
 <tr>
-<td>sessionID</td>
-<td>A unique ID for the device's connection session with XMiDT</td>
+<td>session_id</td>
+<td>(optional) A unique ID for the device's connection session with XMiDT</td>
+</tr>
+<tr>
+<td>qos</td>
+<td>(optional) Indicates the quality of service to use for delivery of this event.</td>
+</tr>
+<tr>
+<td>transaction_uuid</td>
+<td>(optional, recommended) The transaction key for the request and possible ack.  The requester may have several outstanding transactions, but must ensure that each transaction is unique per destination.  This <strong>SHOULD</strong> be a UUID, but the web router <strong>SHALL</strong> NOT validate this data.  The web router <strong>SHALL</strong> treat this data as opaque.  This field is <strong>REQUIRED</strong> if the <code>qos</code> level requires an ack.</td>
+</tr>
+<tr>
+<td>rdr</td>
+<td>(optional) The <code>request delivery response</code> is the delivery result of the request message with a matching <code>transaction_uuid</code>.  The use case for this data is to provide a way for the system to indicate to the requesting agent that the message could not be delivered.</td>
 </tr>
 </tbody>
 </table>
+
+<h4 id="qos-details">QOS Details<a class="header-anchor" href="#qos-details" name="qos-details"></a>
+</h4>
+
+<p>When a <code>qos</code> field is specified that requires an ack, the response ack message
+SHALL be a <code>msg_type=4</code> (<strong>Simple Event Definition</strong>) event with the pertinent
+details filled in.  These details are as follows, though additional details may
+be added as appropriate.</p>
+
+<pre><code>* The `source` SHALL be the component that cannot process the event further.
+* The `dest` SHALL be the original requesting `source` address.
+* The `content_type` and `payload` SHALL be omitted &amp; set to empty, or may set to `application/text` and text to help describe the result.  **DO NOT** process this text beyond for logging/debugging.
+* The `partner_ids` SHALL be the same as the original message.
+* The `headers` SHOULD generally be the same as the original message, except where updating their values is correct.  Example: tracing headers should be honored &amp; updated.
+* The `metadata` map SHALL be populated with the original data or set to empty.
+* The `session_id` MAY be added by the cloud.
+* The `qos` SHALL be the same as the original message.
+* The `transaction_uuid` SHALL be the same as the original message.
+* The `rdr` SHALL be present and represent the outcome of the handling of the message.
+</code></pre>
 </body></html>
 
       <p class="open-source-notice">

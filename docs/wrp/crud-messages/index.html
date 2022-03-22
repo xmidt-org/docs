@@ -132,6 +132,7 @@ the message.</p>
     Boolean include_spans
     Integer status
     Integer rdr
+    Integer qos
     String path
     Binary payload
 }
@@ -200,6 +201,10 @@ the message.</p>
 <tr>
 <td>rdr</td>
 <td>(optional) The <code>request delivery response</code> is the delivery result of the previous (implied request) message with a matching <code>transaction_uuid</code>.</td>
+</tr>
+<tr>
+<td>qos</td>
+<td>(optional) Indicates the quality of service to use for delivery of this message.</td>
 </tr>
 <tr>
 <td>path</td>

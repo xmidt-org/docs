@@ -113,6 +113,10 @@
 </a></li>
 <li><a href="#service-locators">Service Locators
 </a></li>
+<li><a href="#qos-description-qos">QOS Description (qos):
+</a></li>
+<li><a href="#request-delivery-response-rdr-codes">Request Delivery Response (rdr) Codes:
+</a></li>
 </ul>
 </ul></div>
 
@@ -207,6 +211,71 @@ shared host name is best.  Both are supported.</p>
 <ul>
 <li><code>dns:{host name}/{service}/{ignored}</code></li>
 </ul>
+
+<h3 id="qos-description-qos">QOS Description (qos):<a class="header-anchor" href="#qos-description-qos" name="qos-description-qos"></a>
+</h3>
+
+<p>The <code>qos</code> field describes the overall quality of service to apply to the message
+as well as the relative priority of the message when compared to others.  If there
+are resource shortages (generally encountered during loss of network connectivity
+or large floods of messages) if messages must be dropped, the priority is used
+to determine which are kept and which are dropped.</p>
+
+<p>Additionally, for <strong>Simple Event Definition</strong> messages the ability to receive
+an ack indicating that the message has made it to the cloud &amp; is now the
+responsibility of the cloud to handle is available.  Note that this is the only
+message type that may receive the new ack message.</p>
+
+<table class=" table table-bordered">
+<thead>
+<tr>
+<th>Values</th>
+<th>Priority</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[0-24]</code></td>
+<td><strong>Low</strong></td>
+<td>These messages are sent as fire and forget with "best effort" or "at most once" semantics.</td>
+</tr>
+<tr>
+<td><code>[25-49]</code></td>
+<td><strong>Medium</strong></td>
+<td>These messages are enqueued in the client/agent until their delivery to the cloud has been confirmed.  Cloud will ack with a <code>qos_ack</code> message to the agent.</td>
+</tr>
+<tr>
+<td><code>[50-74]</code></td>
+<td><strong>High</strong></td>
+<td>Same behavior as <strong>Medium</strong> plus the agent will propagate response ack to original requester if the message is a <strong>Simple Event Definition</strong> type.</td>
+</tr>
+<tr>
+<td><code>[75-99]</code></td>
+<td><strong>Critical</strong></td>
+<td>Same behavior as <strong>High</strong> plus the cloud will take any additional means available to ensure delivery.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="request-delivery-response-rdr-codes">Request Delivery Response (rdr) Codes:<a class="header-anchor" href="#request-delivery-response-rdr-codes" name="request-delivery-response-rdr-codes"></a>
+</h3>
+
+<p>0 <code>0</code> - <strong>Delivered</strong>
+  * <code>1-99</code> - <strong>Invalid WPR</strong>
+    * <code>1</code> - Message format is invalid
+    * <code>2</code> - Missing source
+    * <code>3</code> - Missing dest
+    * <code>4</code> - Message is too large
+    * <code>5-49</code> - Reserved for future use by the spec
+    * <code>50-99</code> - Reserved for specific implementation definition and use
+  * <code>100-199</code> - <strong>Fulfillment Issue</strong>
+    * <code>100</code> - Unable to enqueue
+    * <code>101</code> - Agent was disconnected for too long
+    * <code>102</code> - A higher priority message took the spot
+    * <code>103-149</code> - Reserved for future use by the spec
+    * <code>150-199</code> - Reserved for specific implementation definition and use
+  * All other values are reserved by the spec for future use</p>
 </body></html>
 
       <p class="open-source-notice">

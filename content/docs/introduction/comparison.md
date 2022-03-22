@@ -11,7 +11,7 @@ primarily due to the fundamental differences in architecture & different project
 goals.
 
 Xmidt by design is **not** coupled with any data models.
-This allows for inclusion of all manor of data models.  TR-181, TR-104, custom
+This allows for inclusion of all manner of data models.  TR-181, TR-104, custom
 Msgpack or JSON are all no problem.  Any system tightly coupled with one of the
 `TR-181` | `TR-104` | `TR-357` | etc, fundamentally couple the service life of
 the entire ecosystem to the use of these particular models.  Xmidt's architecture

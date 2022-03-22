@@ -75,3 +75,41 @@ It is up to the calling application to determine if a unique host name or a
 shared host name is best.  Both are supported.
 
 - `dns:{host name}/{service}/{ignored}`
+
+### QOS Description (qos):
+
+The `qos` field describes the overall quality of service to apply to the message
+as well as the relative priority of the message when compared to others.  If there
+are resource shortages (generally encountered during loss of network connectivity
+or large floods of messages) if messages must be dropped, the priority is used
+to determine which are kept and which are dropped.
+
+Additionally, for **Simple Event Definition** messages the ability to receive
+an ack indicating that the message has made it to the cloud & is now the
+responsibility of the cloud to handle is available.  Note that this is the only
+message type that may receive the new ack message.
+
+Values | Priority | Description
+-------|----------|-------------
+`[0-24]` | **Low** | These messages are sent as fire and forget with "best effort" or "at most once" semantics.
+`[25-49]` | **Medium** | These messages are enqueued in the client/agent until their delivery to the cloud has been confirmed.  Cloud will ack with a `qos_ack` message to the agent.
+`[50-74]` | **High** | Same behavior as **Medium** plus the agent will propagate response ack to original requester if the message is a **Simple Event Definition** type.
+`[75-99]` | **Critical** | Same behavior as **High** plus the cloud will take any additional means available to ensure delivery.
+
+### Request Delivery Response (rdr) Codes:
+
+  0 `0` - **Delivered**
+  * `1-99` - **Invalid WPR**
+    * `1` - Message format is invalid
+    * `2` - Missing source
+    * `3` - Missing dest
+    * `4` - Message is too large
+    * `5-49` - Reserved for future use by the spec
+    * `50-99` - Reserved for specific implementation definition and use
+  * `100-199` - **Fulfillment Issue**
+    * `100` - Unable to enqueue
+    * `101` - Agent was disconnected for too long
+    * `102` - A higher priority message took the spot
+    * `103-149` - Reserved for future use by the spec
+    * `150-199` - Reserved for specific implementation definition and use
+  * All other values are reserved by the spec for future use

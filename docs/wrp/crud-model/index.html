@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
 
     
-    <title>Web Routing Protocol | Xmidt</title>
+    <title>CRUD Model Details | Xmidt</title>
     
 
     <!-- Bootstrap core CSS -->
@@ -89,7 +89,7 @@
         
           <li><span class="nav-header"><i class="fa fa-cog"></i> <span>Operating</span></span><ul class="nav "><li><a href="/docs/operating/getting_started/">Getting started</a></li><li><a href="/docs/operating/talaria/">Talaria</a></li><li><a href="/docs/operating/petasos/">Petasos</a></li><li><a href="/docs/operating/scytale/">Scytale</a></li><li><a href="/docs/operating/tr1d1um/">Tr1d1um</a></li><li><a href="/docs/operating/caduceus/">Caduceus</a></li><li><a href="/docs/operating/troubleshooting/">Troubleshooting</a></li></ul></li>
         
-          <li class="active"><span class="nav-header"><i class="fa fa-envelope-open-text"></i> <span>Web Routing Protocol</span></span><ul class="nav active"><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li><li><a href="/docs/wrp/crud-model/">CRUD Model Details</a></li></ul></li>
+          <li class="active"><span class="nav-header"><i class="fa fa-envelope-open-text"></i> <span>Web Routing Protocol</span></span><ul class="nav active"><li><a href="/docs/wrp/overview/">Overview</a></li><li><a href="/docs/wrp/basics/">Basics</a></li><li><a href="/docs/wrp/simple-messages/">Simple Message Types</a></li><li><a href="/docs/wrp/crud-messages/">CRUD Message Types</a></li><li><a href="/docs/wrp/other-messages/">Other Message Types</a></li><li class="active current"><a href="/docs/wrp/crud-model/">CRUD Model Details</a></li></ul></li>
         
           <li><span class="nav-header"><i class="fa fa-balance-scale"></i> <span>Community</span></span><ul class="nav "><li><a href="/docs/community/overview/">Overview</a></li><li><a href="/docs/community/code_of_conduct/">Code of Conduct</a></li><li><a href="/docs/community/governance/">Governance</a></li></ul></li>
         
@@ -97,18 +97,167 @@
     </div>
 
     <div class="col-md-9 doc-content">
-      <p>&lt;!DOCTYPE html&gt;
+      <h1 id="crud-model-details" class="page-header">CRUD Model Details<a class="header-anchor" href="#crud-model-details" name="crud-model-details"></a>
+</h1>
 
-</p>
-<meta charset="utf-8">
-<title>Redirecting...</title>
-<link rel="canonical" href="/docs/wrp/overview/">
-<meta http-equiv="refresh" content="0; url=/docs/wrp/overview/">
-<h1 class="page-header">Redirecting...</h1>
-<a href="/docs/wrp/overview/">Click here if you are not redirected.</a>
-<script>location=&#39;/docs/wrp/overview/&#39;</script>
+<p>The WRP CRUD model is configured as a set of read and write values that configure behavior and upstream filtering options.  Below is the plan for where the options are retrieved from and stored (if required).</p>
 
+<table class=" table table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Origin</th>
+<th>In Convey Header?</th>
+<th>Persisted In File?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/hw-model</code></td>
+<td>string</td>
+<td>command-line <code>--hw-model</code>
+</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/hw-serial-number</code></td>
+<td>string</td>
+<td>command-line <code>--hw-serial-number</code>
+</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/hw-manufacturer</code></td>
+<td>string</td>
+<td>command-line <code>--hw-manufacturer</code>
+</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/hw-mac</code></td>
+<td>string</td>
+<td>command-line <code>--hw-mac</code>
+</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/hw-last-reboot-reason</code></td>
+<td>string</td>
+<td>command-line <code>--hw-mac</code>
+</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/fw-name</code></td>
+<td>string</td>
+<td>command-line <code>--fw-name</code>
+</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/boot-time</code></td>
+<td>number</td>
+<td>command-line <code>--boot-time</code>
+</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/local-url</code></td>
+<td>string</td>
+<td>command-line <code>--parodus-local-url</code>
+</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/service-discovery-url</code></td>
+<td>string</td>
+<td>command-line <code>--service-discovery-url</code>
+</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/last-reconnect-reason</code></td>
+<td>string</td>
+<td>Determined internally.  Initially starts as <code>webpa_process_starts</code> and changes based on system conditions.  Not stored.</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/protocol</code></td>
+<td>string</td>
+<td>Provided by the program internally.</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/fabric-url</code></td>
+<td>string</td>
+<td>From the configuration file if available, or command-line <code>--webpa-url</code> if not available otherwise.</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/uuid</code></td>
+<td>string</td>
+<td>From the configuration file if available or empty string otherwise.</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/ping-timeout</code></td>
+<td>number</td>
+<td>command-line <code>--webpa-ping-timeout</code>
+</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/backoff-max</code></td>
+<td>number</td>
+<td>command-line <code>--webpa-backoff-max</code>
+</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/inteface-used</code></td>
+<td>string</td>
+<td>command-line <code>--webpa-interface-list=eth0,erouter0,brlan0</code> which is a list of interfaces to try, in order.</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>/tags/${name}</code></td>
+<td>string</td>
+<td>Starts off initially as empty, populated via CRUD interface.  Stored in the configuration file each time values change or expire.</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><code>/tags/${name}/expires</code></td>
+<td>number</td>
+<td>Same as <code>/tags/${name}</code>
+</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
 
+<h3 id="notes">Notes<a class="header-anchor" href="#notes" name="notes"></a>
+</h3>
+
+<p>The <code>backoff</code> count shall start at 2 so we have some gap between the tries.</p>
 
       <p class="open-source-notice">
           <i class="fa fa-file"></i> This documentation is <a href="https://github.com/xmidt-org/docs#contributing-changes">open-source</a>. Please help improve it by filing issues or pull requests.

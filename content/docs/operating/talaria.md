@@ -11,7 +11,7 @@ sort_rank: 20
 -   Docker (Link TBC)
 
 ## Configuration
-Refer to [configuration file](https://github.com/xmidt-org/talaria/blob/master/talaria.yaml)
+Refer to [configuration file](https://github.com/xmidt-org/talaria/blob/main/talaria.yaml)
 for how to configure Talaria.
 
 ### Fixed
@@ -100,7 +100,7 @@ Connection: close
 ```
 
 ### Test Device Connection
-Using a [device simulator](https://github.com/xmidt-org/xmidt/tree/master/simulator) we
+Using a [device simulator](https://github.com/xmidt-org/xmidt/tree/main/simulator) we
 can mock a device connecting to our cluster. The core part of the device simulator that
 connects to Talaria is [Parados](https://github.com/xmidt-org/parodus). Instead of
 mocking the device we can also mock Parados with [kratos](https://github.com/xmidt-org/kratos).

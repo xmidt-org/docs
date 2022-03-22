@@ -1,5 +1,5 @@
 def nav(root_item, buffer='', layer=0)
-  return buffer if root_item.nil? || root_item.path.nil? || root_item[:is_hidden]
+  return buffer if root_item.nil? || root_item.path.nil? || root_item[:is_hidden] || nav_title_of(root_item) == '' 
 
   children = nav_children(root_item)
 
@@ -61,7 +61,7 @@ end
 
 def nav_children(item)
   children_of(item)
-    .select { |child| !child[:is_hidden] && child.path }
+    .select { |child| !child[:is_hidden] && child.path && nav_title_of(child) != '' } # don't include things that should be hidden and don't have a title
     .sort_by { |child| child[:sort_rank] || 0 }
 end
 

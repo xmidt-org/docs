@@ -8,7 +8,7 @@ The orchestration of XMiDT can be quite complicated. Please refer to the [archit
 to have a better understanding of the components and how they work towards the bigger picture.
 
 To get up and running quickly, or for a small, not highly available instance we have
-a [docker-compose](https://github.com/xmidt-org/xmidt/tree/master/deploy/docker-compose) version available.  
+a [docker-compose](https://github.com/xmidt-org/xmidt/tree/main/deploy/docker-compose) version available.  
 This is a great way to see the way that components connect with one another as well as sample configurations
 for each machine.
 
@@ -37,10 +37,11 @@ This step will be done at each service level, by providing a list of urls.
 ## Consul
 [Consul](https://www.consul.io/) allows Petasos to dynamically know about all the Talarias in the datacenter.
 
-| Pro                       | Con                            |
-|---------------------------|--------------------------------|
-| Scaling is fast and easy  | TLS can be more complicated    |
-| Easier metric monitoring  | Management of Consul           |
+| Pro                        | Con                                |
+|----------------------------|------------------------------------|
+| Scaling is fast and easy   | TLS can be more complicated        |
+| Easier metric monitoring   | Management of Consul               |
+| Node failover is supported | Complicated, difficult to stand up |
 
 ### Setup
 -   [Installation](https://learn.hashicorp.com/consul/getting-started/install)

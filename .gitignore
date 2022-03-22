@@ -2,6 +2,9 @@
 
 # Default location for output, needs to match output_dir's value found in config.yaml
 output/
+/docs
+
+swagger.html
 
 # Temporary file directory
 tmp/
@@ -17,3 +20,10 @@ crash.log
 # Ruby artifacts
 .bundle/
 vendor/
+
+# Assorted things we don't seem to need/want
+node_modules/
+package-lock.json
+
+*.swp
+*.swo

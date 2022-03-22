@@ -22,6 +22,15 @@ route '/static/**/*' do
   item.identifier.to_s.sub(/\A\/static/, '')
 end
 
+# rules to ignore swagger stuff
+compile '**/*/swagger/**/*' do
+end
+compile '**/*/swagger.*' do
+end
+compile '**/*.yaml' do
+  write nil
+end
+
 # RSS Feed
 compile '/blog/feed.*' do
     filter :erb

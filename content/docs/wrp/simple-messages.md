@@ -54,9 +54,9 @@ between Webpa's `Tr1d1um` which sends requests on behalf of API users and the
 Name | Description
 -----|--------------
 msg_type | The message type for the request-response.  (**SHALL** be 3.)
-source | The device_id name of the device originating the request or response (i.e. dns:tr1d1um.example.net for inbound messages).
-dest | The device_id name of the target device of the request or response (i.e. mac:112233445566/config for inbound messages).
-device_id | The canonical device ID (i.e. mac:112233445566) involved in this envelope. It defers from source or dest in that no further parsing is required to extract the ID from the value.
+source | The locator information of the creator of the request or response (i.e. dns:tr1d1um.example.net for inbound messages).
+dest | The locator information of the target device of the request or response (i.e. mac:112233445566/config for inbound messages).
+device_id | The canonical device ID (i.e. mac:112233445566) that this message is related to. It differs from source or dest in that no further parsing is required to extract the ID from various fields.
 content_type | (optional) The media type of the payload. If not specified on inbound messages, `application/octet-stream` is used as default.
 accept | (optional) The media type accepted in the response.
 transaction_uuid | The transaction key for the request and response.  The requester may have several outstanding transactions, but must ensure that each transaction is unique per destination.  This **SHOULD** be a UUID, but the web router **SHALL** NOT validate this data.  The web router **SHALL** treat this data as opaque.
@@ -104,9 +104,9 @@ great at sending metrics, publishing a report, sending an SOS.
 Name | Description
 -----|--------------
 msg_type | The message type for the simple event.  (**SHALL** be 4.)
-source | The device_id name of the device originating the event (i.e. mac:112233445566/config)
-dest | A value of the form: `event:{event-type}`. The main use case is the ability to listeners to register only for events they care about.
-device_id | The canonical device ID (i.e. mac:112233445566) involved in this message. It defers from source as no further parsing is needed to extract the ID.
+source | The locator information of the creator of the event (i.e. mac:112233445566/config)
+dest | An event locator of the form: `event:{event identifier}/{ignored}`. The main use case is for listeners to register only for events they care about.
+device_id | The canonical device ID (i.e. mac:112233445566) that this message is about. The source may not always be or include the device ID (for example, if talaria creates an event about a device connecting to it).
 content_type | (optional) The media type of the payload. If not specified on inbound messages, `application/octet-stream` is used as default.
 partner_ids | (optional) The list of partner ids the message is meant to target.  If the item is missing and the device has a `partner id` or the device does not find a match, the request shall be disregarded.
 headers | (optional) The headers associated with the payload.

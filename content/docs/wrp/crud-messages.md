@@ -36,6 +36,7 @@ the message.
     Boolean include_spans
     Integer status
     Integer rdr
+    Integer qos
     String path
     Binary payload
 }
@@ -57,6 +58,7 @@ span_parent | (optional) If the spans should be included, this field is included
 include_spans | (optional) (**Deprecated**) If the timing values should be included in the response.
 status | (optional) The response status from the originating service.  Not included in the during the request.
 rdr | (optional) The `request delivery response` is the delivery result of the previous (implied request) message with a matching `transaction_uuid`.
+qos | (optional) Indicates the quality of service to use for delivery of this message.
 path | The path to which to apply the payload.
 payload | (optional) The json encoded string representing the objects.
 

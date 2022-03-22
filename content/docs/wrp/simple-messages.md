@@ -39,6 +39,7 @@ the same message type.
     Array.Array spans
     String span_parent
     Boolean include_spans
+    Integer qos
     Binary payload
 
 }
@@ -60,12 +61,8 @@ metadata | (optional) The map of name/value pairs used by consumers of WRP messa
 spans | (optional) An array of arrays of timing values as a list in the format: "parent" (string), "name" (string), "start time" (int), "duration" (int), "status" (int)
 span_parent | (optional) If the spans should be included, this field is included in the request.  This string is the root parent for the spans below to link to.
 include_spans | (optional) (**Deprecated**) If the timing values should be included in the response.
+qos | (optional) Indicates the quality of service to use for delivery of this event.
 payload | The msgpack binary format packed data.
-
-#### Request Delivery Response (rdr) Codes:
-
-    * 0 - Delivered
-    * The rest are TBD today.
 
 
 ## Simple Event Definition
@@ -89,7 +86,10 @@ great at sending metrics, publishing a report, sending an SOS.
     Array.String headers
     Map[String] metadata
     Binary payload
-    String sessionID
+    String session_id
+    Integer qos
+    String transaction_uuid
+    Integer rdr
 }
 ~~~~~
 
@@ -103,4 +103,25 @@ partner_ids | (optional) The list of partner ids the message is meant to target.
 headers | (optional) The headers associated with the payload.
 metadata | (optional) The map of name/value pairs used by consumers of WRP messages for filtering & other purposes.
 payload | The bin format packed data.
-sessionID | A unique ID for the device's connection session with XMiDT
+session_id | (optional) A unique ID for the device's connection session with XMiDT
+qos | (optional) Indicates the quality of service to use for delivery of this event.
+transaction_uuid | (optional, recommended) The transaction key for the request and possible ack.  The requester may have several outstanding transactions, but must ensure that each transaction is unique per destination.  This **SHOULD** be a UUID, but the web router **SHALL** NOT validate this data.  The web router **SHALL** treat this data as opaque.  This field is **REQUIRED** if the `qos` level requires an ack.
+rdr | (optional) The `request delivery response` is the delivery result of the request message with a matching `transaction_uuid`.  The use case for this data is to provide a way for the system to indicate to the requesting agent that the message could not be delivered.
+
+#### QOS Details
+
+When a `qos` field is specified that requires an ack, the response ack message
+SHALL be a `msg_type=4` (**Simple Event Definition**) event with the pertinent
+details filled in.  These details are as follows, though additional details may
+be added as appropriate.
+
+    * The `source` SHALL be the component that cannot process the event further.
+    * The `dest` SHALL be the original requesting `source` address.
+    * The `content_type` and `payload` SHALL be omitted & set to empty, or may set to `application/text` and text to help describe the result.  **DO NOT** process this text beyond for logging/debugging.
+    * The `partner_ids` SHALL be the same as the original message.
+    * The `headers` SHOULD generally be the same as the original message, except where updating their values is correct.  Example: tracing headers should be honored & updated.
+    * The `metadata` map SHALL be populated with the original data or set to empty.
+    * The `session_id` MAY be added by the cloud.
+    * The `qos` SHALL be the same as the original message.
+    * The `transaction_uuid` SHALL be the same as the original message.
+    * The `rdr` SHALL be present and represent the outcome of the handling of the message.

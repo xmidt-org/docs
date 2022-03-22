@@ -24,3 +24,6 @@ vendor/
 # Assorted things we don't seem to need/want
 node_modules/
 package-lock.json
+
+*.swp
+*.swo

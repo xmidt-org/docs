@@ -91,7 +91,7 @@ GEM
     nanoc-redirector (0.4.0)
       nanoc (~> 4.9)
     nenv (0.3.0)
-    nokogiri (1.13.2)
+    nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     notiffany (0.1.3)

@@ -98,7 +98,7 @@ Values | Priority | Description
 
 ### Request Delivery Response (rdr) Codes:
 
-  0 `0` - **Delivered**
+  * 0 `0` - **Delivered**
   * `1-99` - **Invalid WPR**
     * `1` - Message format is invalid
     * `2` - Missing source

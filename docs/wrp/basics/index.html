@@ -261,21 +261,45 @@ message type that may receive the new ack message.</p>
 <h3 id="request-delivery-response-rdr-codes">Request Delivery Response (rdr) Codes:<a class="header-anchor" href="#request-delivery-response-rdr-codes" name="request-delivery-response-rdr-codes"></a>
 </h3>
 
-<p>0 <code>0</code> - <strong>Delivered</strong>
-  * <code>1-99</code> - <strong>Invalid WPR</strong>
-    * <code>1</code> - Message format is invalid
-    * <code>2</code> - Missing source
-    * <code>3</code> - Missing dest
-    * <code>4</code> - Message is too large
-    * <code>5-49</code> - Reserved for future use by the spec
-    * <code>50-99</code> - Reserved for specific implementation definition and use
-  * <code>100-199</code> - <strong>Fulfillment Issue</strong>
-    * <code>100</code> - Unable to enqueue
-    * <code>101</code> - Agent was disconnected for too long
-    * <code>102</code> - A higher priority message took the spot
-    * <code>103-149</code> - Reserved for future use by the spec
-    * <code>150-199</code> - Reserved for specific implementation definition and use
-  * All other values are reserved by the spec for future use</p>
+<ul>
+<li>0 <code>0</code> - <strong>Delivered</strong>
+</li>
+<li>
+<code>1-99</code> - <strong>Invalid WPR</strong>
+
+<ul>
+<li>
+<code>1</code> - Message format is invalid</li>
+<li>
+<code>2</code> - Missing source</li>
+<li>
+<code>3</code> - Missing dest</li>
+<li>
+<code>4</code> - Message is too large</li>
+<li>
+<code>5-49</code> - Reserved for future use by the spec</li>
+<li>
+<code>50-99</code> - Reserved for specific implementation definition and use</li>
+</ul>
+</li>
+<li>
+<code>100-199</code> - <strong>Fulfillment Issue</strong>
+
+<ul>
+<li>
+<code>100</code> - Unable to enqueue</li>
+<li>
+<code>101</code> - Agent was disconnected for too long</li>
+<li>
+<code>102</code> - A higher priority message took the spot</li>
+<li>
+<code>103-149</code> - Reserved for future use by the spec</li>
+<li>
+<code>150-199</code> - Reserved for specific implementation definition and use</li>
+</ul>
+</li>
+<li>All other values are reserved by the spec for future use</li>
+</ul>
 </body></html>
 
       <p class="open-source-notice">

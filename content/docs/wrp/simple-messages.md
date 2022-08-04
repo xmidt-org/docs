@@ -118,7 +118,7 @@ be added as appropriate.
     * The `source` SHALL be the component that cannot process the event further.
     * The `dest` SHALL be the original requesting `source` address.
     * The `content_type` and `payload` SHALL be omitted & set to empty, or may set to `application/text` and text to help describe the result.  **DO NOT** process this text beyond for logging/debugging.
-    * The `partner_ids` SHALL be the same as the original message.
+    * The `partner_ids` SHALL be the same as the original message and from the Themis token. If there is a difference, then the value of the Themis token will be used simply becuase Themis is used as a security authority.
     * The `headers` SHOULD generally be the same as the original message, except where updating their values is correct.  Example: tracing headers should be honored & updated.
     * The `metadata` map SHALL be populated with the original data or set to empty.
     * The `session_id` MAY be added by the cloud.

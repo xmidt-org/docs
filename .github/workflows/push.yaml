@@ -19,7 +19,7 @@ jobs:
       - name: Setup nanoc
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6
+          ruby-version: 2.7
 
       - name: Install dependencies
         run: make bundle

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'nanoc', '~> 4.9'
+gem 'nanoc', '~> 4.12'
 gem 'nanoc-redirector', '~> 0.4.1'
 gem 'adsf'
 gem 'kramdown'

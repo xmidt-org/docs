@@ -10,8 +10,8 @@ GEM
     builder (3.3.0)
     coderay (1.1.3)
     colored (1.2)
-    concurrent-ruby (1.2.3)
-    cri (2.15.11)
+    concurrent-ruby (1.3.3)
+    cri (2.15.12)
     ddmetrics (1.1.0)
     ddplugin (1.0.3)
     diff-lcs (1.5.1)
@@ -52,16 +52,16 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lumberjack (1.2.4)
-    memo_wise (1.8.0)
+    memo_wise (1.9.0)
     method_source (1.1.0)
     mini_portile2 (2.8.7)
     multi_json (1.15.0)
-    nanoc (4.12.21)
+    nanoc (4.13.0)
       addressable (~> 2.5)
       colored (~> 1.2)
       nanoc-checking (~> 1.0, >= 1.0.2)
-      nanoc-cli (= 4.12.21)
-      nanoc-core (= 4.12.21)
+      nanoc-cli (= 4.13.0)
+      nanoc-core (= 4.13.0)
       nanoc-deploying (~> 1.0)
       parallel (~> 1.12)
       tty-command (~> 0.8)
@@ -69,13 +69,13 @@ GEM
     nanoc-checking (1.0.5)
       nanoc-cli (~> 4.12, >= 4.12.5)
       nanoc-core (~> 4.12, >= 4.12.5)
-    nanoc-cli (4.12.21)
+    nanoc-cli (4.13.0)
       cri (~> 2.15)
       diff-lcs (~> 1.3)
-      nanoc-core (= 4.12.21)
+      nanoc-core (= 4.13.0)
       pry
       zeitwerk (~> 2.1)
-    nanoc-core (4.12.21)
+    nanoc-core (4.13.0)
       base64 (~> 0.2)
       concurrent-ruby (~> 1.1)
       ddmetrics (~> 1.0)
@@ -100,7 +100,7 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    parallel (1.24.0)
+    parallel (1.25.1)
     pastel (0.8.0)
       tty-color (~> 0.5)
     pry (0.14.2)
@@ -108,7 +108,7 @@ GEM
       method_source (~> 1.0)
     psych (5.1.2)
       stringio
-    public_suffix (5.0.5)
+    public_suffix (5.1.1)
     pygments.rb (3.0.0)
     racc (1.8.0)
     rack (3.0.9.1)
@@ -143,7 +143,7 @@ GEM
     sorted_set (1.0.3)
       rbtree
       set (~> 1.0)
-    stringio (3.1.0)
+    stringio (3.1.1)
     strscan (3.1.0)
     thor (1.0.1)
     tty-color (0.6.0)
@@ -152,7 +152,7 @@ GEM
     tty-platform (0.3.0)
     tty-which (0.5.0)
     webrick (1.8.1)
-    zeitwerk (2.6.13)
+    zeitwerk (2.6.16)
 
 PLATFORMS
   ruby
@@ -163,7 +163,7 @@ DEPENDENCIES
   guard-livereload
   guard-nanoc
   kramdown
-  nanoc (~> 4.12)
+  nanoc (~> 4.13)
   nanoc-redirector (~> 0.4.1)
   nokogiri (>= 1.10.8)
   pygments.rb

@@ -3,7 +3,7 @@ GEM
   specs:
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    adsf (1.5.0)
+    adsf (1.5.2)
       rack (>= 1.0.0, < 4.0.0)
       rackup (~> 2.1)
     base64 (0.2.0)
@@ -111,7 +111,7 @@ GEM
     public_suffix (5.1.1)
     pygments.rb (3.0.0)
     racc (1.8.0)
-    rack (3.0.9.1)
+    rack (3.1.7)
     rackup (2.1.0)
       rack (>= 3)
       webrick (~> 1.8)
@@ -151,7 +151,7 @@ GEM
       pastel (~> 0.8)
     tty-platform (0.3.0)
     tty-which (0.5.0)
-    webrick (1.8.1)
+    webrick (1.8.2)
     zeitwerk (2.6.16)
 
 PLATFORMS

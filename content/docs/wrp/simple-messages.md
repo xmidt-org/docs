@@ -12,15 +12,21 @@ To make the document easier to read, the msgpack is written out in a bit more
 human readable format.
 
 One design goal for the message definition is to make sure it can be translated
-to and from JSON and HTTP headers as well as it's native msgpack format.
+to and from JSON and HTTP headers as well as its native msgpack format.
 
+Messages currently flow in two directions:
+- Inbound: API requests to devices.
+- Outbound: responses from devices for corresponding inbound requests as well as
+ events related to device activity (rebooting, updating, offline).
+ 
 ## Simple Request-Response Definition
 
 This is one of the primary message definitions used.  This provides a point to
-point (request, response) semantic.  An example of where this message is used is
-between Webpa's `Tr1d1um` machine and the `Parodus2ccsp` client that interprets
-the request, gathers data and responds back.  Both requests and responses use
-the same message type.
+point (request, response) semantic between an API user that makes requests and 
+a device client which responds to them.  An example of where this message is used is
+between Webpa's `Tr1d1um` which sends requests on behalf of API users and the
+ `Parodus2ccsp` client that interprets such requests, gathers data and responds back. 
+ Both requests and responses use the same message type.
 
 #### Schema
 ~~~~~
@@ -28,6 +34,7 @@ the same message type.
     Integer msg_type = 3
     String source
     String dest
+    String device_id
     String content_type
     String accept
     String transaction_uuid
@@ -48,9 +55,10 @@ the same message type.
 Name | Description
 -----|--------------
 msg_type | The message type for the request-response.  (**SHALL** be 3.)
-source | The device_id name of the device originating the request or response.
-dest | The device_id name of the target device of the request or response.
-content_type | (optional) The media type of the payload.
+source | The locator information of the creator of the request or response (i.e. dns:tr1d1um.example.net for inbound messages).
+dest | The locator information of the target device of the request or response (i.e. mac:112233445566/config for inbound messages).
+device_id | The canonical device ID (i.e. mac:112233445566) that this message is related to. It differs from source or dest in that no further parsing is required to extract the ID from various fields.
+content_type | (optional) The media type of the payload. If not specified on inbound messages, `application/octet-stream` is used as default.
 accept | (optional) The media type accepted in the response.
 transaction_uuid | The transaction key for the request and response.  The requester may have several outstanding transactions, but must ensure that each transaction is unique per destination.  This **SHOULD** be a UUID, but the web router **SHALL** NOT validate this data.  The web router **SHALL** treat this data as opaque.
 status | (optional) The response status to the originating service.  Not included in the during the request.
@@ -96,9 +104,10 @@ great at sending metrics, publishing a report, sending an SOS.
 Name | Description
 -----|--------------
 msg_type | The message type for the simple event.  (**SHALL** be 4.)
-source | The device_id name of the device originating the request or response.
-dest | The device_id name of the target device of the request or response.
-content_type | (optional) The media type of the payload.
+source | The locator information of the creator of the event (i.e. mac:112233445566/config)
+dest | An event locator of the form: `event:{event identifier}/{ignored}`. The main use case is for listeners to register only for events they care about.
+device_id | The canonical device ID (i.e. mac:112233445566) that this message is about. The source may not always be or include the device ID (for example, if talaria creates an event about a device connecting to it).
+content_type | (optional) The media type of the payload. If not specified on inbound messages, `application/octet-stream` is used as default.
 partner_ids | (optional) The list of partner ids the message is meant to target.  If the item is missing and the device has a `partner id` or the device does not find a match, the request shall be disregarded.
 headers | (optional) The headers associated with the payload.
 metadata | (optional) The map of name/value pairs used by consumers of WRP messages for filtering & other purposes.

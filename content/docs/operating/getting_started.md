@@ -4,7 +4,7 @@ sort_rank: 10
 ---
 
 # Getting Started
-The orchestration of XMiDT can be quite complicated. Please refer to the [architecture](../introduction/index.md)
+The orchestration of XMiDT can be quite complicated. Please refer to the [architecture](https://xmidt.io/docs/introduction/overview/)
 to have a better understanding of the components and how they work towards the bigger picture.
 
 To get up and running quickly, or for a small, not highly available instance we have
